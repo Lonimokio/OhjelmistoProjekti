@@ -1,0 +1,11 @@
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.AssemblyReference.cache
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.SuggestedBindingRedirects.cache
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.SignIn.resources
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Properties.Resources.resources
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.GenerateResource.cache
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.CoreCompileInputs.cache
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.exe.config
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.exe
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.pdb
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.exe
+C:\Users\Arttu Mutka\Source\Repos\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.pdb
