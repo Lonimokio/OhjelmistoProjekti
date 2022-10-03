@@ -10,11 +10,46 @@ using System.Windows.Forms;
 
 namespace FormTop_games
 {
-    public partial class Form1 : Form
+    public partial class SignIn : Form
     {
-        public Form1()
+        public SignIn()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (SName.Text == "Placeholder same")
+            {
+                MessageBox.Show("That username already exist", "");
+            }
+        }
+
+        //Submit sign in point
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            if (SName.Text == "Placeholder correc")
+            {
+                if (SPassword.Text == "Placeholder correcy")
+                {
+
+                }
+                //If password is incorrect
+                else
+                {
+                    MessageBox.Show("Wrong password try again", "Wrong password");
+                }
+            }
+            //If username is wrong
+            else
+            {
+                MessageBox.Show("That username doesnt exist", "Username not found");
+            }
         }
     }
 }
