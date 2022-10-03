@@ -37,10 +37,13 @@
             this.Submit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CAccount = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.CPassword = new System.Windows.Forms.TextBox();
             this.CName = new System.Windows.Forms.TextBox();
-            this.CAccount = new System.Windows.Forms.Button();
+            this.View2 = new System.Windows.Forms.ListBox();
+            this.View3 = new System.Windows.Forms.ListBox();
+            this.TestID = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,7 +68,7 @@
             // 
             // SName
             // 
-            this.SName.Location = new System.Drawing.Point(37, 73);
+            this.SName.Location = new System.Drawing.Point(54, 73);
             this.SName.Name = "SName";
             this.SName.Size = new System.Drawing.Size(119, 26);
             this.SName.TabIndex = 0;
@@ -73,7 +76,7 @@
             // 
             // SPassword
             // 
-            this.SPassword.Location = new System.Drawing.Point(37, 125);
+            this.SPassword.Location = new System.Drawing.Point(54, 125);
             this.SPassword.Name = "SPassword";
             this.SPassword.Size = new System.Drawing.Size(119, 26);
             this.SPassword.TabIndex = 1;
@@ -82,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 51);
+            this.label1.Location = new System.Drawing.Point(54, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 18);
             this.label1.TabIndex = 2;
@@ -91,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 102);
+            this.label2.Location = new System.Drawing.Point(54, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 18);
             this.label2.TabIndex = 3;
@@ -99,7 +102,7 @@
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(37, 157);
+            this.Submit.Location = new System.Drawing.Point(54, 157);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(119, 46);
             this.Submit.TabIndex = 4;
@@ -109,17 +112,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.CPassword);
-            this.groupBox1.Controls.Add(this.CName);
             this.groupBox1.Controls.Add(this.CAccount);
-            this.groupBox1.Controls.Add(this.Submit);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.SPassword);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.SName);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.CPassword);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.Submit);
+            this.groupBox1.Controls.Add(this.CName);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(320, 129);
@@ -132,38 +136,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 102);
+            this.label3.Location = new System.Drawing.Point(212, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Password";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(195, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Name";
-            // 
-            // CPassword
-            // 
-            this.CPassword.Location = new System.Drawing.Point(195, 125);
-            this.CPassword.Name = "CPassword";
-            this.CPassword.Size = new System.Drawing.Size(129, 26);
-            this.CPassword.TabIndex = 7;
-            // 
-            // CName
-            // 
-            this.CName.Location = new System.Drawing.Point(195, 73);
-            this.CName.Name = "CName";
-            this.CName.Size = new System.Drawing.Size(129, 26);
-            this.CName.TabIndex = 6;
-            // 
             // CAccount
             // 
-            this.CAccount.Location = new System.Drawing.Point(195, 157);
+            this.CAccount.Location = new System.Drawing.Point(212, 157);
             this.CAccount.Name = "CAccount";
             this.CAccount.Size = new System.Drawing.Size(129, 46);
             this.CAccount.TabIndex = 5;
@@ -171,12 +152,68 @@
             this.CAccount.UseVisualStyleBackColor = true;
             this.CAccount.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(212, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Name";
+            // 
+            // CPassword
+            // 
+            this.CPassword.Location = new System.Drawing.Point(212, 125);
+            this.CPassword.Name = "CPassword";
+            this.CPassword.Size = new System.Drawing.Size(129, 26);
+            this.CPassword.TabIndex = 7;
+            // 
+            // CName
+            // 
+            this.CName.Location = new System.Drawing.Point(212, 73);
+            this.CName.Name = "CName";
+            this.CName.Size = new System.Drawing.Size(129, 26);
+            this.CName.TabIndex = 6;
+            // 
+            // View2
+            // 
+            this.View2.Enabled = false;
+            this.View2.FormattingEnabled = true;
+            this.View2.Location = new System.Drawing.Point(160, 12);
+            this.View2.Name = "View2";
+            this.View2.ScrollAlwaysVisible = true;
+            this.View2.Size = new System.Drawing.Size(101, 186);
+            this.View2.TabIndex = 4;
+            // 
+            // View3
+            // 
+            this.View3.Enabled = false;
+            this.View3.FormattingEnabled = true;
+            this.View3.Location = new System.Drawing.Point(53, 205);
+            this.View3.Name = "View3";
+            this.View3.ScrollAlwaysVisible = true;
+            this.View3.Size = new System.Drawing.Size(101, 186);
+            this.View3.TabIndex = 5;
+            // 
+            // TestID
+            // 
+            this.TestID.Enabled = false;
+            this.TestID.FormattingEnabled = true;
+            this.TestID.Location = new System.Drawing.Point(53, 12);
+            this.TestID.Name = "TestID";
+            this.TestID.ScrollAlwaysVisible = true;
+            this.TestID.Size = new System.Drawing.Size(101, 186);
+            this.TestID.TabIndex = 6;
+            // 
             // SignIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.Submit;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TestID);
+            this.Controls.Add(this.View3);
+            this.Controls.Add(this.View2);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -206,6 +243,9 @@
         private System.Windows.Forms.TextBox CPassword;
         private System.Windows.Forms.TextBox CName;
         private System.Windows.Forms.Button CAccount;
+        private System.Windows.Forms.ListBox View2;
+        private System.Windows.Forms.ListBox View3;
+        private System.Windows.Forms.ListBox TestID;
     }
 }
 
