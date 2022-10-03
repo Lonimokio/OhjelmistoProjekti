@@ -51,5 +51,10 @@ namespace FormTop_games
                 MessageBox.Show("That username doesnt exist", "Username not found");
             }
         }
+
+        private void SignIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

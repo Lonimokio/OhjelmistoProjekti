@@ -36,11 +36,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Submit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CAccount = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.CPassword = new System.Windows.Forms.TextBox();
             this.CName = new System.Windows.Forms.TextBox();
+            this.CAccount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -129,16 +129,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sign in";
             // 
-            // CAccount
-            // 
-            this.CAccount.Location = new System.Drawing.Point(195, 157);
-            this.CAccount.Name = "CAccount";
-            this.CAccount.Size = new System.Drawing.Size(129, 46);
-            this.CAccount.TabIndex = 5;
-            this.CAccount.Text = "Create account";
-            this.CAccount.UseVisualStyleBackColor = true;
-            this.CAccount.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -171,6 +161,16 @@
             this.CName.Size = new System.Drawing.Size(129, 26);
             this.CName.TabIndex = 6;
             // 
+            // CAccount
+            // 
+            this.CAccount.Location = new System.Drawing.Point(195, 157);
+            this.CAccount.Name = "CAccount";
+            this.CAccount.Size = new System.Drawing.Size(129, 46);
+            this.CAccount.TabIndex = 5;
+            this.CAccount.Text = "Create account";
+            this.CAccount.UseVisualStyleBackColor = true;
+            this.CAccount.Click += new System.EventHandler(this.button2_Click);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +182,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SignIn";
             this.Text = "Sign in";
+            this.Load += new System.EventHandler(this.SignIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.groupBox1.ResumeLayout(false);
