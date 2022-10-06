@@ -30,9 +30,9 @@
         {
             this.Lobby = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.CFour = new System.Windows.Forms.Button();
-            this.Chess = new System.Windows.Forms.Button();
+            this.MemoryG = new System.Windows.Forms.Button();
+            this.Dice = new System.Windows.Forms.Button();
+            this.TicTacToe = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -57,7 +57,7 @@
             // Lobby
             // 
             this.Lobby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Lobby.Location = new System.Drawing.Point(703, 332);
+            this.Lobby.Location = new System.Drawing.Point(703, 391);
             this.Lobby.Name = "Lobby";
             this.Lobby.Size = new System.Drawing.Size(85, 47);
             this.Lobby.TabIndex = 11;
@@ -74,32 +74,32 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // button3
+            // MemoryG
             // 
-            this.button3.Location = new System.Drawing.Point(504, 328);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 38);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.MemoryG.Location = new System.Drawing.Point(504, 328);
+            this.MemoryG.Name = "MemoryG";
+            this.MemoryG.Size = new System.Drawing.Size(103, 38);
+            this.MemoryG.TabIndex = 19;
+            this.MemoryG.Text = "Memory game";
+            this.MemoryG.UseVisualStyleBackColor = true;
             // 
-            // CFour
+            // Dice
             // 
-            this.CFour.Location = new System.Drawing.Point(354, 328);
-            this.CFour.Name = "CFour";
-            this.CFour.Size = new System.Drawing.Size(103, 38);
-            this.CFour.TabIndex = 18;
-            this.CFour.Text = "Dice";
-            this.CFour.UseVisualStyleBackColor = true;
+            this.Dice.Location = new System.Drawing.Point(354, 328);
+            this.Dice.Name = "Dice";
+            this.Dice.Size = new System.Drawing.Size(103, 38);
+            this.Dice.TabIndex = 18;
+            this.Dice.Text = "Dice";
+            this.Dice.UseVisualStyleBackColor = true;
             // 
-            // Chess
+            // TicTacToe
             // 
-            this.Chess.Location = new System.Drawing.Point(201, 329);
-            this.Chess.Name = "Chess";
-            this.Chess.Size = new System.Drawing.Size(103, 37);
-            this.Chess.TabIndex = 17;
-            this.Chess.Text = "Tic Tac Toe";
-            this.Chess.UseVisualStyleBackColor = true;
+            this.TicTacToe.Location = new System.Drawing.Point(201, 329);
+            this.TicTacToe.Name = "TicTacToe";
+            this.TicTacToe.Size = new System.Drawing.Size(103, 37);
+            this.TicTacToe.TabIndex = 17;
+            this.TicTacToe.Text = "Tic Tac Toe";
+            this.TicTacToe.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -209,18 +209,19 @@
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.CFour);
-            this.Controls.Add(this.Chess);
+            this.Controls.Add(this.MemoryG);
+            this.Controls.Add(this.Dice);
+            this.Controls.Add(this.TicTacToe);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Lobby);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox5);
             this.Name = "SimpleGames";
             this.Text = "Simple games";
+            this.Load += new System.EventHandler(this.SimpleGames_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -238,9 +239,9 @@
 
         private System.Windows.Forms.Button Lobby;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button CFour;
-        private System.Windows.Forms.Button Chess;
+        private System.Windows.Forms.Button MemoryG;
+        private System.Windows.Forms.Button Dice;
+        private System.Windows.Forms.Button TicTacToe;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;

@@ -289,3 +289,4 @@ C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\bi
 C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.CopyComplete
 C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csprojAssemblyReference.cache
+C:\Users\arttu.mutka\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Chess.resources

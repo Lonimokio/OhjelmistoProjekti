@@ -22,7 +22,9 @@ namespace FormTop_games
         //Variables stored here
         int Attempt = 3;
         int id = 0;
-
+        public static string Name1 = "";
+        public static string ID1 = "";
+        public static string Password1 = "";
         //Variables above here
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -99,11 +101,15 @@ namespace FormTop_games
                     break;
                 }
             }
+                     //If password is correct
                     if (SName.Text == View2.Text)
                     {
                         View3.SelectedIndex = View2.SelectedIndex;
                         if (SPassword.Text == View3.Text)
                         {
+                            Name1 = SName.Text;
+                            ID1 = id.ToString();
+                            Password1 = SPassword.Text;
                             this.Hide();
                             System.Windows.Forms.MessageBox.Show("Welcome " +View2.Text, "Welcome");
                             Main frm2 = new Main();
@@ -166,6 +172,11 @@ namespace FormTop_games
             int height = newSize.Height - oldSize.Height;
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
+        }
+
+        private void CPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

@@ -29,7 +29,6 @@ namespace FormTop_games
         private void Casino_Click(object sender, EventArgs e)
         {
             this.Hide();
-            System.Windows.Forms.MessageBox.Show("Welcome to the casino. Remember to gamble responsibly");
             Casino frm2 = new Casino();
             frm2.ShowDialog();
         }
@@ -38,7 +37,6 @@ namespace FormTop_games
         private void SimpleGames_Click(object sender, EventArgs e)
         {
             this.Hide();
-            System.Windows.Forms.MessageBox.Show("Welcome to simple games, a collection of simple games like tic tac toe");
             SimpleGames frm2 = new SimpleGames();
             frm2.ShowDialog();
         }
@@ -47,7 +45,6 @@ namespace FormTop_games
         private void TableTopB_Click(object sender, EventArgs e)
         {
             this.Hide();
-            System.Windows.Forms.MessageBox.Show("Welcome to table top games. Here you will find classical tabletop games");
             Table_Top frm2 = new Table_Top();
             frm2.ShowDialog();
         }

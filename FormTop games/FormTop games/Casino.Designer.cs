@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Lobby = new System.Windows.Forms.Button();
             this.Poker = new System.Windows.Forms.Button();
@@ -46,6 +47,8 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Balance = new System.Windows.Forms.TextBox();
+            this.Money = new System.Windows.Forms.ListBox();
+            this.MoneyCounter = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -59,16 +62,16 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(-93, 388);
+            this.pictureBox1.Location = new System.Drawing.Point(-93, 383);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(937, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(937, 96);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
             // Lobby
             // 
             this.Lobby.BackColor = System.Drawing.Color.Maroon;
-            this.Lobby.Location = new System.Drawing.Point(699, 335);
+            this.Lobby.Location = new System.Drawing.Point(699, 391);
             this.Lobby.Name = "Lobby";
             this.Lobby.Size = new System.Drawing.Size(85, 47);
             this.Lobby.TabIndex = 13;
@@ -217,12 +220,27 @@
             this.Balance.TabIndex = 30;
             this.Balance.TextChanged += new System.EventHandler(this.Balance_TextChanged);
             // 
+            // Money
+            // 
+            this.Money.FormattingEnabled = true;
+            this.Money.Location = new System.Drawing.Point(695, 106);
+            this.Money.Name = "Money";
+            this.Money.Size = new System.Drawing.Size(89, 17);
+            this.Money.TabIndex = 31;
+            this.Money.Visible = false;
+            // 
+            // MoneyCounter
+            // 
+            this.MoneyCounter.Interval = 5;
+            this.MoneyCounter.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Casino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Money);
             this.Controls.Add(this.Balance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -238,8 +256,8 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Lobby);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox5);
             this.Name = "Casino";
             this.Text = "Casino";
@@ -277,5 +295,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Balance;
+        private System.Windows.Forms.ListBox Money;
+        private System.Windows.Forms.Timer MoneyCounter;
     }
 }

@@ -35,10 +35,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Chess = new System.Windows.Forms.Button();
             this.CFour = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Mastermind = new System.Windows.Forms.Button();
             this.Lobby = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BattleShips = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -107,6 +107,7 @@
             this.Chess.TabIndex = 7;
             this.Chess.Text = "Chess";
             this.Chess.UseVisualStyleBackColor = true;
+            this.Chess.Click += new System.EventHandler(this.Chess_Click);
             // 
             // CFour
             // 
@@ -117,19 +118,19 @@
             this.CFour.Text = "Connect four";
             this.CFour.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // Mastermind
             // 
-            this.button3.Location = new System.Drawing.Point(482, 320);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 38);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Mastermind.Location = new System.Drawing.Point(482, 320);
+            this.Mastermind.Name = "Mastermind";
+            this.Mastermind.Size = new System.Drawing.Size(103, 38);
+            this.Mastermind.TabIndex = 9;
+            this.Mastermind.Text = "Mastermind";
+            this.Mastermind.UseVisualStyleBackColor = true;
             // 
             // Lobby
             // 
             this.Lobby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Lobby.Location = new System.Drawing.Point(703, 329);
+            this.Lobby.Location = new System.Drawing.Point(703, 391);
             this.Lobby.Name = "Lobby";
             this.Lobby.Size = new System.Drawing.Size(85, 47);
             this.Lobby.TabIndex = 10;
@@ -146,14 +147,14 @@
             this.pictureBox5.TabIndex = 23;
             this.pictureBox5.TabStop = false;
             // 
-            // button1
+            // BattleShips
             // 
-            this.button1.Location = new System.Drawing.Point(482, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 38);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BattleShips.Location = new System.Drawing.Point(482, 178);
+            this.BattleShips.Name = "BattleShips";
+            this.BattleShips.Size = new System.Drawing.Size(103, 38);
+            this.BattleShips.TabIndex = 29;
+            this.BattleShips.Text = "Battle ships";
+            this.BattleShips.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -203,14 +204,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BattleShips);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.Lobby);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Mastermind);
             this.Controls.Add(this.CFour);
             this.Controls.Add(this.Chess);
             this.Controls.Add(this.pictureBox4);
@@ -221,6 +222,7 @@
             this.Controls.Add(this.pictureBox5);
             this.Name = "Table_Top";
             this.Text = "Table top";
+            this.Load += new System.EventHandler(this.Table_Top_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -243,10 +245,10 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Chess;
         private System.Windows.Forms.Button CFour;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Mastermind;
         private System.Windows.Forms.Button Lobby;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BattleShips;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox6;

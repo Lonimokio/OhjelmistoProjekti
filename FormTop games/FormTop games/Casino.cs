@@ -19,7 +19,10 @@ namespace FormTop_games
             InitializeComponent();
         }
 
-        //string Searching;
+        //Variable below here
+        int i = 1;
+        int Money1;
+        //Variables abowe here
 
         //Button to send you back to main lobby
         private void Lobby_Click(object sender, EventArgs e)
@@ -55,22 +58,46 @@ namespace FormTop_games
 
         private void Casino_Load(object sender, EventArgs e)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
-            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
-            var client = new MongoClient(settings);
-            var database = client.GetDatabase("SignIn");
-            var coll = database.GetCollection<BsonDocument>("Users");
-            var Search = coll.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Include("Name").Include("Password")).ToList();
-            foreach (var OneDocument in Search)
-            {
+            System.Windows.Forms.MessageBox.Show("Welcome to the casino. Remember to gamble responsibly");
 
+            //Balance checking and showing system here
+            var uri = "mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority";
+            var client = new MongoClient(uri);
+
+            var db = client.GetDatabase("SignIn");
+            var coll = db.GetCollection<BsonDocument>("Users");
+
+            var cursor = from Users in coll.AsQueryable()
+                         where Users["Name"] == SignIn.Name1
+                         select Users;
+
+            foreach (var document in cursor)
+            {
+                    Money.Items.Add(document.GetElement("Balance").Value);
             }
+            Money.SelectedIndex = 0;
+            Money1 = int.Parse(Money.Text);
+            MoneyCounter.Start();
 
         }
 
         private void Balance_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (i <= Money1)
+            {
+               Balance.Text = i.ToString();
+               i++;
+            }
+            else
+            {
+                MoneyCounter.Stop();
+                Money.Items.Clear();
+            }
         }
     }
 }

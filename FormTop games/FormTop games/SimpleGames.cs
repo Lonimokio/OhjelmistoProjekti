@@ -48,5 +48,10 @@ namespace FormTop_games
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
         }
+
+        private void SimpleGames_Load(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Welcome to simple games, a collection of simple games like tic tac toe");
+        }
     }
 }

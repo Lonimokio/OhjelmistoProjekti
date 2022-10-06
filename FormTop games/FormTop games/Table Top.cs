@@ -48,5 +48,17 @@ namespace FormTop_games
             control.Top += (control.Top * height) / oldSize.Height;
             control.Height += (control.Height * height) / oldSize.Height;
         }
+
+        private void Table_Top_Load(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Welcome to table top games. Here you will find classical tabletop games");
+        }
+
+        private void Chess_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Chess frm2 = new Chess();
+            frm2.ShowDialog();
+        }
     }
 }

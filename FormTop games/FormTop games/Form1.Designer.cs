@@ -167,6 +167,7 @@
             this.CPassword.Name = "CPassword";
             this.CPassword.Size = new System.Drawing.Size(129, 26);
             this.CPassword.TabIndex = 7;
+            this.CPassword.TextChanged += new System.EventHandler(this.CPassword_TextChanged);
             // 
             // CName
             // 
@@ -179,31 +180,34 @@
             // 
             this.View2.Enabled = false;
             this.View2.FormattingEnabled = true;
-            this.View2.Location = new System.Drawing.Point(160, 12);
+            this.View2.Location = new System.Drawing.Point(687, 35);
             this.View2.Name = "View2";
             this.View2.ScrollAlwaysVisible = true;
-            this.View2.Size = new System.Drawing.Size(101, 186);
+            this.View2.Size = new System.Drawing.Size(101, 17);
             this.View2.TabIndex = 4;
+            this.View2.Visible = false;
             // 
             // View3
             // 
             this.View3.Enabled = false;
             this.View3.FormattingEnabled = true;
-            this.View3.Location = new System.Drawing.Point(53, 205);
+            this.View3.Location = new System.Drawing.Point(687, 12);
             this.View3.Name = "View3";
             this.View3.ScrollAlwaysVisible = true;
-            this.View3.Size = new System.Drawing.Size(101, 186);
+            this.View3.Size = new System.Drawing.Size(101, 17);
             this.View3.TabIndex = 5;
+            this.View3.Visible = false;
             // 
             // TestID
             // 
             this.TestID.Enabled = false;
             this.TestID.FormattingEnabled = true;
-            this.TestID.Location = new System.Drawing.Point(53, 12);
+            this.TestID.Location = new System.Drawing.Point(687, 58);
             this.TestID.Name = "TestID";
             this.TestID.ScrollAlwaysVisible = true;
-            this.TestID.Size = new System.Drawing.Size(101, 186);
+            this.TestID.Size = new System.Drawing.Size(101, 17);
             this.TestID.TabIndex = 6;
+            this.TestID.Visible = false;
             // 
             // SignIn
             // 
@@ -245,7 +249,7 @@
         private System.Windows.Forms.Button CAccount;
         private System.Windows.Forms.ListBox View2;
         private System.Windows.Forms.ListBox View3;
-        private System.Windows.Forms.ListBox TestID;
+        public System.Windows.Forms.ListBox TestID;
     }
 }
 
