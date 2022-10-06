@@ -19,6 +19,8 @@ namespace FormTop_games
             InitializeComponent();
         }
 
+        //string Searching;
+
         //Button to send you back to main lobby
         private void Lobby_Click(object sender, EventArgs e)
         {
@@ -58,13 +60,12 @@ namespace FormTop_games
             var client = new MongoClient(settings);
             var database = client.GetDatabase("SignIn");
             var coll = database.GetCollection<BsonDocument>("Users");
-            var Search = coll.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Include("Balance")).ToList();
-            var filter = Builders<BsonDocument>.Filter.Eq("Parameters.Value", Searching);
-            var query = coll.Find(filter);
-            foreach (var result in query.ToList())
+            var Search = coll.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Include("Name").Include("Password")).ToList();
+            foreach (var OneDocument in Search)
             {
-                Console.WriteLine(result);
+
             }
+
         }
 
         private void Balance_TextChanged(object sender, EventArgs e)

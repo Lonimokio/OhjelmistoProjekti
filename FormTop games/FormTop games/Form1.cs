@@ -24,13 +24,13 @@ namespace FormTop_games
         int id = 0;
 
         //Variables above here
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         //Account creation. First we check if username already exists. Then we get an unigue id and create the account.
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < View2.Items.Count; i++)
             {
@@ -130,7 +130,7 @@ namespace FormTop_games
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root2:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority?authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
             var database = client.GetDatabase("SignIn");

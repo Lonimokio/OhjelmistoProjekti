@@ -72,7 +72,7 @@
             this.SName.Name = "SName";
             this.SName.Size = new System.Drawing.Size(119, 26);
             this.SName.TabIndex = 0;
-            this.SName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.SName.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // SPassword
             // 
@@ -150,7 +150,7 @@
             this.CAccount.TabIndex = 5;
             this.CAccount.Text = "Create account";
             this.CAccount.UseVisualStyleBackColor = true;
-            this.CAccount.Click += new System.EventHandler(this.button2_Click);
+            this.CAccount.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label4
             // 
