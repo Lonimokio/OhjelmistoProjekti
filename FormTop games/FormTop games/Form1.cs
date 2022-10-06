@@ -130,7 +130,7 @@ namespace FormTop_games
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root2:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority?authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
             var database = client.GetDatabase("SignIn");
