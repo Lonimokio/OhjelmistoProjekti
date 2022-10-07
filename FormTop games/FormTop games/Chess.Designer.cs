@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chess));
             this.MainLobby = new System.Windows.Forms.Button();
             this.TableTop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,6 +112,23 @@
             this.B1 = new System.Windows.Forms.PictureBox();
             this.A1 = new System.Windows.Forms.PictureBox();
             this.pictureBox65 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Selected = new System.Windows.Forms.TextBox();
+            this.PCache = new System.Windows.Forms.PictureBox();
+            this.BRook = new System.Windows.Forms.PictureBox();
+            this.BTower = new System.Windows.Forms.PictureBox();
+            this.BQueen = new System.Windows.Forms.PictureBox();
+            this.BKnigth = new System.Windows.Forms.PictureBox();
+            this.BKing = new System.Windows.Forms.PictureBox();
+            this.BBishop = new System.Windows.Forms.PictureBox();
+            this.WBishop = new System.Windows.Forms.PictureBox();
+            this.WKing = new System.Windows.Forms.PictureBox();
+            this.WKnigth = new System.Windows.Forms.PictureBox();
+            this.WQueen = new System.Windows.Forms.PictureBox();
+            this.WTower = new System.Windows.Forms.PictureBox();
+            this.WRook = new System.Windows.Forms.PictureBox();
+            this.Test1 = new System.Windows.Forms.TextBox();
+            this.Test2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.H8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.G8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.F8)).BeginInit();
@@ -176,6 +194,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.B1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.A1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCache)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BRook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WRook)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLobby
@@ -204,7 +236,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(264, 15);
+            this.label1.Location = new System.Drawing.Point(266, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 20);
             this.label1.TabIndex = 80;
@@ -214,7 +246,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(301, 15);
+            this.label2.Location = new System.Drawing.Point(303, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 20);
             this.label2.TabIndex = 81;
@@ -224,7 +256,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(337, 15);
+            this.label3.Location = new System.Drawing.Point(339, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 20);
             this.label3.TabIndex = 82;
@@ -234,7 +266,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(374, 15);
+            this.label4.Location = new System.Drawing.Point(376, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 20);
             this.label4.TabIndex = 83;
@@ -244,7 +276,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(411, 15);
+            this.label5.Location = new System.Drawing.Point(413, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 20);
             this.label5.TabIndex = 84;
@@ -254,7 +286,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(449, 15);
+            this.label6.Location = new System.Drawing.Point(451, 10);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 20);
             this.label6.TabIndex = 85;
@@ -264,7 +296,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(485, 15);
+            this.label7.Location = new System.Drawing.Point(487, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(22, 20);
             this.label7.TabIndex = 86;
@@ -274,7 +306,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(522, 15);
+            this.label8.Location = new System.Drawing.Point(524, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 20);
             this.label8.TabIndex = 87;
@@ -363,6 +395,7 @@
             // 
             // H8
             // 
+            this.H8.Image = global::FormTop_games.Properties.Resources.White_tower;
             this.H8.Location = new System.Drawing.Point(515, 279);
             this.H8.Name = "H8";
             this.H8.Size = new System.Drawing.Size(37, 37);
@@ -373,6 +406,7 @@
             // G8
             // 
             this.G8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.G8.Image = global::FormTop_games.Properties.Resources.White_knight;
             this.G8.Location = new System.Drawing.Point(478, 279);
             this.G8.Name = "G8";
             this.G8.Size = new System.Drawing.Size(37, 37);
@@ -382,6 +416,7 @@
             // 
             // F8
             // 
+            this.F8.Image = global::FormTop_games.Properties.Resources.White_bishop;
             this.F8.Location = new System.Drawing.Point(441, 279);
             this.F8.Name = "F8";
             this.F8.Size = new System.Drawing.Size(37, 37);
@@ -392,6 +427,7 @@
             // E8
             // 
             this.E8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.E8.Image = global::FormTop_games.Properties.Resources.White_queen;
             this.E8.Location = new System.Drawing.Point(404, 279);
             this.E8.Name = "E8";
             this.E8.Size = new System.Drawing.Size(37, 37);
@@ -401,6 +437,7 @@
             // 
             // D8
             // 
+            this.D8.Image = global::FormTop_games.Properties.Resources.White_King;
             this.D8.Location = new System.Drawing.Point(367, 279);
             this.D8.Name = "D8";
             this.D8.Size = new System.Drawing.Size(37, 37);
@@ -411,6 +448,7 @@
             // C8
             // 
             this.C8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.C8.Image = global::FormTop_games.Properties.Resources.White_bishop;
             this.C8.Location = new System.Drawing.Point(330, 279);
             this.C8.Name = "C8";
             this.C8.Size = new System.Drawing.Size(37, 37);
@@ -420,6 +458,7 @@
             // 
             // B8
             // 
+            this.B8.Image = global::FormTop_games.Properties.Resources.White_knight;
             this.B8.Location = new System.Drawing.Point(293, 279);
             this.B8.Name = "B8";
             this.B8.Size = new System.Drawing.Size(37, 37);
@@ -430,6 +469,7 @@
             // A8
             // 
             this.A8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.A8.Image = global::FormTop_games.Properties.Resources.White_tower;
             this.A8.Location = new System.Drawing.Point(256, 279);
             this.A8.Name = "A8";
             this.A8.Size = new System.Drawing.Size(37, 37);
@@ -440,6 +480,7 @@
             // H7
             // 
             this.H7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.H7.Image = ((System.Drawing.Image)(resources.GetObject("H7.Image")));
             this.H7.Location = new System.Drawing.Point(515, 245);
             this.H7.Name = "H7";
             this.H7.Size = new System.Drawing.Size(37, 37);
@@ -449,6 +490,7 @@
             // 
             // G7
             // 
+            this.G7.Image = ((System.Drawing.Image)(resources.GetObject("G7.Image")));
             this.G7.Location = new System.Drawing.Point(478, 245);
             this.G7.Name = "G7";
             this.G7.Size = new System.Drawing.Size(37, 37);
@@ -459,6 +501,7 @@
             // F7
             // 
             this.F7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.F7.Image = ((System.Drawing.Image)(resources.GetObject("F7.Image")));
             this.F7.Location = new System.Drawing.Point(441, 245);
             this.F7.Name = "F7";
             this.F7.Size = new System.Drawing.Size(37, 37);
@@ -468,6 +511,7 @@
             // 
             // E7
             // 
+            this.E7.Image = ((System.Drawing.Image)(resources.GetObject("E7.Image")));
             this.E7.Location = new System.Drawing.Point(404, 245);
             this.E7.Name = "E7";
             this.E7.Size = new System.Drawing.Size(37, 37);
@@ -478,6 +522,7 @@
             // D7
             // 
             this.D7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.D7.Image = ((System.Drawing.Image)(resources.GetObject("D7.Image")));
             this.D7.Location = new System.Drawing.Point(367, 245);
             this.D7.Name = "D7";
             this.D7.Size = new System.Drawing.Size(37, 37);
@@ -487,6 +532,7 @@
             // 
             // C7
             // 
+            this.C7.Image = ((System.Drawing.Image)(resources.GetObject("C7.Image")));
             this.C7.Location = new System.Drawing.Point(330, 245);
             this.C7.Name = "C7";
             this.C7.Size = new System.Drawing.Size(37, 37);
@@ -497,6 +543,7 @@
             // B7
             // 
             this.B7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.B7.Image = ((System.Drawing.Image)(resources.GetObject("B7.Image")));
             this.B7.Location = new System.Drawing.Point(293, 245);
             this.B7.Name = "B7";
             this.B7.Size = new System.Drawing.Size(37, 37);
@@ -506,6 +553,7 @@
             // 
             // A7
             // 
+            this.A7.Image = ((System.Drawing.Image)(resources.GetObject("A7.Image")));
             this.A7.Location = new System.Drawing.Point(256, 245);
             this.A7.Name = "A7";
             this.A7.Size = new System.Drawing.Size(37, 37);
@@ -589,6 +637,7 @@
             this.A6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A6.TabIndex = 55;
             this.A6.TabStop = false;
+            this.A6.Click += new System.EventHandler(this.A6_Click);
             // 
             // H5
             // 
@@ -821,6 +870,7 @@
             // 
             // H2
             // 
+            this.H2.Image = ((System.Drawing.Image)(resources.GetObject("H2.Image")));
             this.H2.Location = new System.Drawing.Point(515, 72);
             this.H2.Name = "H2";
             this.H2.Size = new System.Drawing.Size(37, 37);
@@ -831,6 +881,7 @@
             // G2
             // 
             this.G2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.G2.Image = ((System.Drawing.Image)(resources.GetObject("G2.Image")));
             this.G2.Location = new System.Drawing.Point(478, 72);
             this.G2.Name = "G2";
             this.G2.Size = new System.Drawing.Size(37, 37);
@@ -840,6 +891,7 @@
             // 
             // F2
             // 
+            this.F2.Image = ((System.Drawing.Image)(resources.GetObject("F2.Image")));
             this.F2.Location = new System.Drawing.Point(441, 72);
             this.F2.Name = "F2";
             this.F2.Size = new System.Drawing.Size(37, 37);
@@ -850,6 +902,7 @@
             // E2
             // 
             this.E2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.E2.Image = ((System.Drawing.Image)(resources.GetObject("E2.Image")));
             this.E2.Location = new System.Drawing.Point(404, 72);
             this.E2.Name = "E2";
             this.E2.Size = new System.Drawing.Size(37, 37);
@@ -859,6 +912,7 @@
             // 
             // D2
             // 
+            this.D2.Image = ((System.Drawing.Image)(resources.GetObject("D2.Image")));
             this.D2.Location = new System.Drawing.Point(367, 72);
             this.D2.Name = "D2";
             this.D2.Size = new System.Drawing.Size(37, 37);
@@ -869,6 +923,7 @@
             // C2
             // 
             this.C2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.C2.Image = ((System.Drawing.Image)(resources.GetObject("C2.Image")));
             this.C2.Location = new System.Drawing.Point(330, 72);
             this.C2.Name = "C2";
             this.C2.Size = new System.Drawing.Size(37, 37);
@@ -878,6 +933,7 @@
             // 
             // B2
             // 
+            this.B2.Image = ((System.Drawing.Image)(resources.GetObject("B2.Image")));
             this.B2.Location = new System.Drawing.Point(293, 72);
             this.B2.Name = "B2";
             this.B2.Size = new System.Drawing.Size(37, 37);
@@ -888,6 +944,7 @@
             // A2
             // 
             this.A2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.A2.Image = ((System.Drawing.Image)(resources.GetObject("A2.Image")));
             this.A2.Location = new System.Drawing.Point(256, 72);
             this.A2.Name = "A2";
             this.A2.Size = new System.Drawing.Size(37, 37);
@@ -898,6 +955,7 @@
             // H1
             // 
             this.H1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.H1.Image = global::FormTop_games.Properties.Resources.Black_tower1;
             this.H1.Location = new System.Drawing.Point(515, 38);
             this.H1.Name = "H1";
             this.H1.Size = new System.Drawing.Size(37, 37);
@@ -907,6 +965,7 @@
             // 
             // G1
             // 
+            this.G1.Image = global::FormTop_games.Properties.Resources.Black_knight1;
             this.G1.Location = new System.Drawing.Point(478, 38);
             this.G1.Name = "G1";
             this.G1.Size = new System.Drawing.Size(37, 37);
@@ -917,6 +976,7 @@
             // F1
             // 
             this.F1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.F1.Image = global::FormTop_games.Properties.Resources.Black_bishop1;
             this.F1.Location = new System.Drawing.Point(441, 38);
             this.F1.Name = "F1";
             this.F1.Size = new System.Drawing.Size(37, 37);
@@ -926,6 +986,7 @@
             // 
             // E1
             // 
+            this.E1.Image = global::FormTop_games.Properties.Resources.Black_queen1;
             this.E1.Location = new System.Drawing.Point(404, 38);
             this.E1.Name = "E1";
             this.E1.Size = new System.Drawing.Size(37, 37);
@@ -936,6 +997,7 @@
             // D1
             // 
             this.D1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.D1.Image = global::FormTop_games.Properties.Resources.Black_King1;
             this.D1.Location = new System.Drawing.Point(367, 38);
             this.D1.Name = "D1";
             this.D1.Size = new System.Drawing.Size(37, 37);
@@ -945,6 +1007,7 @@
             // 
             // C1
             // 
+            this.C1.Image = global::FormTop_games.Properties.Resources.Black_bishop1;
             this.C1.Location = new System.Drawing.Point(330, 38);
             this.C1.Name = "C1";
             this.C1.Size = new System.Drawing.Size(37, 37);
@@ -955,6 +1018,7 @@
             // B1
             // 
             this.B1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.B1.Image = global::FormTop_games.Properties.Resources.Black_knight1;
             this.B1.Location = new System.Drawing.Point(293, 38);
             this.B1.Name = "B1";
             this.B1.Size = new System.Drawing.Size(37, 37);
@@ -964,6 +1028,7 @@
             // 
             // A1
             // 
+            this.A1.Image = global::FormTop_games.Properties.Resources.Black_tower1;
             this.A1.Location = new System.Drawing.Point(256, 38);
             this.A1.Name = "A1";
             this.A1.Size = new System.Drawing.Size(37, 37);
@@ -980,11 +1045,198 @@
             this.pictureBox65.TabIndex = 79;
             this.pictureBox65.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox1.Location = new System.Drawing.Point(251, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(305, 290);
+            this.pictureBox1.TabIndex = 96;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Selected
+            // 
+            this.Selected.Location = new System.Drawing.Point(658, 140);
+            this.Selected.Name = "Selected";
+            this.Selected.Size = new System.Drawing.Size(100, 20);
+            this.Selected.TabIndex = 97;
+            // 
+            // PCache
+            // 
+            this.PCache.Location = new System.Drawing.Point(658, 59);
+            this.PCache.Name = "PCache";
+            this.PCache.Size = new System.Drawing.Size(100, 76);
+            this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCache.TabIndex = 99;
+            this.PCache.TabStop = false;
+            // 
+            // BRook
+            // 
+            this.BRook.Image = global::FormTop_games.Properties.Resources.Black_rook1;
+            this.BRook.Location = new System.Drawing.Point(22, 72);
+            this.BRook.Name = "BRook";
+            this.BRook.Size = new System.Drawing.Size(25, 26);
+            this.BRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BRook.TabIndex = 100;
+            this.BRook.TabStop = false;
+            this.BRook.Visible = false;
+            // 
+            // BTower
+            // 
+            this.BTower.Image = global::FormTop_games.Properties.Resources.Black_tower1;
+            this.BTower.Location = new System.Drawing.Point(53, 72);
+            this.BTower.Name = "BTower";
+            this.BTower.Size = new System.Drawing.Size(25, 26);
+            this.BTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BTower.TabIndex = 101;
+            this.BTower.TabStop = false;
+            this.BTower.Visible = false;
+            // 
+            // BQueen
+            // 
+            this.BQueen.Image = global::FormTop_games.Properties.Resources.Black_queen1;
+            this.BQueen.Location = new System.Drawing.Point(84, 72);
+            this.BQueen.Name = "BQueen";
+            this.BQueen.Size = new System.Drawing.Size(25, 26);
+            this.BQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BQueen.TabIndex = 102;
+            this.BQueen.TabStop = false;
+            this.BQueen.Visible = false;
+            // 
+            // BKnigth
+            // 
+            this.BKnigth.Image = global::FormTop_games.Properties.Resources.Black_knight1;
+            this.BKnigth.Location = new System.Drawing.Point(115, 72);
+            this.BKnigth.Name = "BKnigth";
+            this.BKnigth.Size = new System.Drawing.Size(25, 26);
+            this.BKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BKnigth.TabIndex = 103;
+            this.BKnigth.TabStop = false;
+            this.BKnigth.Visible = false;
+            // 
+            // BKing
+            // 
+            this.BKing.Image = global::FormTop_games.Properties.Resources.Black_King1;
+            this.BKing.Location = new System.Drawing.Point(146, 72);
+            this.BKing.Name = "BKing";
+            this.BKing.Size = new System.Drawing.Size(25, 26);
+            this.BKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BKing.TabIndex = 104;
+            this.BKing.TabStop = false;
+            this.BKing.Visible = false;
+            // 
+            // BBishop
+            // 
+            this.BBishop.Image = global::FormTop_games.Properties.Resources.Black_bishop1;
+            this.BBishop.Location = new System.Drawing.Point(177, 72);
+            this.BBishop.Name = "BBishop";
+            this.BBishop.Size = new System.Drawing.Size(25, 26);
+            this.BBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BBishop.TabIndex = 105;
+            this.BBishop.TabStop = false;
+            this.BBishop.Visible = false;
+            // 
+            // WBishop
+            // 
+            this.WBishop.Image = global::FormTop_games.Properties.Resources.White_bishop;
+            this.WBishop.Location = new System.Drawing.Point(177, 104);
+            this.WBishop.Name = "WBishop";
+            this.WBishop.Size = new System.Drawing.Size(25, 26);
+            this.WBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WBishop.TabIndex = 111;
+            this.WBishop.TabStop = false;
+            this.WBishop.Visible = false;
+            // 
+            // WKing
+            // 
+            this.WKing.Image = global::FormTop_games.Properties.Resources.White_King;
+            this.WKing.Location = new System.Drawing.Point(146, 104);
+            this.WKing.Name = "WKing";
+            this.WKing.Size = new System.Drawing.Size(25, 26);
+            this.WKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WKing.TabIndex = 110;
+            this.WKing.TabStop = false;
+            this.WKing.Visible = false;
+            // 
+            // WKnigth
+            // 
+            this.WKnigth.Image = global::FormTop_games.Properties.Resources.White_knight;
+            this.WKnigth.Location = new System.Drawing.Point(115, 104);
+            this.WKnigth.Name = "WKnigth";
+            this.WKnigth.Size = new System.Drawing.Size(25, 26);
+            this.WKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WKnigth.TabIndex = 109;
+            this.WKnigth.TabStop = false;
+            this.WKnigth.Visible = false;
+            // 
+            // WQueen
+            // 
+            this.WQueen.Image = global::FormTop_games.Properties.Resources.White_queen;
+            this.WQueen.Location = new System.Drawing.Point(84, 104);
+            this.WQueen.Name = "WQueen";
+            this.WQueen.Size = new System.Drawing.Size(25, 26);
+            this.WQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WQueen.TabIndex = 108;
+            this.WQueen.TabStop = false;
+            this.WQueen.Visible = false;
+            // 
+            // WTower
+            // 
+            this.WTower.Image = global::FormTop_games.Properties.Resources.White_tower;
+            this.WTower.Location = new System.Drawing.Point(53, 104);
+            this.WTower.Name = "WTower";
+            this.WTower.Size = new System.Drawing.Size(25, 26);
+            this.WTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WTower.TabIndex = 107;
+            this.WTower.TabStop = false;
+            this.WTower.Visible = false;
+            // 
+            // WRook
+            // 
+            this.WRook.Image = global::FormTop_games.Properties.Resources.White_rook;
+            this.WRook.Location = new System.Drawing.Point(22, 104);
+            this.WRook.Name = "WRook";
+            this.WRook.Size = new System.Drawing.Size(25, 26);
+            this.WRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WRook.TabIndex = 106;
+            this.WRook.TabStop = false;
+            this.WRook.Visible = false;
+            // 
+            // Test1
+            // 
+            this.Test1.Location = new System.Drawing.Point(635, 218);
+            this.Test1.Name = "Test1";
+            this.Test1.Size = new System.Drawing.Size(100, 20);
+            this.Test1.TabIndex = 112;
+            // 
+            // Test2
+            // 
+            this.Test2.Location = new System.Drawing.Point(635, 244);
+            this.Test2.Name = "Test2";
+            this.Test2.Size = new System.Drawing.Size(100, 20);
+            this.Test2.TabIndex = 113;
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Test2);
+            this.Controls.Add(this.Test1);
+            this.Controls.Add(this.WBishop);
+            this.Controls.Add(this.WKing);
+            this.Controls.Add(this.WKnigth);
+            this.Controls.Add(this.WQueen);
+            this.Controls.Add(this.WTower);
+            this.Controls.Add(this.WRook);
+            this.Controls.Add(this.BBishop);
+            this.Controls.Add(this.BKing);
+            this.Controls.Add(this.BKnigth);
+            this.Controls.Add(this.BQueen);
+            this.Controls.Add(this.BTower);
+            this.Controls.Add(this.BRook);
+            this.Controls.Add(this.PCache);
+            this.Controls.Add(this.Selected);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -1068,6 +1320,7 @@
             this.Controls.Add(this.TableTop);
             this.Controls.Add(this.MainLobby);
             this.Controls.Add(this.pictureBox65);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Chess";
             this.Text = "Chess";
             this.Load += new System.EventHandler(this.Chess_Load);
@@ -1136,6 +1389,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.B1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.A1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCache)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BRook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WRook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1226,5 +1493,22 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox H4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox Selected;
+        private System.Windows.Forms.PictureBox PCache;
+        private System.Windows.Forms.PictureBox BRook;
+        private System.Windows.Forms.PictureBox BTower;
+        private System.Windows.Forms.PictureBox BQueen;
+        private System.Windows.Forms.PictureBox BKnigth;
+        private System.Windows.Forms.PictureBox BKing;
+        private System.Windows.Forms.PictureBox BBishop;
+        private System.Windows.Forms.PictureBox WBishop;
+        private System.Windows.Forms.PictureBox WKing;
+        private System.Windows.Forms.PictureBox WKnigth;
+        private System.Windows.Forms.PictureBox WQueen;
+        private System.Windows.Forms.PictureBox WTower;
+        private System.Windows.Forms.PictureBox WRook;
+        private System.Windows.Forms.TextBox Test1;
+        private System.Windows.Forms.TextBox Test2;
     }
 }
