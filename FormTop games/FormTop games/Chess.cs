@@ -15,6 +15,78 @@ namespace FormTop_games
         public Chess()
         {
             InitializeComponent();
+
+            A1.Click += ChessClick;
+            A2.Click += ChessClick;
+            A3.Click += ChessClick;
+            A4.Click += ChessClick;
+            A5.Click += ChessClick;
+            A6.Click += ChessClick;
+            A7.Click += ChessClick;
+            A8.Click += ChessClick;
+
+            B1.Click += ChessClick;
+            B2.Click += ChessClick;
+            B3.Click += ChessClick;
+            B4.Click += ChessClick;
+            B5.Click += ChessClick;
+            B6.Click += ChessClick;
+            B7.Click += ChessClick;
+            B8.Click += ChessClick;
+
+            C1.Click += ChessClick;
+            C2.Click += ChessClick;
+            C3.Click += ChessClick;
+            C4.Click += ChessClick;
+            C5.Click += ChessClick;
+            C6.Click += ChessClick;
+            C7.Click += ChessClick;
+            C8.Click += ChessClick;
+
+            D1.Click += ChessClick;
+            D2.Click += ChessClick;
+            D3.Click += ChessClick;
+            D4.Click += ChessClick;
+            D5.Click += ChessClick;
+            D6.Click += ChessClick;
+            D7.Click += ChessClick;
+            D8.Click += ChessClick;
+
+            E1.Click += ChessClick;
+            E2.Click += ChessClick;
+            E3.Click += ChessClick;
+            E4.Click += ChessClick;
+            E5.Click += ChessClick;
+            E6.Click += ChessClick;
+            E7.Click += ChessClick;
+            E8.Click += ChessClick;
+
+            F1.Click += ChessClick;
+            F2.Click += ChessClick;
+            F3.Click += ChessClick;
+            F4.Click += ChessClick;
+            F5.Click += ChessClick;
+            F6.Click += ChessClick;
+            F7.Click += ChessClick;
+            F8.Click += ChessClick;
+
+            G1.Click += ChessClick;
+            G2.Click += ChessClick;
+            G3.Click += ChessClick;
+            G4.Click += ChessClick;
+            G5.Click += ChessClick;
+            G6.Click += ChessClick;
+            G7.Click += ChessClick;
+            G8.Click += ChessClick;
+
+            H1.Click += ChessClick;
+            H2.Click += ChessClick;
+            H3.Click += ChessClick;
+            H4.Click += ChessClick;
+            H5.Click += ChessClick;
+            H6.Click += ChessClick;
+            H7.Click += ChessClick;
+            H8.Click += ChessClick;
         }
 
         //Variable below here
@@ -75,15 +147,17 @@ namespace FormTop_games
 
         private void pictureBox29_Click(object sender, EventArgs e)
         {
-
+            
         }
 
+
+
         //Making picture boxes do stuff
-        private void A7_Click(object sender, EventArgs e)
+        public void ChessClick(object sender, EventArgs e)
         {
             //Checking if the tile has a piece on it
             //If it doesnt
-            if (A7.Image == null)
+            if ((sender as PictureBox).Image == null)
             {
                 //Checking if a piece containing tile has been clicked
                 if (Move1 == null)
@@ -92,7 +166,8 @@ namespace FormTop_games
                 }
                 else
                 {
-                    A7.Image = PCache.Image;
+                    PictureBox test = (sender as PictureBox);
+                    (sender as PictureBox).Image = PCache.Image;
                     Move1 = null;
                     PCache.Image = null;
 
@@ -170,21 +245,19 @@ namespace FormTop_games
                 }
             }
             //If it has a picture
-            else if (A7.Image != null)
+            else if ((sender as PictureBox).Image != null)
             {
-                A7.BackColor = Color.Green;
-                Move1 = "A7";
-                PCache.Image = A7.Image;
+                (sender as PictureBox).BackColor = Color.Green;
+                Move1 = (sender as PictureBox).Name;
+                PCache.Image = (sender as PictureBox).Image;
                 Selected.Text = "Selected slot: " + Move1;
-                A7.Image = null;
-                Test1.Text = PCache.Image.ToString();
-                Test2.Text = WRook.Image.ToString();
+                (sender as PictureBox).Image = null;
 
-                if (PCache.Image == WRook.Image || PCache.Image == BRook.Image)
+                if (PCache.ImageLocation == WRook.ImageLocation || PCache.ImageLocation == BRook.ImageLocation)
                 {
+                    Unit = "Rook";
                     if ((Move1 == "A7") || (Move1 == "B7") || (Move1 == "C7") || (Move1 == "D7") || (Move1 == "E7") || (Move1 == "F7") || (Move1 == "G7") || (Move1 == "H7"))
                     {
-                        Unit = "rook";
                         A6.BackColor = Color.LightGreen;
                         A5.BackColor = Color.LightGreen;
                         if (B6.Image != null)
@@ -196,7 +269,7 @@ namespace FormTop_games
                     {
                         if (B4.Image != null)
                         {
-                            if(B4.Image == Properties.Resources.White_rook || B4.Image == Properties.Resources.Black_rook1)
+                            if (B4.Image == Properties.Resources.White_rook || B4.Image == Properties.Resources.Black_rook1)
                             {
                                 B3.BackColor = Color.LightGreen;
                             }
@@ -205,138 +278,39 @@ namespace FormTop_games
                     else
                     {
                         A6.BackColor = Color.LightGreen;
-                        if (B6 != null)
+                        if (B6.Image != null)
                         {
                             B6.BackColor = Color.LightGreen;
                         }
                     }
                 }
-                else if (PCache.Image == Properties.Resources.White_knight || PCache.Image == Properties.Resources.Black_knight1)
+                else if (PCache.ImageLocation == WKnigth.ImageLocation || PCache.ImageLocation == BKnigth.ImageLocation)
                 {
-
+                    Unit = "Knigth";
                 }
-                else if (PCache.Image == Properties.Resources.White_tower || PCache.Image == Properties.Resources.Black_tower1)
+                else if (PCache.ImageLocation == WTower.ImageLocation || PCache.ImageLocation == BTower.ImageLocation)
                 {
-
+                    Unit = "Tower";
                 }
-                else if (PCache.Image == Properties.Resources.White_bishop || PCache.Image == Properties.Resources.Black_bishop1)
+                else if (PCache.ImageLocation == WBishop.ImageLocation || PCache.ImageLocation == BBishop.ImageLocation)
                 {
-
+                    Unit = "Bishop";
                 }
-                else if (PCache.Image == Properties.Resources.White_King || PCache.Image == Properties.Resources.Black_King1)
+                else if (PCache.ImageLocation == WKing.ImageLocation || PCache.ImageLocation == BKing.ImageLocation)
                 {
-
+                    Unit = "King";
                 }
-                else if (PCache.Image == Properties.Resources.White_queen || PCache.Image == Properties.Resources.Black_queen1)
+                else if (PCache.ImageLocation == WQueen.ImageLocation || PCache.ImageLocation == BQueen.ImageLocation)
                 {
-
+                    Unit = "Queen";
                 }
-                Selected.Text = "Selected slot: " + Move1 + " Selected unit" + Unit;
+                Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
             }
         }
 
-        private void A6_Click(object sender, EventArgs e)
+        private void PCache_Click(object sender, EventArgs e)
         {
 
-            //Checking if the tile has a piece on it
-            //If it doesnt
-            if (A6.Image == null)
-            {
-                //Checking if a piece containing tile has been clicked
-                if (Move1 == null)
-                {
-
-                }
-                else
-                {
-                    A6.Image = PCache.Image;
-                    Move1 = null;
-                    PCache.Image = null;
-
-                    A1.BackColor = Color.White;
-                    A2.BackColor = Color.Black;
-                    A3.BackColor = Color.White;
-                    A4.BackColor = Color.Black;
-                    A5.BackColor = Color.White;
-                    A6.BackColor = Color.Black;
-                    A7.BackColor = Color.White;
-                    A8.BackColor = Color.Black;
-
-                    B1.BackColor = Color.Black;
-                    B2.BackColor = Color.White;
-                    B3.BackColor = Color.Black;
-                    B4.BackColor = Color.White;
-                    B5.BackColor = Color.Black;
-                    B6.BackColor = Color.White;
-                    B7.BackColor = Color.Black;
-                    B8.BackColor = Color.White;
-
-                    C1.BackColor = Color.White;
-                    C2.BackColor = Color.Black;
-                    C3.BackColor = Color.White;
-                    C4.BackColor = Color.Black;
-                    C5.BackColor = Color.White;
-                    C6.BackColor = Color.Black;
-                    C7.BackColor = Color.White;
-                    C8.BackColor = Color.Black;
-
-                    D1.BackColor = Color.Black;
-                    D2.BackColor = Color.White;
-                    D3.BackColor = Color.Black;
-                    D4.BackColor = Color.White;
-                    D5.BackColor = Color.Black;
-                    D6.BackColor = Color.White;
-                    D7.BackColor = Color.Black;
-                    D8.BackColor = Color.White;
-
-                    E1.BackColor = Color.White;
-                    E2.BackColor = Color.Black;
-                    E3.BackColor = Color.White;
-                    E4.BackColor = Color.Black;
-                    E5.BackColor = Color.White;
-                    E6.BackColor = Color.Black;
-                    E7.BackColor = Color.White;
-                    E8.BackColor = Color.Black;
-
-                    F1.BackColor = Color.Black;
-                    F2.BackColor = Color.White;
-                    F3.BackColor = Color.Black;
-                    F4.BackColor = Color.White;
-                    F5.BackColor = Color.Black;
-                    F6.BackColor = Color.White;
-                    F7.BackColor = Color.Black;
-                    F8.BackColor = Color.White;
-
-                    G1.BackColor = Color.White;
-                    G2.BackColor = Color.Black;
-                    G3.BackColor = Color.White;
-                    G4.BackColor = Color.Black;
-                    G5.BackColor = Color.White;
-                    G6.BackColor = Color.Black;
-                    G7.BackColor = Color.White;
-                    G8.BackColor = Color.Black;
-
-                    H1.BackColor = Color.Black;
-                    H2.BackColor = Color.White;
-                    H3.BackColor = Color.Black;
-                    H4.BackColor = Color.White;
-                    H5.BackColor = Color.Black;
-                    H6.BackColor = Color.White;
-                    H7.BackColor = Color.Black;
-                    H8.BackColor = Color.White;
-
-                }
-            }
-            //If it has a picture
-            else if (A6.Image != null)
-            {
-                A6.BackColor = Color.Green;
-                Move1 = "A6";
-                PCache.Image = A6.Image;
-                Selected.Text = Move1;
-                A6.Image = null;
-            }
         }
-        
     }
     }

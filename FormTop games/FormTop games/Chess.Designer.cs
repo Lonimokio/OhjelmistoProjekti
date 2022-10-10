@@ -560,7 +560,6 @@
             this.A7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A7.TabIndex = 63;
             this.A7.TabStop = false;
-            this.A7.Click += new System.EventHandler(this.A7_Click);
             // 
             // H6
             // 
@@ -637,7 +636,6 @@
             this.A6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A6.TabIndex = 55;
             this.A6.TabStop = false;
-            this.A6.Click += new System.EventHandler(this.A6_Click);
             // 
             // H5
             // 
@@ -1069,6 +1067,7 @@
             this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PCache.TabIndex = 99;
             this.PCache.TabStop = false;
+            this.PCache.Click += new System.EventHandler(this.PCache_Click);
             // 
             // BRook
             // 
