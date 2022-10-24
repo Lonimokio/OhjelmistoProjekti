@@ -167,6 +167,7 @@
             this.CPassword.Name = "CPassword";
             this.CPassword.Size = new System.Drawing.Size(129, 26);
             this.CPassword.TabIndex = 7;
+            this.CPassword.UseSystemPasswordChar = true;
             this.CPassword.TextChanged += new System.EventHandler(this.CPassword_TextChanged);
             // 
             // CName

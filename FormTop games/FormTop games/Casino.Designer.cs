@@ -148,6 +148,7 @@
             // 
             // Balance
             // 
+            this.Balance.Enabled = false;
             this.Balance.Location = new System.Drawing.Point(695, 80);
             this.Balance.Name = "Balance";
             this.Balance.Size = new System.Drawing.Size(89, 20);

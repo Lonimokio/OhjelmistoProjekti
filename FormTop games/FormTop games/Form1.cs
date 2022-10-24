@@ -44,11 +44,11 @@ namespace FormTop_games
             }
             if (SName.Text == View2.Text)
             {
-                MessageBox.Show("Username "+View2.Text +" already exist", "Error: Username");
+                MessageBox.Show("Username " + View2.Text + " already exist", "Error: Username");
             }
             else
             {
-                var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
+                var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority&authSource=SignIn");
                 settings.ServerApi = new ServerApi(ServerApiVersion.V1);
                 var client = new MongoClient(settings); var database = client.GetDatabase("SignIn");
                 var coll = database.GetCollection<BsonDocument>("Users");
@@ -60,9 +60,9 @@ namespace FormTop_games
                 TestID.SelectedIndex = 0;
                 int Length = TestID.Items.Count;
                 Length = Length - 1;
-                    TestID.SelectedIndex = Length;
-                        id = int.Parse(TestID.Text);
-                        id = id + 1;
+                TestID.SelectedIndex = Length;
+                id = int.Parse(TestID.Text);
+                id = id + 1;
 
                 //Take the values from CName and CPassword and adds them to database
                 String name = CName.Text;
@@ -70,22 +70,16 @@ namespace FormTop_games
                 int Balance = 500;
                 var fil = Builders<BsonDocument>.Filter.Eq("_id", id);
                 var filteredDocument = coll.Find(fil).FirstOrDefault();
+
                 if (filteredDocument == null)
                 {
-                    var newDoc = new BsonDocument { { "_id", id }, { "Name", name }, { "Password", Password },{"Balance", Balance } };
+                    var newDoc = new BsonDocument { { "_id", id }, { "Name", name }, { "Password", Password }, { "Balance", Balance } };
                     coll.InsertOne(newDoc);
                     MessageBox.Show("Created account succesfully!", "Account created");
                 }
-                else { MessageBox.Show("ID already exists!"); }
-
-                TestID.Items.Clear();
-                View2.Items.Clear();
-                View3.Items.Clear();
-                var Search2 = coll.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Include("Name").Include("Password")).ToList();
-                foreach (var OneDocument in Search2)
+                else 
                 {
-                    View2.Items.Add(OneDocument.GetElement("Name").Value);
-                    View3.Items.Add(OneDocument.GetElement("Password").Value);
+                    MessageBox.Show("ID already exists!");
                 }
             }
         }
@@ -136,7 +130,7 @@ namespace FormTop_games
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000&authSource=SignIn");
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
             var database = client.GetDatabase("SignIn");

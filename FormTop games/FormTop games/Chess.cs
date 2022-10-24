@@ -92,6 +92,9 @@ namespace FormTop_games
         //Variable below here
         string Move1 = "A7";
         string Unit;
+        string Math;
+        int Calculation;
+        string Result;
         //Variable abowe here
 
         private void Chess_Load(object sender, EventArgs e)
@@ -258,8 +261,21 @@ namespace FormTop_games
                     Unit = "Rook";
                     if ((Move1 == "A7") || (Move1 == "B7") || (Move1 == "C7") || (Move1 == "D7") || (Move1 == "E7") || (Move1 == "F7") || (Move1 == "G7") || (Move1 == "H7"))
                     {
+                        //Ref Thing might be the solution. Reaserach more into it
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 2));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+
+                        Test1.Text = Calculation.ToString();
                         A6.BackColor = Color.LightGreen;
+
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+
+                        Test2.Text = Calculation.ToString();
                         A5.BackColor = Color.LightGreen;
+
                         if (B6.Image != null)
                         {
                             B6.BackColor = Color.LightGreen;
