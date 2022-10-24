@@ -402,6 +402,7 @@
             this.H8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.H8.TabIndex = 78;
             this.H8.TabStop = false;
+            this.H8.Click += new System.EventHandler(this.H8_Click);
             // 
             // G8
             // 
@@ -1054,14 +1055,14 @@
             // 
             // Selected
             // 
-            this.Selected.Location = new System.Drawing.Point(658, 140);
+            this.Selected.Location = new System.Drawing.Point(630, 135);
             this.Selected.Name = "Selected";
             this.Selected.Size = new System.Drawing.Size(100, 20);
             this.Selected.TabIndex = 97;
             // 
             // PCache
             // 
-            this.PCache.Location = new System.Drawing.Point(658, 59);
+            this.PCache.Location = new System.Drawing.Point(630, 54);
             this.PCache.Name = "PCache";
             this.PCache.Size = new System.Drawing.Size(100, 76);
             this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1203,14 +1204,14 @@
             // 
             // Test1
             // 
-            this.Test1.Location = new System.Drawing.Point(635, 218);
+            this.Test1.Location = new System.Drawing.Point(630, 213);
             this.Test1.Name = "Test1";
             this.Test1.Size = new System.Drawing.Size(100, 20);
             this.Test1.TabIndex = 112;
             // 
             // Test2
             // 
-            this.Test2.Location = new System.Drawing.Point(635, 244);
+            this.Test2.Location = new System.Drawing.Point(630, 239);
             this.Test2.Name = "Test2";
             this.Test2.Size = new System.Drawing.Size(100, 20);
             this.Test2.TabIndex = 113;

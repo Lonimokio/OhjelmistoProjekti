@@ -95,6 +95,7 @@ namespace FormTop_games
         string Math;
         int Calculation;
         string Result;
+        string FString;
         //Variable abowe here
 
         private void Chess_Load(object sender, EventArgs e)
@@ -152,7 +153,38 @@ namespace FormTop_games
         {
             
         }
+        public void GetFString()
+        {
 
+            if (Math.Substring(0, 1) == "A")
+            {
+                FString = "B";
+            }
+            else if (Math.Substring(0, 1) == "B")
+            {
+                FString = "C";
+            }
+            else if (Math.Substring(0, 1) == "C")
+            {
+                FString = "D";
+            }
+            else if (Math.Substring(0, 1) == "D")
+            {
+                FString = "E";
+            }
+            else if (Math.Substring(0, 1) == "E")
+            {
+                FString = "F";
+            }
+            else if (Math.Substring(0, 1) == "F")
+            {
+                FString = "G";
+            }
+            else
+            {
+
+            }
+        }
 
 
         //Making picture boxes do stuff
@@ -167,7 +199,7 @@ namespace FormTop_games
                 {
 
                 }
-                else
+                else if ((sender as PictureBox).BackColor.ToString() == "LightGreen")
                 {
                     PictureBox test = (sender as PictureBox);
                     (sender as PictureBox).Image = PCache.Image;
@@ -248,6 +280,7 @@ namespace FormTop_games
                 }
             }
             //If it has a picture
+            //Checking legal moves
             else if ((sender as PictureBox).Image != null)
             {
                 (sender as PictureBox).BackColor = Color.Green;
@@ -256,44 +289,70 @@ namespace FormTop_games
                 Selected.Text = "Selected slot: " + Move1;
                 (sender as PictureBox).Image = null;
 
+                
+                //Checking legal rook moves
                 if (PCache.ImageLocation == WRook.ImageLocation || PCache.ImageLocation == BRook.ImageLocation)
                 {
+                    Math = (sender as PictureBox).Name;
                     Unit = "Rook";
+                    //Checking if starting in first square
                     if ((Move1 == "A7") || (Move1 == "B7") || (Move1 == "C7") || (Move1 == "D7") || (Move1 == "E7") || (Move1 == "F7") || (Move1 == "G7") || (Move1 == "H7"))
                     {
-                        //Ref Thing might be the solution. Reaserach more into it
-                        Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 2));
-                        Calculation = Calculation + 1;
+                        Calculation = int.Parse(Math.Substring(1,1));
+                        Calculation = Calculation - 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
+                        Test1.Text = Result.ToString();
+                        this.Controls[Result].BackColor = Color.LightGreen;
 
-                        Test1.Text = Calculation.ToString();
-                        A6.BackColor = Color.LightGreen;
-
-                        Calculation = Calculation + 1;
+                        Calculation = Calculation - 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
+                        Test2.Text = Result.ToString();
+                        this.Controls[Result].BackColor = Color.LightGreen;
 
-                        Test2.Text = Calculation.ToString();
-                        A5.BackColor = Color.LightGreen;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
-                        if (B6.Image != null)
+                        //Checking if you can eat
+                        if (ReferenceBox.Image != null)
                         {
-                            B6.BackColor = Color.LightGreen;
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation - 1;
+
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            this.Controls[Result].BackColor = Color.LightGreen;
                         }
                     }
+                    
+                    //En passant logic
                     else if ((Move1 == "A4") || (Move1 == "B4") || (Move1 == "C4") || (Move1 == "D4") || (Move1 == "E4") || (Move1 == "F4") || (Move1 == "G4") || (Move1 == "H4"))
                     {
-                        if (B4.Image != null)
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Image != null)
                         {
-                            if (B4.Image == Properties.Resources.White_rook || B4.Image == Properties.Resources.Black_rook1)
+                            if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
                             {
-                                B3.BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = FString + Calculation.ToString();
+                                this.Controls[Result].BackColor = Color.LightGreen;
                             }
+
                         }
                     }
                     else
                     {
-                        A6.BackColor = Color.LightGreen;
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+
+                        this.Controls[Result].BackColor = Color.LightGreen;
+
                         if (B6.Image != null)
                         {
                             B6.BackColor = Color.LightGreen;
@@ -325,6 +384,11 @@ namespace FormTop_games
         }
 
         private void PCache_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void H8_Click(object sender, EventArgs e)
         {
 
         }
