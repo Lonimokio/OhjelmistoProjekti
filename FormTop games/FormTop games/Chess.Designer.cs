@@ -47,6 +47,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.Selected = new System.Windows.Forms.TextBox();
+            this.Test1 = new System.Windows.Forms.TextBox();
+            this.Test2 = new System.Windows.Forms.TextBox();
+            this.WBishop = new System.Windows.Forms.PictureBox();
+            this.WKing = new System.Windows.Forms.PictureBox();
+            this.WKnigth = new System.Windows.Forms.PictureBox();
+            this.WQueen = new System.Windows.Forms.PictureBox();
+            this.WTower = new System.Windows.Forms.PictureBox();
+            this.WRook = new System.Windows.Forms.PictureBox();
+            this.BBishop = new System.Windows.Forms.PictureBox();
+            this.BKing = new System.Windows.Forms.PictureBox();
+            this.BKnigth = new System.Windows.Forms.PictureBox();
+            this.BQueen = new System.Windows.Forms.PictureBox();
+            this.BTower = new System.Windows.Forms.PictureBox();
+            this.BRook = new System.Windows.Forms.PictureBox();
+            this.PCache = new System.Windows.Forms.PictureBox();
             this.H8 = new System.Windows.Forms.PictureBox();
             this.G8 = new System.Windows.Forms.PictureBox();
             this.F8 = new System.Windows.Forms.PictureBox();
@@ -113,22 +129,19 @@
             this.A1 = new System.Windows.Forms.PictureBox();
             this.pictureBox65 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Selected = new System.Windows.Forms.TextBox();
-            this.PCache = new System.Windows.Forms.PictureBox();
-            this.BRook = new System.Windows.Forms.PictureBox();
-            this.BTower = new System.Windows.Forms.PictureBox();
-            this.BQueen = new System.Windows.Forms.PictureBox();
-            this.BKnigth = new System.Windows.Forms.PictureBox();
-            this.BKing = new System.Windows.Forms.PictureBox();
-            this.BBishop = new System.Windows.Forms.PictureBox();
-            this.WBishop = new System.Windows.Forms.PictureBox();
-            this.WKing = new System.Windows.Forms.PictureBox();
-            this.WKnigth = new System.Windows.Forms.PictureBox();
-            this.WQueen = new System.Windows.Forms.PictureBox();
-            this.WTower = new System.Windows.Forms.PictureBox();
-            this.WRook = new System.Windows.Forms.PictureBox();
-            this.Test1 = new System.Windows.Forms.TextBox();
-            this.Test2 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WRook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BRook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCache)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.G8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.F8)).BeginInit();
@@ -195,19 +208,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.A1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCache)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BRook)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BKing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WTower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WRook)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLobby
@@ -393,6 +393,181 @@
             this.label16.TabIndex = 88;
             this.label16.Text = "1";
             // 
+            // Selected
+            // 
+            this.Selected.Location = new System.Drawing.Point(630, 135);
+            this.Selected.Name = "Selected";
+            this.Selected.Size = new System.Drawing.Size(100, 20);
+            this.Selected.TabIndex = 97;
+            // 
+            // Test1
+            // 
+            this.Test1.Location = new System.Drawing.Point(630, 213);
+            this.Test1.Name = "Test1";
+            this.Test1.Size = new System.Drawing.Size(100, 20);
+            this.Test1.TabIndex = 112;
+            // 
+            // Test2
+            // 
+            this.Test2.Location = new System.Drawing.Point(630, 239);
+            this.Test2.Name = "Test2";
+            this.Test2.Size = new System.Drawing.Size(100, 20);
+            this.Test2.TabIndex = 113;
+            // 
+            // WBishop
+            // 
+            this.WBishop.Image = global::FormTop_games.Properties.Resources.White_bishop;
+            this.WBishop.Location = new System.Drawing.Point(177, 104);
+            this.WBishop.Name = "WBishop";
+            this.WBishop.Size = new System.Drawing.Size(25, 26);
+            this.WBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WBishop.TabIndex = 111;
+            this.WBishop.TabStop = false;
+            this.WBishop.Tag = "WBishop";
+            this.WBishop.Visible = false;
+            // 
+            // WKing
+            // 
+            this.WKing.Image = global::FormTop_games.Properties.Resources.White_King;
+            this.WKing.Location = new System.Drawing.Point(146, 104);
+            this.WKing.Name = "WKing";
+            this.WKing.Size = new System.Drawing.Size(25, 26);
+            this.WKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WKing.TabIndex = 110;
+            this.WKing.TabStop = false;
+            this.WKing.Tag = "WKing";
+            this.WKing.Visible = false;
+            // 
+            // WKnigth
+            // 
+            this.WKnigth.Image = global::FormTop_games.Properties.Resources.White_knight;
+            this.WKnigth.Location = new System.Drawing.Point(115, 104);
+            this.WKnigth.Name = "WKnigth";
+            this.WKnigth.Size = new System.Drawing.Size(25, 26);
+            this.WKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WKnigth.TabIndex = 109;
+            this.WKnigth.TabStop = false;
+            this.WKnigth.Tag = "WKnigth";
+            this.WKnigth.Visible = false;
+            // 
+            // WQueen
+            // 
+            this.WQueen.Image = global::FormTop_games.Properties.Resources.White_queen;
+            this.WQueen.Location = new System.Drawing.Point(84, 104);
+            this.WQueen.Name = "WQueen";
+            this.WQueen.Size = new System.Drawing.Size(25, 26);
+            this.WQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WQueen.TabIndex = 108;
+            this.WQueen.TabStop = false;
+            this.WQueen.Tag = "WQueen";
+            this.WQueen.Visible = false;
+            // 
+            // WTower
+            // 
+            this.WTower.Image = global::FormTop_games.Properties.Resources.White_tower;
+            this.WTower.Location = new System.Drawing.Point(53, 104);
+            this.WTower.Name = "WTower";
+            this.WTower.Size = new System.Drawing.Size(25, 26);
+            this.WTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WTower.TabIndex = 107;
+            this.WTower.TabStop = false;
+            this.WTower.Tag = "WTower";
+            this.WTower.Visible = false;
+            // 
+            // WRook
+            // 
+            this.WRook.Image = global::FormTop_games.Properties.Resources.White_rook;
+            this.WRook.Location = new System.Drawing.Point(22, 104);
+            this.WRook.Name = "WRook";
+            this.WRook.Size = new System.Drawing.Size(25, 26);
+            this.WRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WRook.TabIndex = 106;
+            this.WRook.TabStop = false;
+            this.WRook.Tag = "WRook";
+            this.WRook.Visible = false;
+            // 
+            // BBishop
+            // 
+            this.BBishop.Image = global::FormTop_games.Properties.Resources.Black_bishop1;
+            this.BBishop.Location = new System.Drawing.Point(177, 72);
+            this.BBishop.Name = "BBishop";
+            this.BBishop.Size = new System.Drawing.Size(25, 26);
+            this.BBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BBishop.TabIndex = 105;
+            this.BBishop.TabStop = false;
+            this.BBishop.Tag = "BBishop";
+            this.BBishop.Visible = false;
+            // 
+            // BKing
+            // 
+            this.BKing.Image = global::FormTop_games.Properties.Resources.Black_King1;
+            this.BKing.Location = new System.Drawing.Point(146, 72);
+            this.BKing.Name = "BKing";
+            this.BKing.Size = new System.Drawing.Size(25, 26);
+            this.BKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BKing.TabIndex = 104;
+            this.BKing.TabStop = false;
+            this.BKing.Tag = "BKing";
+            this.BKing.Visible = false;
+            // 
+            // BKnigth
+            // 
+            this.BKnigth.Image = global::FormTop_games.Properties.Resources.Black_knight1;
+            this.BKnigth.Location = new System.Drawing.Point(115, 72);
+            this.BKnigth.Name = "BKnigth";
+            this.BKnigth.Size = new System.Drawing.Size(25, 26);
+            this.BKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BKnigth.TabIndex = 103;
+            this.BKnigth.TabStop = false;
+            this.BKnigth.Tag = "BKnigth";
+            this.BKnigth.Visible = false;
+            // 
+            // BQueen
+            // 
+            this.BQueen.Image = global::FormTop_games.Properties.Resources.Black_queen1;
+            this.BQueen.Location = new System.Drawing.Point(84, 72);
+            this.BQueen.Name = "BQueen";
+            this.BQueen.Size = new System.Drawing.Size(25, 26);
+            this.BQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BQueen.TabIndex = 102;
+            this.BQueen.TabStop = false;
+            this.BQueen.Tag = "BQueen";
+            this.BQueen.Visible = false;
+            // 
+            // BTower
+            // 
+            this.BTower.Image = global::FormTop_games.Properties.Resources.Black_tower1;
+            this.BTower.Location = new System.Drawing.Point(53, 72);
+            this.BTower.Name = "BTower";
+            this.BTower.Size = new System.Drawing.Size(25, 26);
+            this.BTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BTower.TabIndex = 101;
+            this.BTower.TabStop = false;
+            this.BTower.Tag = "BTower";
+            this.BTower.Visible = false;
+            // 
+            // BRook
+            // 
+            this.BRook.Image = global::FormTop_games.Properties.Resources.Black_rook1;
+            this.BRook.Location = new System.Drawing.Point(22, 72);
+            this.BRook.Name = "BRook";
+            this.BRook.Size = new System.Drawing.Size(25, 26);
+            this.BRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BRook.TabIndex = 100;
+            this.BRook.TabStop = false;
+            this.BRook.Tag = "BRook";
+            this.BRook.Visible = false;
+            // 
+            // PCache
+            // 
+            this.PCache.Location = new System.Drawing.Point(630, 54);
+            this.PCache.Name = "PCache";
+            this.PCache.Size = new System.Drawing.Size(100, 76);
+            this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCache.TabIndex = 99;
+            this.PCache.TabStop = false;
+            this.PCache.Click += new System.EventHandler(this.PCache_Click);
+            // 
             // H8
             // 
             this.H8.Image = global::FormTop_games.Properties.Resources.White_tower;
@@ -402,6 +577,7 @@
             this.H8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.H8.TabIndex = 78;
             this.H8.TabStop = false;
+            this.H8.Tag = "WTower";
             this.H8.Click += new System.EventHandler(this.H8_Click);
             // 
             // G8
@@ -414,6 +590,8 @@
             this.G8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.G8.TabIndex = 77;
             this.G8.TabStop = false;
+            this.G8.Tag = "WKnigth";
+            this.G8.Click += new System.EventHandler(this.G8_Click);
             // 
             // F8
             // 
@@ -424,6 +602,7 @@
             this.F8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.F8.TabIndex = 76;
             this.F8.TabStop = false;
+            this.F8.Tag = "WBishop";
             // 
             // E8
             // 
@@ -435,6 +614,7 @@
             this.E8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E8.TabIndex = 75;
             this.E8.TabStop = false;
+            this.E8.Tag = "WQueen";
             // 
             // D8
             // 
@@ -445,6 +625,7 @@
             this.D8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D8.TabIndex = 74;
             this.D8.TabStop = false;
+            this.D8.Tag = "WKing";
             // 
             // C8
             // 
@@ -456,6 +637,7 @@
             this.C8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.C8.TabIndex = 73;
             this.C8.TabStop = false;
+            this.C8.Tag = "WBishop";
             // 
             // B8
             // 
@@ -466,6 +648,8 @@
             this.B8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.B8.TabIndex = 72;
             this.B8.TabStop = false;
+            this.B8.Tag = "WKnigth";
+            this.B8.Click += new System.EventHandler(this.B8_Click);
             // 
             // A8
             // 
@@ -477,6 +661,8 @@
             this.A8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A8.TabIndex = 71;
             this.A8.TabStop = false;
+            this.A8.Tag = "WTower";
+            this.A8.Click += new System.EventHandler(this.A8_Click);
             // 
             // H7
             // 
@@ -488,6 +674,7 @@
             this.H7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.H7.TabIndex = 70;
             this.H7.TabStop = false;
+            this.H7.Tag = "WRook";
             // 
             // G7
             // 
@@ -498,6 +685,7 @@
             this.G7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.G7.TabIndex = 69;
             this.G7.TabStop = false;
+            this.G7.Tag = "WRook";
             // 
             // F7
             // 
@@ -509,6 +697,7 @@
             this.F7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.F7.TabIndex = 68;
             this.F7.TabStop = false;
+            this.F7.Tag = "WRook";
             // 
             // E7
             // 
@@ -519,6 +708,7 @@
             this.E7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E7.TabIndex = 67;
             this.E7.TabStop = false;
+            this.E7.Tag = "WRook";
             // 
             // D7
             // 
@@ -530,6 +720,7 @@
             this.D7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D7.TabIndex = 66;
             this.D7.TabStop = false;
+            this.D7.Tag = "WRook";
             // 
             // C7
             // 
@@ -540,6 +731,7 @@
             this.C7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.C7.TabIndex = 65;
             this.C7.TabStop = false;
+            this.C7.Tag = "WRook";
             // 
             // B7
             // 
@@ -551,6 +743,7 @@
             this.B7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.B7.TabIndex = 64;
             this.B7.TabStop = false;
+            this.B7.Tag = "WRook";
             // 
             // A7
             // 
@@ -561,6 +754,7 @@
             this.A7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A7.TabIndex = 63;
             this.A7.TabStop = false;
+            this.A7.Tag = "WRook";
             // 
             // H6
             // 
@@ -876,6 +1070,7 @@
             this.H2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.H2.TabIndex = 30;
             this.H2.TabStop = false;
+            this.H2.Tag = "BRook";
             // 
             // G2
             // 
@@ -887,6 +1082,7 @@
             this.G2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.G2.TabIndex = 29;
             this.G2.TabStop = false;
+            this.G2.Tag = "BRook";
             // 
             // F2
             // 
@@ -897,6 +1093,7 @@
             this.F2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.F2.TabIndex = 28;
             this.F2.TabStop = false;
+            this.F2.Tag = "BRook";
             // 
             // E2
             // 
@@ -908,6 +1105,7 @@
             this.E2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E2.TabIndex = 27;
             this.E2.TabStop = false;
+            this.E2.Tag = "BRook";
             // 
             // D2
             // 
@@ -918,6 +1116,7 @@
             this.D2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D2.TabIndex = 26;
             this.D2.TabStop = false;
+            this.D2.Tag = "BRook";
             // 
             // C2
             // 
@@ -929,6 +1128,7 @@
             this.C2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.C2.TabIndex = 25;
             this.C2.TabStop = false;
+            this.C2.Tag = "BRook";
             // 
             // B2
             // 
@@ -939,6 +1139,7 @@
             this.B2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.B2.TabIndex = 24;
             this.B2.TabStop = false;
+            this.B2.Tag = "BRook";
             // 
             // A2
             // 
@@ -950,6 +1151,7 @@
             this.A2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A2.TabIndex = 23;
             this.A2.TabStop = false;
+            this.A2.Tag = "BRook";
             // 
             // H1
             // 
@@ -961,6 +1163,7 @@
             this.H1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.H1.TabIndex = 22;
             this.H1.TabStop = false;
+            this.H1.Tag = "BTower";
             // 
             // G1
             // 
@@ -971,6 +1174,7 @@
             this.G1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.G1.TabIndex = 21;
             this.G1.TabStop = false;
+            this.G1.Tag = "BKnigth";
             // 
             // F1
             // 
@@ -982,6 +1186,7 @@
             this.F1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.F1.TabIndex = 20;
             this.F1.TabStop = false;
+            this.F1.Tag = "BBishop";
             // 
             // E1
             // 
@@ -992,6 +1197,7 @@
             this.E1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E1.TabIndex = 19;
             this.E1.TabStop = false;
+            this.E1.Tag = "BQueen";
             // 
             // D1
             // 
@@ -1003,6 +1209,7 @@
             this.D1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D1.TabIndex = 18;
             this.D1.TabStop = false;
+            this.D1.Tag = "BKing";
             // 
             // C1
             // 
@@ -1013,6 +1220,7 @@
             this.C1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.C1.TabIndex = 17;
             this.C1.TabStop = false;
+            this.C1.Tag = "BBishop";
             // 
             // B1
             // 
@@ -1024,6 +1232,7 @@
             this.B1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.B1.TabIndex = 16;
             this.B1.TabStop = false;
+            this.B1.Tag = "BKnigth";
             // 
             // A1
             // 
@@ -1034,6 +1243,7 @@
             this.A1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.A1.TabIndex = 15;
             this.A1.TabStop = false;
+            this.A1.Tag = "BTower";
             // 
             // pictureBox65
             // 
@@ -1047,174 +1257,11 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox1.Location = new System.Drawing.Point(251, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(251, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(305, 290);
             this.pictureBox1.TabIndex = 96;
             this.pictureBox1.TabStop = false;
-            // 
-            // Selected
-            // 
-            this.Selected.Location = new System.Drawing.Point(630, 135);
-            this.Selected.Name = "Selected";
-            this.Selected.Size = new System.Drawing.Size(100, 20);
-            this.Selected.TabIndex = 97;
-            // 
-            // PCache
-            // 
-            this.PCache.Location = new System.Drawing.Point(630, 54);
-            this.PCache.Name = "PCache";
-            this.PCache.Size = new System.Drawing.Size(100, 76);
-            this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PCache.TabIndex = 99;
-            this.PCache.TabStop = false;
-            this.PCache.Click += new System.EventHandler(this.PCache_Click);
-            // 
-            // BRook
-            // 
-            this.BRook.Image = global::FormTop_games.Properties.Resources.Black_rook1;
-            this.BRook.Location = new System.Drawing.Point(22, 72);
-            this.BRook.Name = "BRook";
-            this.BRook.Size = new System.Drawing.Size(25, 26);
-            this.BRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BRook.TabIndex = 100;
-            this.BRook.TabStop = false;
-            this.BRook.Visible = false;
-            // 
-            // BTower
-            // 
-            this.BTower.Image = global::FormTop_games.Properties.Resources.Black_tower1;
-            this.BTower.Location = new System.Drawing.Point(53, 72);
-            this.BTower.Name = "BTower";
-            this.BTower.Size = new System.Drawing.Size(25, 26);
-            this.BTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BTower.TabIndex = 101;
-            this.BTower.TabStop = false;
-            this.BTower.Visible = false;
-            // 
-            // BQueen
-            // 
-            this.BQueen.Image = global::FormTop_games.Properties.Resources.Black_queen1;
-            this.BQueen.Location = new System.Drawing.Point(84, 72);
-            this.BQueen.Name = "BQueen";
-            this.BQueen.Size = new System.Drawing.Size(25, 26);
-            this.BQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BQueen.TabIndex = 102;
-            this.BQueen.TabStop = false;
-            this.BQueen.Visible = false;
-            // 
-            // BKnigth
-            // 
-            this.BKnigth.Image = global::FormTop_games.Properties.Resources.Black_knight1;
-            this.BKnigth.Location = new System.Drawing.Point(115, 72);
-            this.BKnigth.Name = "BKnigth";
-            this.BKnigth.Size = new System.Drawing.Size(25, 26);
-            this.BKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BKnigth.TabIndex = 103;
-            this.BKnigth.TabStop = false;
-            this.BKnigth.Visible = false;
-            // 
-            // BKing
-            // 
-            this.BKing.Image = global::FormTop_games.Properties.Resources.Black_King1;
-            this.BKing.Location = new System.Drawing.Point(146, 72);
-            this.BKing.Name = "BKing";
-            this.BKing.Size = new System.Drawing.Size(25, 26);
-            this.BKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BKing.TabIndex = 104;
-            this.BKing.TabStop = false;
-            this.BKing.Visible = false;
-            // 
-            // BBishop
-            // 
-            this.BBishop.Image = global::FormTop_games.Properties.Resources.Black_bishop1;
-            this.BBishop.Location = new System.Drawing.Point(177, 72);
-            this.BBishop.Name = "BBishop";
-            this.BBishop.Size = new System.Drawing.Size(25, 26);
-            this.BBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BBishop.TabIndex = 105;
-            this.BBishop.TabStop = false;
-            this.BBishop.Visible = false;
-            // 
-            // WBishop
-            // 
-            this.WBishop.Image = global::FormTop_games.Properties.Resources.White_bishop;
-            this.WBishop.Location = new System.Drawing.Point(177, 104);
-            this.WBishop.Name = "WBishop";
-            this.WBishop.Size = new System.Drawing.Size(25, 26);
-            this.WBishop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WBishop.TabIndex = 111;
-            this.WBishop.TabStop = false;
-            this.WBishop.Visible = false;
-            // 
-            // WKing
-            // 
-            this.WKing.Image = global::FormTop_games.Properties.Resources.White_King;
-            this.WKing.Location = new System.Drawing.Point(146, 104);
-            this.WKing.Name = "WKing";
-            this.WKing.Size = new System.Drawing.Size(25, 26);
-            this.WKing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WKing.TabIndex = 110;
-            this.WKing.TabStop = false;
-            this.WKing.Visible = false;
-            // 
-            // WKnigth
-            // 
-            this.WKnigth.Image = global::FormTop_games.Properties.Resources.White_knight;
-            this.WKnigth.Location = new System.Drawing.Point(115, 104);
-            this.WKnigth.Name = "WKnigth";
-            this.WKnigth.Size = new System.Drawing.Size(25, 26);
-            this.WKnigth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WKnigth.TabIndex = 109;
-            this.WKnigth.TabStop = false;
-            this.WKnigth.Visible = false;
-            // 
-            // WQueen
-            // 
-            this.WQueen.Image = global::FormTop_games.Properties.Resources.White_queen;
-            this.WQueen.Location = new System.Drawing.Point(84, 104);
-            this.WQueen.Name = "WQueen";
-            this.WQueen.Size = new System.Drawing.Size(25, 26);
-            this.WQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WQueen.TabIndex = 108;
-            this.WQueen.TabStop = false;
-            this.WQueen.Visible = false;
-            // 
-            // WTower
-            // 
-            this.WTower.Image = global::FormTop_games.Properties.Resources.White_tower;
-            this.WTower.Location = new System.Drawing.Point(53, 104);
-            this.WTower.Name = "WTower";
-            this.WTower.Size = new System.Drawing.Size(25, 26);
-            this.WTower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WTower.TabIndex = 107;
-            this.WTower.TabStop = false;
-            this.WTower.Visible = false;
-            // 
-            // WRook
-            // 
-            this.WRook.Image = global::FormTop_games.Properties.Resources.White_rook;
-            this.WRook.Location = new System.Drawing.Point(22, 104);
-            this.WRook.Name = "WRook";
-            this.WRook.Size = new System.Drawing.Size(25, 26);
-            this.WRook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WRook.TabIndex = 106;
-            this.WRook.TabStop = false;
-            this.WRook.Visible = false;
-            // 
-            // Test1
-            // 
-            this.Test1.Location = new System.Drawing.Point(630, 213);
-            this.Test1.Name = "Test1";
-            this.Test1.Size = new System.Drawing.Size(100, 20);
-            this.Test1.TabIndex = 112;
-            // 
-            // Test2
-            // 
-            this.Test2.Location = new System.Drawing.Point(630, 239);
-            this.Test2.Name = "Test2";
-            this.Test2.Size = new System.Drawing.Size(100, 20);
-            this.Test2.TabIndex = 113;
             // 
             // Chess
             // 
@@ -1322,8 +1369,22 @@
             this.Controls.Add(this.pictureBox65);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Chess";
+            this.Tag = "WTower";
             this.Text = "Chess";
             this.Load += new System.EventHandler(this.Chess_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WRook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BTower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BRook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCache)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.G8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.F8)).EndInit();
@@ -1390,19 +1451,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.A1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCache)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BRook)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BTower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BQueen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BKnigth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BKing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BBishop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WBishop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WKing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WQueen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WTower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WRook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

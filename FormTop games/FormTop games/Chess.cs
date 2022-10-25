@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormTop_games
@@ -90,13 +84,31 @@ namespace FormTop_games
         }
 
         //Variable below here
-        string Move1 = "A7";
+        string Move1;
         string Unit;
-        string Math;
-        int Calculation;
+        string Math = "A";
+        int Calculation = 1;
         string Result;
         string FString;
+        int color;
         //Variable abowe here
+
+        /*Image comparison
+        public static List<bool> GetHash(Bitmap bmpSource)
+        {
+            List<bool> lResult = new List<bool>();
+            //create new image with 16x16 pixel
+            Bitmap bmpMin = new Bitmap(bmpSource, new Size(16, 16));
+            for (int j = 0; j < bmpMin.Height; j++)
+            {
+                for (int i = 0; i < bmpMin.Width; i++)
+                {
+                    //reduce colors to true / false                
+                    lResult.Add(bmpMin.GetPixel(i, j).GetBrightness() < 0.5f);
+                }
+            }
+            return lResult;
+        }*/
 
         private void Chess_Load(object sender, EventArgs e)
         {
@@ -119,6 +131,7 @@ namespace FormTop_games
             Table_Top frm2 = new Table_Top();
             frm2.ShowDialog();
         }
+        
 
         //Makes the form resize itself if someone´s changes the size
         private Size oldSize;
@@ -199,12 +212,35 @@ namespace FormTop_games
                 {
 
                 }
-                else if ((sender as PictureBox).BackColor.ToString() == "LightGreen")
+                else if ((sender as PictureBox).BackColor == Color.LightGreen)
                 {
+
                     PictureBox test = (sender as PictureBox);
                     (sender as PictureBox).Image = PCache.Image;
+                    (sender as PictureBox).Tag = PCache.Tag;
                     Move1 = null;
                     PCache.Image = null;
+                    PCache.Tag = null;
+
+
+                    for (int i = 0; i <= 64; i++)
+                    {
+                        Result = FString + Calculation.ToString();
+                        if (color == 1)
+                        {
+                            this.Controls[Result].BackColor = Color.White;
+                        }
+                        else if (color == 2) 
+                        {
+                            this.Controls[Result].BackColor = Color.Black;
+                        }
+                        Calculation++;
+                        if (Calculation == 9)
+                        {
+                            GetFString();
+                            Calculation = 1;
+                        }
+                    }
 
                     A1.BackColor = Color.White;
                     A2.BackColor = Color.Black;
@@ -283,103 +319,183 @@ namespace FormTop_games
             //Checking legal moves
             else if ((sender as PictureBox).Image != null)
             {
-                (sender as PictureBox).BackColor = Color.Green;
-                Move1 = (sender as PictureBox).Name;
-                PCache.Image = (sender as PictureBox).Image;
-                Selected.Text = "Selected slot: " + Move1;
-                (sender as PictureBox).Image = null;
-
-                
-                //Checking legal rook moves
-                if (PCache.ImageLocation == WRook.ImageLocation || PCache.ImageLocation == BRook.ImageLocation)
+                if (Move1 == null)
                 {
-                    Math = (sender as PictureBox).Name;
-                    Unit = "Rook";
-                    //Checking if starting in first square
-                    if ((Move1 == "A7") || (Move1 == "B7") || (Move1 == "C7") || (Move1 == "D7") || (Move1 == "E7") || (Move1 == "F7") || (Move1 == "G7") || (Move1 == "H7"))
+                    (sender as PictureBox).BackColor = Color.Green;
+                    Move1 = (sender as PictureBox).Name;
+                    PCache.Image = (sender as PictureBox).Image;
+                    PCache.Tag = (sender as PictureBox).Tag;
+
+                    Selected.Text = "Selected slot: " + Move1;
+                    (sender as PictureBox).Image = null;
+
+                    //Checking legal white rook moves
+                    if (PCache.Tag == WRook.Tag)
                     {
-                        Calculation = int.Parse(Math.Substring(1,1));
-                        Calculation = Calculation - 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        Test1.Text = Result.ToString();
-                        this.Controls[Result].BackColor = Color.LightGreen;
-
-                        Calculation = Calculation - 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        Test2.Text = Result.ToString();
-                        this.Controls[Result].BackColor = Color.LightGreen;
-
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation - 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-
-                        //Checking if you can eat
-                        if (ReferenceBox.Image != null)
+                        Math = (sender as PictureBox).Name;
+                        Unit = "White rook";
+                        //Checking if starting first square
+                        if ((Move1 == "A7") || (Move1 == "B7") || (Move1 == "C7") || (Move1 == "D7") || (Move1 == "E7") || (Move1 == "F7") || (Move1 == "G7") || (Move1 == "H7"))
                         {
                             Calculation = int.Parse(Math.Substring(1, 1));
                             Calculation = Calculation - 1;
-
-                            GetFString();
-                            Result = FString + Calculation.ToString();
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            Test1.Text = Result.ToString();
                             this.Controls[Result].BackColor = Color.LightGreen;
-                        }
-                    }
-                    
-                    //En passant logic
-                    else if ((Move1 == "A4") || (Move1 == "B4") || (Move1 == "C4") || (Move1 == "D4") || (Move1 == "E4") || (Move1 == "F4") || (Move1 == "G4") || (Move1 == "H4"))
-                    {
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Image != null)
-                        {
-                            if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            Test2.Text = Result.ToString();
+                            this.Controls[Result].BackColor = Color.LightGreen;
+
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                            //Checking if you can eat
+                            if (ReferenceBox.Image != null)
                             {
+                                Calculation = int.Parse(Math.Substring(1, 1));
                                 Calculation = Calculation - 1;
+
+                                GetFString();
                                 Result = FString + Calculation.ToString();
                                 this.Controls[Result].BackColor = Color.LightGreen;
                             }
+                        }
 
+                        //En passant logic
+                        else if ((Move1 == "A4") || (Move1 == "B4") || (Move1 == "C4") || (Move1 == "D4") || (Move1 == "E4") || (Move1 == "F4") || (Move1 == "G4") || (Move1 == "H4"))
+                        {
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Image != null)
+                            {
+                                if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+                                {
+                                    Calculation = Calculation - 1;
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            Math = (sender as PictureBox).Name;
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+
+                            this.Controls[Result].BackColor = Color.LightGreen;
+
+                            if (B6.Image != null)
+                            {
+                                B6.BackColor = Color.LightGreen;
+                            }
                         }
                     }
-                    else
+
+                    /*List<bool> iHash1 = GetHash(new Bitmap(PCache.Image));
+                    List<bool> iHash2 = GetHash(new Bitmap(BRook.Image));
+
+                    //determine the number of equal pixel (x of 256)
+                    int equalElements = iHash1.Zip(iHash2, (i, j) => i == j).Count(eq => eq);*/
+
+                    //Checking legal black rook moves
+                    if (PCache.Tag == BRook.Tag)
                     {
                         Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation - 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-
-                        this.Controls[Result].BackColor = Color.LightGreen;
-
-                        if (B6.Image != null)
+                        Unit = "Black rook";
+                        //Checking if starting first square
+                        if ((Move1 == "A2") || (Move1 == "B2") || (Move1 == "C2") || (Move1 == "D2") || (Move1 == "E2") || (Move1 == "F2") || (Move1 == "G2") || (Move1 == "H2"))
                         {
-                            B6.BackColor = Color.LightGreen;
+
+
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            this.Controls[Result].BackColor = Color.LightGreen;
+
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            this.Controls[Result].BackColor = Color.LightGreen;
+
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                            //Checking if you can eat
+                            if (ReferenceBox.Image != null)
+                            {
+                                Calculation = int.Parse(Math.Substring(1, 1));
+                                Calculation = Calculation + 1;
+
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                            }
+                        }
+
+                        //En passant logic
+                        else if ((Move1 == "A5") || (Move1 == "B5") || (Move1 == "C5") || (Move1 == "D5") || (Move1 == "E5") || (Move1 == "F5") || (Move1 == "G5") || (Move1 == "H5"))
+                        {
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Image != null)
+                            {
+                                if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+                                {
+                                    Calculation = Calculation + 1;
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            Math = (sender as PictureBox).Name;
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+
+                            this.Controls[Result].BackColor = Color.LightGreen;
+
+                            if (B6.Image != null)
+                            {
+                                B6.BackColor = Color.LightGreen;
+                            }
                         }
                     }
+                    else if (PCache.Tag == WKnigth.Tag || PCache.Tag == BKnigth.Tag)
+                    {
+                        Unit = "Knigth";
+                    }
+                    else if (PCache.Tag == WTower.Tag || PCache.Tag == BTower.Tag)
+                    {
+                        Unit = "Tower";
+                    }
+                    else if (PCache.Tag == WBishop.Tag || PCache.Tag == BBishop.Tag)
+                    {
+                        Unit = "Bishop";
+                    }
+                    else if (PCache.Tag == WKing.Tag || PCache.Tag == BKing.Tag)
+                    {
+                        Unit = "King";
+                    }
+                    else if (PCache.Tag == WQueen.Tag || PCache.Tag == BQueen.Tag)
+                    {
+                        Unit = "Queen";
+                    }
+                    Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
                 }
-                else if (PCache.ImageLocation == WKnigth.ImageLocation || PCache.ImageLocation == BKnigth.ImageLocation)
-                {
-                    Unit = "Knigth";
-                }
-                else if (PCache.ImageLocation == WTower.ImageLocation || PCache.ImageLocation == BTower.ImageLocation)
-                {
-                    Unit = "Tower";
-                }
-                else if (PCache.ImageLocation == WBishop.ImageLocation || PCache.ImageLocation == BBishop.ImageLocation)
-                {
-                    Unit = "Bishop";
-                }
-                else if (PCache.ImageLocation == WKing.ImageLocation || PCache.ImageLocation == BKing.ImageLocation)
-                {
-                    Unit = "King";
-                }
-                else if (PCache.ImageLocation == WQueen.ImageLocation || PCache.ImageLocation == BQueen.ImageLocation)
-                {
-                    Unit = "Queen";
-                }
-                Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
             }
         }
 
@@ -389,6 +505,21 @@ namespace FormTop_games
         }
 
         private void H8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void A8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void G8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void B8_Click(object sender, EventArgs e)
         {
 
         }

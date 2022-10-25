@@ -48,7 +48,7 @@ namespace FormTop_games
             }
             else
             {
-                var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority&authSource=SignIn");
+                var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
                 settings.ServerApi = new ServerApi(ServerApiVersion.V1);
                 var client = new MongoClient(settings); var database = client.GetDatabase("SignIn");
                 var coll = database.GetCollection<BsonDocument>("Users");
@@ -81,6 +81,20 @@ namespace FormTop_games
                 {
                     MessageBox.Show("ID already exists!");
                 }
+                View2.Items.Clear();
+                View3.Items.Clear();
+                var settings2 = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
+                settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+                var client2 = new MongoClient(settings);
+                var database2 = client.GetDatabase("SignIn");
+                var coll2 = database.GetCollection<BsonDocument>("Users");
+                var Search2 = coll.Find(new BsonDocument()).Project(Builders<BsonDocument>.Projection.Include("Name").Include("Password")).ToList();
+                foreach (var OneDocument in Search2)
+                {
+                    View2.Items.Add(OneDocument.GetElement("Name").Value);
+                    View3.Items.Add(OneDocument.GetElement("Password").Value);
+                }
+                View2.SelectedIndex = 0;
             }
         }
 

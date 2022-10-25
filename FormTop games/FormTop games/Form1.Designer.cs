@@ -181,7 +181,7 @@
             // 
             this.View2.Enabled = false;
             this.View2.FormattingEnabled = true;
-            this.View2.Location = new System.Drawing.Point(687, 35);
+            this.View2.Location = new System.Drawing.Point(687, 12);
             this.View2.Name = "View2";
             this.View2.ScrollAlwaysVisible = true;
             this.View2.Size = new System.Drawing.Size(101, 17);
@@ -192,7 +192,7 @@
             // 
             this.View3.Enabled = false;
             this.View3.FormattingEnabled = true;
-            this.View3.Location = new System.Drawing.Point(687, 12);
+            this.View3.Location = new System.Drawing.Point(687, 35);
             this.View3.Name = "View3";
             this.View3.ScrollAlwaysVisible = true;
             this.View3.Size = new System.Drawing.Size(101, 17);

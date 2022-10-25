@@ -61,7 +61,7 @@ namespace FormTop_games
             System.Windows.Forms.MessageBox.Show("Welcome to the casino. Remember to gamble responsibly");
 
             //Balance checking and showing system here
-            var uri = "mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority&authSource=SignIn";
+            var uri = "mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority";
             var client = new MongoClient(uri);
 
             var db = client.GetDatabase("SignIn");

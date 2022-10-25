@@ -133,6 +133,16 @@ namespace FormTop_games.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChessBoard {
+            get {
+                object obj = ResourceManager.GetObject("ChessBoard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap White_bishop {
             get {
                 object obj = ResourceManager.GetObject("White bishop", resourceCulture);
