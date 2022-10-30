@@ -87,28 +87,17 @@ namespace FormTop_games
         string Move1;
         string Unit;
         string Math = "A";
-        int Calculation = 1;
         string Result;
         string FString;
-        int color;
-        //Variable abowe here
+        string SString;
 
-        /*Image comparison
-        public static List<bool> GetHash(Bitmap bmpSource)
-        {
-            List<bool> lResult = new List<bool>();
-            //create new image with 16x16 pixel
-            Bitmap bmpMin = new Bitmap(bmpSource, new Size(16, 16));
-            for (int j = 0; j < bmpMin.Height; j++)
-            {
-                for (int i = 0; i < bmpMin.Width; i++)
-                {
-                    //reduce colors to true / false                
-                    lResult.Add(bmpMin.GetPixel(i, j).GetBrightness() < 0.5f);
-                }
-            }
-            return lResult;
-        }*/
+        int Calculation = 1;
+        int color = 1;
+        int counter = 1;
+
+        bool EnPassant;
+        bool Towering;
+        //Variable abowe here
 
         private void Chess_Load(object sender, EventArgs e)
         {
@@ -131,7 +120,7 @@ namespace FormTop_games
             Table_Top frm2 = new Table_Top();
             frm2.ShowDialog();
         }
-        
+
 
         //Makes the form resize itself if someone´s changes the size
         private Size oldSize;
@@ -164,7 +153,7 @@ namespace FormTop_games
 
         private void pictureBox29_Click(object sender, EventArgs e)
         {
-            
+
         }
         public void GetFString()
         {
@@ -176,22 +165,36 @@ namespace FormTop_games
             else if (Math.Substring(0, 1) == "B")
             {
                 FString = "C";
+                SString = "A";
             }
             else if (Math.Substring(0, 1) == "C")
             {
                 FString = "D";
+                SString = "B";
             }
             else if (Math.Substring(0, 1) == "D")
             {
                 FString = "E";
+                SString = "C";
             }
             else if (Math.Substring(0, 1) == "E")
             {
                 FString = "F";
+                SString = "D";
             }
             else if (Math.Substring(0, 1) == "F")
             {
                 FString = "G";
+                SString = "E";
+            }
+            else if (Math.Substring(0, 1) == "G")
+            {
+                FString = "H";
+                SString = "F";
+            }
+            else if (Math.Substring(0, 1) == "H")
+            {
+                SString = "G";
             }
             else
             {
@@ -229,16 +232,28 @@ namespace FormTop_games
                         if (color == 1)
                         {
                             this.Controls[Result].BackColor = Color.White;
+                            color++;
                         }
-                        else if (color == 2) 
+                        else if (color == 2)
                         {
                             this.Controls[Result].BackColor = Color.Black;
+                            color = 1;
                         }
                         Calculation++;
                         if (Calculation == 9)
                         {
                             GetFString();
                             Calculation = 1;
+                            if (counter == 1)
+                            {
+                                color = 2;
+                                counter++;
+                            }
+                            else if (counter == 2)
+                            {
+                                color = 1;
+                                counter = 1;
+                            }
                         }
                     }
 
@@ -341,12 +356,18 @@ namespace FormTop_games
                             Calculation = Calculation - 1;
                             Result = Math.Substring(0, 1) + Calculation.ToString();
                             Test1.Text = Result.ToString();
-                            this.Controls[Result].BackColor = Color.LightGreen;
+                            if (this.Controls[Result].Tag == null)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
 
-                            Calculation = Calculation - 1;
-                            Result = Math.Substring(0, 1) + Calculation.ToString();
-                            Test2.Text = Result.ToString();
-                            this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                Test2.Text = Result.ToString();
+                                if (this.Controls[Result].Tag == null)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
+                            }
 
                             Calculation = int.Parse(Math.Substring(1, 1));
                             Calculation = Calculation - 1;
@@ -356,12 +377,15 @@ namespace FormTop_games
                             //Checking if you can eat
                             if (ReferenceBox.Image != null)
                             {
-                                Calculation = int.Parse(Math.Substring(1, 1));
-                                Calculation = Calculation - 1;
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    Calculation = int.Parse(Math.Substring(1, 1));
+                                    Calculation = Calculation - 1;
 
-                                GetFString();
-                                Result = FString + Calculation.ToString();
-                                this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
                             }
                         }
 
@@ -374,15 +398,17 @@ namespace FormTop_games
                             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
                             if (ReferenceBox.Image != null)
                             {
-                                if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+                                if (ReferenceBox.Image == Properties.Resources.Black_rook1)
                                 {
                                     Calculation = Calculation - 1;
                                     Result = FString + Calculation.ToString();
                                     this.Controls[Result].BackColor = Color.LightGreen;
+                                    EnPassant = true;
                                 }
 
                             }
                         }
+                        //Normal rook movement
                         else
                         {
                             Math = (sender as PictureBox).Name;
@@ -392,19 +418,26 @@ namespace FormTop_games
 
                             this.Controls[Result].BackColor = Color.LightGreen;
 
-                            if (B6.Image != null)
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                            //Checking if you can eat
+                            if (ReferenceBox.Image != null)
                             {
-                                B6.BackColor = Color.LightGreen;
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    Calculation = int.Parse(Math.Substring(1, 1));
+                                    Calculation = Calculation - 1;
+
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
                             }
                         }
                     }
-
-                    /*List<bool> iHash1 = GetHash(new Bitmap(PCache.Image));
-                    List<bool> iHash2 = GetHash(new Bitmap(BRook.Image));
-
-                    //determine the number of equal pixel (x of 256)
-                    int equalElements = iHash1.Zip(iHash2, (i, j) => i == j).Count(eq => eq);*/
-
                     //Checking legal black rook moves
                     if (PCache.Tag == BRook.Tag)
                     {
@@ -418,11 +451,18 @@ namespace FormTop_games
                             Calculation = int.Parse(Math.Substring(1, 1));
                             Calculation = Calculation + 1;
                             Result = Math.Substring(0, 1) + Calculation.ToString();
-                            this.Controls[Result].BackColor = Color.LightGreen;
+                            if (this.Controls[Result].Tag == null)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
 
-                            Calculation = Calculation + 1;
-                            Result = Math.Substring(0, 1) + Calculation.ToString();
-                            this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                Test2.Text = Result.ToString();
+                                if (this.Controls[Result].Tag == null)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
+                            }
 
                             Calculation = int.Parse(Math.Substring(1, 1));
                             Calculation = Calculation + 1;
@@ -432,12 +472,15 @@ namespace FormTop_games
                             //Checking if you can eat
                             if (ReferenceBox.Image != null)
                             {
-                                Calculation = int.Parse(Math.Substring(1, 1));
-                                Calculation = Calculation + 1;
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    Calculation = int.Parse(Math.Substring(1, 1));
+                                    Calculation = Calculation + 1;
 
-                                GetFString();
-                                Result = FString + Calculation.ToString();
-                                this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
                             }
                         }
 
@@ -450,15 +493,17 @@ namespace FormTop_games
                             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
                             if (ReferenceBox.Image != null)
                             {
-                                if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+                                if (ReferenceBox.Image == Properties.Resources.White_rook)
                                 {
                                     Calculation = Calculation + 1;
                                     Result = FString + Calculation.ToString();
                                     this.Controls[Result].BackColor = Color.LightGreen;
+                                    EnPassant = true;
                                 }
 
                             }
                         }
+                        //Normal rook movement
                         else
                         {
                             Math = (sender as PictureBox).Name;
@@ -468,60 +513,2360 @@ namespace FormTop_games
 
                             this.Controls[Result].BackColor = Color.LightGreen;
 
-                            if (B6.Image != null)
+                            Calculation = int.Parse(Math.Substring(1, 1));
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Image != null)
                             {
-                                B6.BackColor = Color.LightGreen;
+                                if (ReferenceBox.Image == Properties.Resources.White_rook || ReferenceBox.Image == Properties.Resources.Black_rook1)
+                                {
+                                    Calculation = Calculation + 1;
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                }
                             }
                         }
                     }
-                    else if (PCache.Tag == WKnigth.Tag || PCache.Tag == BKnigth.Tag)
+                    //White knigth logic
+                    else if (PCache.Tag == WKnigth.Tag)
                     {
-                        Unit = "Knigth";
+                        Unit = "White knigth";
+
+                        //Calculation settup
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 2;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down knight logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        //Up knight logic
+                        Calculation = Calculation - 4;
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        //Side knight logic
+                        GetFString();
+                        Calculation = Calculation + 3;
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Calculation = Calculation + 2;
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
                     }
-                    else if (PCache.Tag == WTower.Tag || PCache.Tag == BTower.Tag)
+                    //Black knigth logic
+                    else if (PCache.Tag == BKnigth.Tag)
                     {
-                        Unit = "Tower";
+                        Unit = "Black knigth";
+
+                        //Calculation settup
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 2;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down knight logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        //Up knight logic
+                        Calculation = Calculation - 4;
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        //Side knight logic
+                        GetFString();
+                        Calculation = Calculation + 3;
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Calculation = Calculation + 2;
+                        Result = SString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+
+                        Result = FString + Calculation.ToString();
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
                     }
-                    else if (PCache.Tag == WBishop.Tag || PCache.Tag == BBishop.Tag)
+                    //White tower move logic
+                    else if (PCache.Tag == WTower.Tag)
                     {
-                        Unit = "Bishop";
+                        Unit = "White tower";
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            //Side logic left
+                            Math = (sender as PictureBox).Name;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                    {
+                                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                                        GetFString();
+                                                        Result = SString + Calculation.ToString();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
                     }
-                    else if (PCache.Tag == WKing.Tag || PCache.Tag == BKing.Tag)
+                    //Black tower move logic
+                    else if (PCache.Tag == BTower.Tag)
                     {
-                        Unit = "King";
+                        Unit = "Blakc tower";
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            //Side logic left
+                            Math = (sender as PictureBox).Name;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                    {
+                                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                                        GetFString();
+                                                        Result = SString + Calculation.ToString();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
                     }
-                    else if (PCache.Tag == WQueen.Tag || PCache.Tag == BQueen.Tag)
+                    //White bishop move logic
+                    else if (PCache.Tag == WBishop.Tag)
                     {
-                        Unit = "Queen";
+                        Unit = "White bishop";
+
+                        //Calculation initialization
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                    Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
-                }
+                    //Black bishop move logic
+                    else if (PCache.Tag == BBishop.Tag)
+                    {
+                        Unit = "Black bishop";
+
+                        //Calculation initialization
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //White king move logic
+                    else if (PCache.Tag == WKing.Tag)
+                    {
+                        Unit = "White king";
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                        }
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                        }
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        //Side logic left
+                        Math = (sender as PictureBox).Name;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+                    }
+                    //Black king move logic
+                    else if (PCache.Tag == BKing.Tag)
+                    {
+                        Unit = "Black king";
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                        }
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                        }
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        //Side logic left
+                        Math = (sender as PictureBox).Name;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                        }
+                    }
+                    //Queen move logic
+                    else if (PCache.Tag == WQueen.Tag)
+                    {
+                        Unit = "White queen";
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic left
+                        Math = (sender as PictureBox).Name;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        //Calculation initialization
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
+                    }
+                    //Queen move logic
+                    else if (PCache.Tag == BQueen.Tag)
+                    {
+                        Unit = "Black queen";
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        //Up move logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        Result = Math.Substring(0, 1) + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            Result = Math.Substring(0, 1) + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    Result = Math.Substring(0, 1) + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic rigth
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        //Side logic left
+                        Math = (sender as PictureBox).Name;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        //Calculation initialization
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up rigth movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = FString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = FString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = FString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = FString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = FString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = FString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = FString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation - 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Up left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation - 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation - 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation - 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation - 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation - 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation - 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation - 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Math = (sender as PictureBox).Name;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        Calculation = Calculation + 1;
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+
+                        //Down left movement logic
+                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            Calculation = Calculation + 1;
+                            GetFString();
+                            Result = SString + Calculation.ToString();
+                            ReferenceBox = (PictureBox)this.Controls[Result];
+                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                                Calculation = Calculation + 1;
+                                GetFString();
+                                Result = SString + Calculation.ToString();
+                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                {
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    Calculation = Calculation + 1;
+                                    GetFString();
+                                    Result = SString + Calculation.ToString();
+                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                    {
+                                        this.Controls[Result].BackColor = Color.LightGreen;
+                                        Calculation = Calculation + 1;
+                                        GetFString();
+                                        Result = SString + Calculation.ToString();
+                                        ReferenceBox = (PictureBox)this.Controls[Result];
+                                        if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                        {
+                                            this.Controls[Result].BackColor = Color.LightGreen;
+                                            Calculation = Calculation + 1;
+                                            GetFString();
+                                            Result = SString + Calculation.ToString();
+                                            ReferenceBox = (PictureBox)this.Controls[Result];
+                                            if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                            {
+                                                this.Controls[Result].BackColor = Color.LightGreen;
+                                                Calculation = Calculation + 1;
+                                                GetFString();
+                                                Result = SString + Calculation.ToString();
+                                                ReferenceBox = (PictureBox)this.Controls[Result];
+                                                if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
+                                                {
+                                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                                    Calculation = Calculation + 1;
+                                                    GetFString();
+                                                    Result = SString + Calculation.ToString();
+                                                    ReferenceBox = (PictureBox)this.Controls[Result];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
             }
         }
 
-        private void PCache_Click(object sender, EventArgs e)
-        {
+            private void PCache_Click(object sender, EventArgs e)
+            {
 
+            }
+
+            private void H8_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void A8_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void G8_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void B8_Click(object sender, EventArgs e)
+            {
+
+            }
         }
-
-        private void H8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void A8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void G8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void B8_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
     }
