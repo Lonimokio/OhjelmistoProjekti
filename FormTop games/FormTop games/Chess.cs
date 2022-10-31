@@ -97,6 +97,7 @@ namespace FormTop_games
 
         bool EnPassant;
         bool Towering;
+        bool OutOfBoundsCheck;
         //Variable abowe here
 
         private void Chess_Load(object sender, EventArgs e)
@@ -201,6 +202,202 @@ namespace FormTop_games
 
             }
         }
+        public void OutOfBounds()
+        {
+            if (Result != "A1")
+            {
+                if (Result != "A2")
+                {
+                    if (Result != "A3")
+                    {
+                        if (Result != "A4")
+                        {
+                            if (Result != "A5")
+                            {
+                                if (Result != "A6")
+                                {
+                                    if (Result != "A7")
+                                    {
+                                        if (Result != "A8")
+                                        {
+                                            if (Result != "B1")
+                                            {
+                                                if (Result != "B2")
+                                                {
+                                                    if (Result != "B3")
+                                                    {
+                                                        if (Result != "B4")
+                                                        {
+                                                            if (Result != "B5")
+                                                            {
+                                                                if (Result != "B6")
+                                                                {
+                                                                    if (Result != "B7")
+                                                                    {
+                                                                        if (Result != "B8")
+                                                                        {
+                                                                            if (Result != "C1")
+                                                                            {
+                                                                                if (Result != "C2")
+                                                                                {
+                                                                                    if (Result != "C3")
+                                                                                    {
+                                                                                        if (Result != "C4")
+                                                                                        {
+                                                                                            if (Result != "C5")
+                                                                                            {
+                                                                                                if (Result != "C6")
+                                                                                                {
+                                                                                                    if (Result != "C7")
+                                                                                                    {
+                                                                                                        if (Result != "C8")
+                                                                                                        {
+                                                                                                            if (Result != "D1")
+                                                                                                            {
+                                                                                                                if (Result != "D2")
+                                                                                                                {
+                                                                                                                    if (Result != "D3")
+                                                                                                                    {
+                                                                                                                        if (Result != "D4")
+                                                                                                                        {
+                                                                                                                            if (Result != "D5")
+                                                                                                                            {
+                                                                                                                                if (Result != "D6")
+                                                                                                                                {
+                                                                                                                                    if (Result != "D7")
+                                                                                                                                    {
+                                                                                                                                        if (Result != "D8")
+                                                                                                                                        {
+                                                                                                                                            if (Result != "E1")
+                                                                                                                                            {
+                                                                                                                                                if (Result != "E2")
+                                                                                                                                                {
+                                                                                                                                                    if (Result != "E3")
+                                                                                                                                                    {
+                                                                                                                                                        if (Result != "E4")
+                                                                                                                                                        {
+                                                                                                                                                            if (Result != "E5")
+                                                                                                                                                            {
+                                                                                                                                                                if (Result != "E6")
+                                                                                                                                                                {
+                                                                                                                                                                    if (Result != "E7")
+                                                                                                                                                                    {
+                                                                                                                                                                        if (Result != "E8")
+                                                                                                                                                                        {
+                                                                                                                                                                            if (Result != "F1")
+                                                                                                                                                                            {
+                                                                                                                                                                                if (Result != "F2")
+                                                                                                                                                                                {
+                                                                                                                                                                                    if (Result != "F3")
+                                                                                                                                                                                    {
+                                                                                                                                                                                        if (Result != "F4")
+                                                                                                                                                                                        {
+                                                                                                                                                                                            if (Result != "F5")
+                                                                                                                                                                                            {
+                                                                                                                                                                                                if (Result != "F6")
+                                                                                                                                                                                                {
+                                                                                                                                                                                                    if (Result != "F7")
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        if (Result != "F8")
+                                                                                                                                                                                                        {
+                                                                                                                                                                                                            if (Result != "G1")
+                                                                                                                                                                                                            {
+                                                                                                                                                                                                                if (Result != "G2")
+                                                                                                                                                                                                                {
+                                                                                                                                                                                                                    if (Result != "G3")
+                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                        if (Result != "G4")
+                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                            if (Result != "G5")
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                if (Result != "G6")
+                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                    if (Result != "G7")
+                                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                                        if (Result != "G8")
+                                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                                            if (Result != "H1")
+                                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                                if (Result != "H2")
+                                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                                    if (Result != "H3")
+                                                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                                                        if (Result != "H4")
+                                                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                                                            if (Result != "H5")
+                                                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                                                if (Result != "H6")
+                                                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                                                    if (Result != "H7")
+                                                                                                                                                                                                                                                                    {
+                                                                                                                                                                                                                                                                        if (Result != "H8")
+                                                                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                                                                            OutOfBoundsCheck = true;
+                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            }
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
         //Making picture boxes do stuff
@@ -224,15 +421,18 @@ namespace FormTop_games
                     Move1 = null;
                     PCache.Image = null;
                     PCache.Tag = null;
+                    Math = "A1";
+                    Calculation = int.Parse(Math.Substring(1, 1));
+                    FString = "A";
 
-
-                    for (int i = 0; i <= 64; i++)
+                    for (int i = 0; i <= 63; i++)
                     {
                         Result = FString + Calculation.ToString();
+                        Math = Result;
                         if (color == 1)
                         {
                             this.Controls[Result].BackColor = Color.White;
-                            color++;
+                            color = 2;
                         }
                         else if (color == 2)
                         {
@@ -256,78 +456,6 @@ namespace FormTop_games
                             }
                         }
                     }
-
-                    A1.BackColor = Color.White;
-                    A2.BackColor = Color.Black;
-                    A3.BackColor = Color.White;
-                    A4.BackColor = Color.Black;
-                    A5.BackColor = Color.White;
-                    A6.BackColor = Color.Black;
-                    A7.BackColor = Color.White;
-                    A8.BackColor = Color.Black;
-
-                    B1.BackColor = Color.Black;
-                    B2.BackColor = Color.White;
-                    B3.BackColor = Color.Black;
-                    B4.BackColor = Color.White;
-                    B5.BackColor = Color.Black;
-                    B6.BackColor = Color.White;
-                    B7.BackColor = Color.Black;
-                    B8.BackColor = Color.White;
-
-                    C1.BackColor = Color.White;
-                    C2.BackColor = Color.Black;
-                    C3.BackColor = Color.White;
-                    C4.BackColor = Color.Black;
-                    C5.BackColor = Color.White;
-                    C6.BackColor = Color.Black;
-                    C7.BackColor = Color.White;
-                    C8.BackColor = Color.Black;
-
-                    D1.BackColor = Color.Black;
-                    D2.BackColor = Color.White;
-                    D3.BackColor = Color.Black;
-                    D4.BackColor = Color.White;
-                    D5.BackColor = Color.Black;
-                    D6.BackColor = Color.White;
-                    D7.BackColor = Color.Black;
-                    D8.BackColor = Color.White;
-
-                    E1.BackColor = Color.White;
-                    E2.BackColor = Color.Black;
-                    E3.BackColor = Color.White;
-                    E4.BackColor = Color.Black;
-                    E5.BackColor = Color.White;
-                    E6.BackColor = Color.Black;
-                    E7.BackColor = Color.White;
-                    E8.BackColor = Color.Black;
-
-                    F1.BackColor = Color.Black;
-                    F2.BackColor = Color.White;
-                    F3.BackColor = Color.Black;
-                    F4.BackColor = Color.White;
-                    F5.BackColor = Color.Black;
-                    F6.BackColor = Color.White;
-                    F7.BackColor = Color.Black;
-                    F8.BackColor = Color.White;
-
-                    G1.BackColor = Color.White;
-                    G2.BackColor = Color.Black;
-                    G3.BackColor = Color.White;
-                    G4.BackColor = Color.Black;
-                    G5.BackColor = Color.White;
-                    G6.BackColor = Color.Black;
-                    G7.BackColor = Color.White;
-                    G8.BackColor = Color.Black;
-
-                    H1.BackColor = Color.Black;
-                    H2.BackColor = Color.White;
-                    H3.BackColor = Color.Black;
-                    H4.BackColor = Color.White;
-                    H5.BackColor = Color.Black;
-                    H6.BackColor = Color.White;
-                    H7.BackColor = Color.Black;
-                    H8.BackColor = Color.White;
                 }
             }
             //If it has a picture
@@ -540,14 +668,24 @@ namespace FormTop_games
                         GetFString();
                         Result = FString + Calculation.ToString();
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
                         //Down knight logic
                         if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
-
                         Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
                         if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
                         {
@@ -557,15 +695,30 @@ namespace FormTop_games
                         //Up knight logic
                         Calculation = Calculation - 4;
                         Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        Test1.Text = Result;
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
 
                         Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
 
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        Test2.Text = Result;
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
@@ -574,33 +727,59 @@ namespace FormTop_games
                         GetFString();
                         Calculation = Calculation + 3;
                         Result = FString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
 
                         Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
 
                         Calculation = Calculation + 2;
                         Result = SString + Calculation.ToString();
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        if (Result != "A1" || Result != "A2" || Result != "A3" || Result != "A4" || Result != "A5" || Result != "A6" || Result != "A7" || Result != "A8" || Result != "B1" || Result != "B2" || Result != "B3" || Result != "B4" || Result != "B5" || Result != "B6" || Result != "B7" || Result != "B8" || Result != "C1" || Result != "C2" || Result != "C3" || Result != "C4" || Result != "C5" || Result != "C6" || Result != "C7" || Result != "C8" || Result != "D1" || Result != "D2" || Result != "D3" || Result != "D4" || Result != "D5" || Result != "D6" || Result != "D7" || Result != "D8" || Result != "E1" || Result != "E2" || Result != "E3" || Result != "E4" || Result != "E5" || Result != "E6" || Result != "E7" || Result != "E8" || Result != "F1" || Result != "F2" || Result != "F3" || Result != "F4" || Result != "F5" || Result != "F6" || Result != "F7" || Result != "F8" || Result != "G1" || Result != "G2" || Result != "G3" || Result != "G4" || Result != "G5" || Result != "G6" || Result != "G7" || Result != "G8" || Result != "H1" || Result != "H2" || Result != "H3" || Result != "H4" || Result != "H5" || Result != "H6" || Result != "H7" || Result != "H8")
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
 
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                         }
 
                         Result = FString + Calculation.ToString();
-
-                        if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
+                        ReferenceBox = (PictureBox)this.Controls[Result];
+                        
                         {
-                            this.Controls[Result].BackColor = Color.LightGreen;
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
                         }
+                    
+
+                        if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
+                            {
+                                this.Controls[Result].BackColor = Color.LightGreen;
+                            }
                     }
                     //Black knigth logic
                     else if (PCache.Tag == BKnigth.Tag)
@@ -901,7 +1080,7 @@ namespace FormTop_games
                     //Black tower move logic
                     else if (PCache.Tag == BTower.Tag)
                     {
-                        Unit = "Blakc tower";
+                        Unit = "Black tower";
                         Math = (sender as PictureBox).Name;
                         Calculation = int.Parse(Math.Substring(1, 1));
                         Calculation = Calculation + 1;
@@ -1132,7 +1311,7 @@ namespace FormTop_games
                         GetFString();
                         Result = FString + Calculation.ToString();
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-
+                        
                         //Down rigth movement logic
                         if (ReferenceBox.Tag == WRook.Tag || ReferenceBox.Tag == WBishop.Tag || ReferenceBox.Tag == WQueen.Tag || ReferenceBox.Tag == WKnigth.Tag || ReferenceBox.Tag == WTower.Tag)
                         {
@@ -1383,6 +1562,10 @@ namespace FormTop_games
                                     }
                                 }
                             }
+                        }
+                        else
+                        {
+
                         }
                     }
                     //Black bishop move logic
@@ -1874,7 +2057,7 @@ namespace FormTop_games
                             Result = SString + Calculation.ToString();
                         }
                     }
-                    //Queen move logic
+                    //White queen move logic
                     else if (PCache.Tag == WQueen.Tag)
                     {
                         Unit = "White queen";
@@ -2358,7 +2541,7 @@ namespace FormTop_games
 
                         Selected.Text = "Selected slot: " + Move1 + " Selected unit: " + Unit;
                     }
-                    //Queen move logic
+                    //Black queen move logic
                     else if (PCache.Tag == BQueen.Tag)
                     {
                         Unit = "Black queen";
@@ -2841,6 +3024,7 @@ namespace FormTop_games
                         }
                     }
                     }
+                Selected.Text = "Selected slot: " + Move1 + " Selected Unit: " + Unit;
             }
         }
 

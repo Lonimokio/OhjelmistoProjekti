@@ -129,6 +129,7 @@
             this.A1 = new System.Windows.Forms.PictureBox();
             this.pictureBox65 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Empty = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
@@ -208,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.A1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Empty)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLobby
@@ -1263,11 +1265,20 @@
             this.pictureBox1.TabIndex = 96;
             this.pictureBox1.TabStop = false;
             // 
+            // Empty
+            // 
+            this.Empty.Location = new System.Drawing.Point(71, 289);
+            this.Empty.Name = "Empty";
+            this.Empty.Size = new System.Drawing.Size(100, 50);
+            this.Empty.TabIndex = 114;
+            this.Empty.TabStop = false;
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Empty);
             this.Controls.Add(this.Test2);
             this.Controls.Add(this.Test1);
             this.Controls.Add(this.WBishop);
@@ -1451,6 +1462,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.A1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Empty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1558,5 +1570,6 @@
         private System.Windows.Forms.PictureBox WRook;
         private System.Windows.Forms.TextBox Test1;
         private System.Windows.Forms.TextBox Test2;
+        private System.Windows.Forms.PictureBox Empty;
     }
 }
