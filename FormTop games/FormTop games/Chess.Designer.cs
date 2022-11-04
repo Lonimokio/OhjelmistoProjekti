@@ -130,6 +130,7 @@
             this.pictureBox65 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Empty = new System.Windows.Forms.PictureBox();
+            this.TurnLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
@@ -1273,11 +1274,22 @@
             this.Empty.TabIndex = 114;
             this.Empty.TabStop = false;
             // 
+            // TurnLabel
+            // 
+            this.TurnLabel.AutoSize = true;
+            this.TurnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TurnLabel.Location = new System.Drawing.Point(636, 31);
+            this.TurnLabel.Name = "TurnLabel";
+            this.TurnLabel.Size = new System.Drawing.Size(82, 20);
+            this.TurnLabel.TabIndex = 115;
+            this.TurnLabel.Text = "White turn";
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TurnLabel);
             this.Controls.Add(this.Empty);
             this.Controls.Add(this.Test2);
             this.Controls.Add(this.Test1);
@@ -1571,5 +1583,6 @@
         private System.Windows.Forms.TextBox Test1;
         private System.Windows.Forms.TextBox Test2;
         private System.Windows.Forms.PictureBox Empty;
+        private System.Windows.Forms.Label TurnLabel;
     }
 }
