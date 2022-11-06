@@ -99,5 +99,10 @@ namespace FormTop_games
                 Money.Items.Clear();
             }
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

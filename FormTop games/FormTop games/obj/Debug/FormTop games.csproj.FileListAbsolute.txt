@@ -432,3 +432,144 @@ C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop 
 C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.CopyComplete
 C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.exe
 C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.pdb
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\libzstd.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\snappy32.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\snappy64.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\libsnappy64.so
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\libzstd.so
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\libsnappy64.dylib
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\libzstd.dylib
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\mongocrypt.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.exe.config
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.exe
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\FormTop games.pdb
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\netstandard.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.AppContext.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Collections.Concurrent.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Collections.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Collections.NonGeneric.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Collections.Specialized.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ComponentModel.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ComponentModel.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ComponentModel.TypeConverter.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Console.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Data.Common.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.Contracts.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.Debug.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.Process.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.StackTrace.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.Tools.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.TraceSource.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Diagnostics.Tracing.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Drawing.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Dynamic.Runtime.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Globalization.Calendars.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Globalization.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Globalization.Extensions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.Compression.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.FileSystem.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.FileSystem.Watcher.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.IsolatedStorage.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.MemoryMappedFiles.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.Pipes.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Linq.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Linq.Expressions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Linq.Parallel.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Linq.Queryable.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Http.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.NameResolution.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.NetworkInformation.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Ping.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Requests.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Security.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.Sockets.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.WebHeaderCollection.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.WebSockets.Client.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Net.WebSockets.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ObjectModel.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Reflection.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Reflection.Extensions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Reflection.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Resources.Reader.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Resources.ResourceManager.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Resources.Writer.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Extensions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Handles.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.InteropServices.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Numerics.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Serialization.Formatters.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Serialization.Json.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.Serialization.Xml.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Claims.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Cryptography.Csp.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.Principal.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Security.SecureString.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.Encoding.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.Encoding.Extensions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.RegularExpressions.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.Overlapped.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.Tasks.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.Tasks.Parallel.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.Thread.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.ThreadPool.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Threading.Timer.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.ValueTuple.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.ReaderWriter.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.XDocument.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.XmlDocument.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.XmlSerializer.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.XPath.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\DnsClient.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Bson.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Driver.Core.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Driver.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\SharpCompress.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Buffers.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Memory.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Numerics.Vectors.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\DnsClient.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Bson.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Driver.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\MongoDB.Driver.Core.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Buffers.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Memory.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Numerics.Vectors.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csprojAssemblyReference.cache
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.exe.config
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Casino.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Chess.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.SignIn.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Main.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Properties.Resources.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.SimpleGames.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Table_Top.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.GenerateResource.cache
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.CoreCompileInputs.cache
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.CopyComplete
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.exe
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.pdb
