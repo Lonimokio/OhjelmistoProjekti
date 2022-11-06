@@ -135,6 +135,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Chip = new System.Windows.Forms.TextBox();
             this.Reset = new System.Windows.Forms.Button();
+            this.Play = new System.Windows.Forms.Button();
+            this.Spin1 = new System.Windows.Forms.Timer(this.components);
+            this.Spin2 = new System.Windows.Forms.Timer(this.components);
+            this.Spin3 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // B00
@@ -1391,12 +1395,37 @@
             this.Reset.UseVisualStyleBackColor = false;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
+            // Play
+            // 
+            this.Play.BackColor = System.Drawing.Color.DarkGreen;
+            this.Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Play.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Play.Location = new System.Drawing.Point(587, 494);
+            this.Play.Name = "Play";
+            this.Play.Size = new System.Drawing.Size(89, 41);
+            this.Play.TabIndex = 107;
+            this.Play.Text = "Play";
+            this.Play.UseVisualStyleBackColor = false;
+            // 
+            // Spin1
+            // 
+            this.Spin1.Interval = 1;
+            // 
+            // Spin2
+            // 
+            this.Spin2.Interval = 1;
+            // 
+            // Spin3
+            // 
+            this.Spin3.Interval = 1;
+            // 
             // Roulette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1333, 606);
+            this.Controls.Add(this.Play);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.Chip);
             this.Controls.Add(this.label3);
@@ -1616,5 +1645,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Chip;
         private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.Button Play;
+        private System.Windows.Forms.Timer Spin1;
+        private System.Windows.Forms.Timer Spin2;
+        private System.Windows.Forms.Timer Spin3;
     }
 }

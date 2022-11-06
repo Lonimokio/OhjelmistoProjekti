@@ -19,30 +19,6 @@ namespace FormTop_games
             InitializeComponent();
         }
 
-        //Here is the code to update balance (needs modification doesnt work like this)
-        /*private void Update2_Click(object sender, EventArgs e)
-        {
-            id = int.Parse(View.Text);
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
-            settings.ServerApi = new ServerApi(ServerApiVersion.V1); var client = new MongoClient(settings);
-            var database = client.GetDatabase("TestDB");
-            var coll = database.GetCollection<BsonDocument>("TestC");
-            String Name = NameT.Text;
-            String Series = SeriesT.Text;
-            var fil1 = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var filteredDocument = coll.Find(fil1).FirstOrDefault();
-            if (filteredDocument == null)
-            {
-                MessageBox.Show("ID not found!");
-            }
-            else
-            {
-                var fil = Builders<BsonDocument>.Filter.Eq("_id", id);
-                var update = Builders<BsonDocument>.Update.Set("Name", Name).Set("Series", Series);
-                coll.UpdateOne(fil, update); MessageBox.Show("Documents updated.");
-            }
-        }*/
-
         private void Roulette_Load(object sender, EventArgs e)
         {
 
@@ -65,6 +41,8 @@ namespace FormTop_games
             Money1 = int.Parse(Money.Text);
             MoneyCounter.Start();
 
+            Random rnd = new Random();
+            int random = rnd.Next(1, 10);
         }
 
         int i = 1;
@@ -262,31 +240,277 @@ namespace FormTop_games
         private void B00_Click(object sender, EventArgs e)
         {
             Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B00.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B00.Text = "00, " + i3;
+            }
         }
 
         private void B0_Click(object sender, EventArgs e)
         {
             Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B0.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B0.Text = "00, " + i3;
+            }
         }
 
         private void B1_Click(object sender, EventArgs e)
         {
-            Bets();
+           Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B1.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B1.Text = "00, " + i3;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B2.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B2.Text = "00, " + i3;
+            }
         }
 
         private void B3_Click(object sender, EventArgs e)
         {
             Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B3.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B3.Text = "00, " + i3;
+            }
         }
 
         private void B4_Click(object sender, EventArgs e)
         {
             Bets();
+            int i3 = 0;
+            if (Chip1.Enabled == false)
+            {
+                i3 = i3 + 1;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip5.Enabled == false)
+            {
+                i3 = i3 + 5;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip10.Enabled == false)
+            {
+                i3 = i3 + 10;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip25.Enabled == false)
+            {
+                i3 = i3 + 25;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip50.Enabled == false)
+            {
+                i3 = i3 + 50;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip100.Enabled == false)
+            {
+                i3 = i3 + 100;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip500.Enabled == false)
+            {
+                i3 = i3 + 500;
+                B4.Text = "00, " + i3;
+            }
+            if (Chip1000.Enabled == false)
+            {
+                i3 = i3 + 1000;
+                B4.Text = "00, " + i3;
+            }
         }
 
         private void B5_Click(object sender, EventArgs e)
