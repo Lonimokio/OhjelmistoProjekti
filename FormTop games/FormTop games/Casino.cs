@@ -31,6 +31,12 @@ namespace FormTop_games
             Main frm2 = new Main();
             frm2.ShowDialog();
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Roulette frm3 = new Roulette();
+            frm3.ShowDialog();
+        }
 
         //Makes the form resize itself if someone´s changes the size
         private Size oldSize;
@@ -104,5 +110,17 @@ namespace FormTop_games
         {
 
         }
+
+        private void Money_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -117,6 +117,7 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "Roulette";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -145,6 +146,7 @@
             this.label2.Size = new System.Drawing.Size(90, 25);
             this.label2.TabIndex = 29;
             this.label2.Text = "Balance";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Balance
             // 
@@ -163,6 +165,7 @@
             this.Money.Size = new System.Drawing.Size(89, 17);
             this.Money.TabIndex = 31;
             this.Money.Visible = false;
+            this.Money.SelectedIndexChanged += new System.EventHandler(this.Money_SelectedIndexChanged);
             // 
             // MoneyCounter
             // 
