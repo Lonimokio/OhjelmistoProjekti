@@ -19,6 +19,30 @@ namespace FormTop_games
             InitializeComponent();
         }
 
+        //Here is the code to update balance (needs modification doesnt work like this)
+        /*private void Update2_Click(object sender, EventArgs e)
+        {
+            id = int.Parse(View.Text);
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1); var client = new MongoClient(settings);
+            var database = client.GetDatabase("TestDB");
+            var coll = database.GetCollection<BsonDocument>("TestC");
+            String Name = NameT.Text;
+            String Series = SeriesT.Text;
+            var fil1 = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var filteredDocument = coll.Find(fil1).FirstOrDefault();
+            if (filteredDocument == null)
+            {
+                MessageBox.Show("ID not found!");
+            }
+            else
+            {
+                var fil = Builders<BsonDocument>.Filter.Eq("_id", id);
+                var update = Builders<BsonDocument>.Update.Set("Name", Name).Set("Series", Series);
+                coll.UpdateOne(fil, update); MessageBox.Show("Documents updated.");
+            }
+        }*/
+
         private void Roulette_Load(object sender, EventArgs e)
         {
 
