@@ -1409,15 +1409,15 @@
             // 
             // Spin1
             // 
-            this.Spin1.Interval = 1;
+            this.Spin1.Interval = 10000;
             // 
             // Spin2
             // 
-            this.Spin2.Interval = 1;
+            this.Spin2.Interval = 15000;
             // 
             // Spin3
             // 
-            this.Spin3.Interval = 1;
+            this.Spin3.Interval = 20000;
             // 
             // Roulette
             // 
