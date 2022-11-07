@@ -19,8 +19,34 @@ namespace FormTop_games
             InitializeComponent();
         }
 
+        //Makes the form resize itself if someone´s changes the size
+        private Size oldSize;
+        private void Form1_Load(object sender, EventArgs e) => oldSize = base.Size;
+
+        protected override void OnResize(System.EventArgs e)
+        {
+            base.OnResize(e);
+
+            foreach (Control cnt in this.Controls)
+                ResizeAll(cnt, base.Size);
+
+            oldSize = base.Size;
+        }
+        private void ResizeAll(Control control, Size newSize)
+        {
+            int width = newSize.Width - oldSize.Width;
+            control.Left += (control.Left * width) / oldSize.Width;
+            control.Width += (control.Width * width) / oldSize.Width;
+
+            int height = newSize.Height - oldSize.Height;
+            control.Top += (control.Top * height) / oldSize.Height;
+            control.Height += (control.Height * height) / oldSize.Height;
+        }
+
         private void Roulette_Load(object sender, EventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
             //Balance checking and showing system here
             var uri = "mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority";
@@ -240,7 +266,7 @@ namespace FormTop_games
         private void B00_Click(object sender, EventArgs e)
         {
             Bets();
-            int i3;
+            int i3 = 0;
             if(B00.Text == "00")
             {
                i3 = 0;
@@ -1994,6 +2020,25 @@ namespace FormTop_games
         {
             i2 = 0;
             Bet.Text = "0";
+        }
+
+        private void MainLobby_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main frm2 = new Main();
+            frm2.ShowDialog();
+        }
+
+        private void TableTop_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Casino frm2 = new Casino();
+            frm2.ShowDialog();
+        }
+
+        private void R36_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

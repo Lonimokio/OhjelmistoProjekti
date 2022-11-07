@@ -1256,6 +1256,7 @@
             this.pictureBox65.Size = new System.Drawing.Size(828, 105);
             this.pictureBox65.TabIndex = 79;
             this.pictureBox65.TabStop = false;
+            this.pictureBox65.Click += new System.EventHandler(this.pictureBox65_Click);
             // 
             // pictureBox1
             // 
@@ -1273,6 +1274,7 @@
             this.Empty.Size = new System.Drawing.Size(100, 50);
             this.Empty.TabIndex = 114;
             this.Empty.TabStop = false;
+            this.Empty.Tag = "Empty";
             // 
             // TurnLabel
             // 

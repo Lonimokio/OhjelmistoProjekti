@@ -90,10 +90,9 @@ namespace FormTop_games
         string Unit;
         string Math = "A";
         string Math1;
-        string Result;
+        string Result = "Empty";
         string FString;
         string SString;
-        string Tile = "A1";
 
         int Calculation = 1;
         int color = 1;
@@ -103,6 +102,7 @@ namespace FormTop_games
         bool EnPassant;
         bool Towering;
         bool OutOfBoundsCheck;
+
         //Variable abowe here
 
         private void Chess_Load(object sender, EventArgs e)
@@ -410,11 +410,15 @@ namespace FormTop_games
             {
                 Result = FString + Calculation.ToString();
                 Math = Result;
-
-                if (this.Controls[Tile].Tag == this.Controls[Side].Tag || this.Controls[Tile].Tag == this.Controls[Side1].Tag || this.Controls[Tile].Tag == this.Controls[Side2].Tag || this.Controls[Tile].Tag == this.Controls[Side3].Tag || this.Controls[Tile].Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true)
                 {
-                    A1.Enabled = Lock1;
+                    Result = "Empty";
+                }
 
+                if (this.Controls[Result].Tag == this.Controls[Side].Tag || this.Controls[Result].Tag == this.Controls[Side1].Tag || this.Controls[Result].Tag == this.Controls[Side2].Tag || this.Controls[Result].Tag == this.Controls[Side3].Tag || this.Controls[Result].Tag == this.Controls[Side4].Tag)
+                {
+                    this.Controls[Result].Enabled = Lock1;
                 }
                 Calculation++;
                 if (Calculation == 9)
@@ -1342,6 +1346,9 @@ namespace FormTop_games
 
                     if ((sender as PictureBox).BackColor == Color.LightGreen)
                     {
+                        Math = (sender as PictureBox).ToString();
+                        Calculation = Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
                         if (Turn == 1)
                         {
                             Turn = 2;
@@ -1710,5 +1717,10 @@ namespace FormTop_games
             {
 
             }
+
+        private void pictureBox65_Click(object sender, EventArgs e)
+        {
+
         }
+    }
     }

@@ -29,6 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Button R0;
+            System.Windows.Forms.Button R33;
+            System.Windows.Forms.Button R13;
+            System.Windows.Forms.Button R15;
+            System.Windows.Forms.Button R32;
+            System.Windows.Forms.Button R34;
+            System.Windows.Forms.Button R36;
+            System.Windows.Forms.Button R20;
+            System.Windows.Forms.Button R3;
+            System.Windows.Forms.Button R17;
+            System.Windows.Forms.Button R24;
+            System.Windows.Forms.Button R22;
+            System.Windows.Forms.Button R5;
+            System.Windows.Forms.Button R14;
+            System.Windows.Forms.Button R35;
+            System.Windows.Forms.Button R7;
+            System.Windows.Forms.Button R23;
+            System.Windows.Forms.Button R4;
+            System.Windows.Forms.Button R11;
+            System.Windows.Forms.Button R16;
+            System.Windows.Forms.Button R21;
+            System.Windows.Forms.Button R30;
+            System.Windows.Forms.Button R6;
+            System.Windows.Forms.Button R18;
+            System.Windows.Forms.Button R26;
+            System.Windows.Forms.Button R31;
+            System.Windows.Forms.Button R8;
+            System.Windows.Forms.Button R9;
+            System.Windows.Forms.Button R19;
+            System.Windows.Forms.Button R29;
+            System.Windows.Forms.Button R28;
+            System.Windows.Forms.Button R00;
+            System.Windows.Forms.Button R10;
+            System.Windows.Forms.Button R27;
+            System.Windows.Forms.Button R12;
+            System.Windows.Forms.Button R25;
+            System.Windows.Forms.Button R1;
+            System.Windows.Forms.Button R2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Roulette));
             this.B00 = new System.Windows.Forms.Button();
             this.B3 = new System.Windows.Forms.Button();
@@ -71,44 +109,6 @@
             this.B26 = new System.Windows.Forms.Button();
             this.B27 = new System.Windows.Forms.Button();
             this.B0 = new System.Windows.Forms.Button();
-            this.R0 = new System.Windows.Forms.Button();
-            this.R33 = new System.Windows.Forms.Button();
-            this.R13 = new System.Windows.Forms.Button();
-            this.R15 = new System.Windows.Forms.Button();
-            this.R32 = new System.Windows.Forms.Button();
-            this.R34 = new System.Windows.Forms.Button();
-            this.R36 = new System.Windows.Forms.Button();
-            this.R20 = new System.Windows.Forms.Button();
-            this.R3 = new System.Windows.Forms.Button();
-            this.R17 = new System.Windows.Forms.Button();
-            this.R24 = new System.Windows.Forms.Button();
-            this.R22 = new System.Windows.Forms.Button();
-            this.R5 = new System.Windows.Forms.Button();
-            this.R14 = new System.Windows.Forms.Button();
-            this.R35 = new System.Windows.Forms.Button();
-            this.R7 = new System.Windows.Forms.Button();
-            this.R23 = new System.Windows.Forms.Button();
-            this.R4 = new System.Windows.Forms.Button();
-            this.R11 = new System.Windows.Forms.Button();
-            this.R16 = new System.Windows.Forms.Button();
-            this.R21 = new System.Windows.Forms.Button();
-            this.R30 = new System.Windows.Forms.Button();
-            this.R6 = new System.Windows.Forms.Button();
-            this.R18 = new System.Windows.Forms.Button();
-            this.R26 = new System.Windows.Forms.Button();
-            this.R31 = new System.Windows.Forms.Button();
-            this.R8 = new System.Windows.Forms.Button();
-            this.R9 = new System.Windows.Forms.Button();
-            this.R19 = new System.Windows.Forms.Button();
-            this.R29 = new System.Windows.Forms.Button();
-            this.R28 = new System.Windows.Forms.Button();
-            this.R00 = new System.Windows.Forms.Button();
-            this.R10 = new System.Windows.Forms.Button();
-            this.R27 = new System.Windows.Forms.Button();
-            this.R12 = new System.Windows.Forms.Button();
-            this.R25 = new System.Windows.Forms.Button();
-            this.R1 = new System.Windows.Forms.Button();
-            this.R2 = new System.Windows.Forms.Button();
             this.B1st = new System.Windows.Forms.Button();
             this.B3rd = new System.Windows.Forms.Button();
             this.B2nd = new System.Windows.Forms.Button();
@@ -139,6 +139,48 @@
             this.Spin1 = new System.Windows.Forms.Timer(this.components);
             this.Spin2 = new System.Windows.Forms.Timer(this.components);
             this.Spin3 = new System.Windows.Forms.Timer(this.components);
+            this.TableTop = new System.Windows.Forms.Button();
+            this.MainLobby = new System.Windows.Forms.Button();
+            this.pictureBox65 = new System.Windows.Forms.PictureBox();
+            R0 = new System.Windows.Forms.Button();
+            R33 = new System.Windows.Forms.Button();
+            R13 = new System.Windows.Forms.Button();
+            R15 = new System.Windows.Forms.Button();
+            R32 = new System.Windows.Forms.Button();
+            R34 = new System.Windows.Forms.Button();
+            R36 = new System.Windows.Forms.Button();
+            R20 = new System.Windows.Forms.Button();
+            R3 = new System.Windows.Forms.Button();
+            R17 = new System.Windows.Forms.Button();
+            R24 = new System.Windows.Forms.Button();
+            R22 = new System.Windows.Forms.Button();
+            R5 = new System.Windows.Forms.Button();
+            R14 = new System.Windows.Forms.Button();
+            R35 = new System.Windows.Forms.Button();
+            R7 = new System.Windows.Forms.Button();
+            R23 = new System.Windows.Forms.Button();
+            R4 = new System.Windows.Forms.Button();
+            R11 = new System.Windows.Forms.Button();
+            R16 = new System.Windows.Forms.Button();
+            R21 = new System.Windows.Forms.Button();
+            R30 = new System.Windows.Forms.Button();
+            R6 = new System.Windows.Forms.Button();
+            R18 = new System.Windows.Forms.Button();
+            R26 = new System.Windows.Forms.Button();
+            R31 = new System.Windows.Forms.Button();
+            R8 = new System.Windows.Forms.Button();
+            R9 = new System.Windows.Forms.Button();
+            R19 = new System.Windows.Forms.Button();
+            R29 = new System.Windows.Forms.Button();
+            R28 = new System.Windows.Forms.Button();
+            R00 = new System.Windows.Forms.Button();
+            R10 = new System.Windows.Forms.Button();
+            R27 = new System.Windows.Forms.Button();
+            R12 = new System.Windows.Forms.Button();
+            R25 = new System.Windows.Forms.Button();
+            R1 = new System.Windows.Forms.Button();
+            R2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).BeginInit();
             this.SuspendLayout();
             // 
             // B00
@@ -671,422 +713,537 @@
             // 
             // R0
             // 
-            this.R0.BackColor = System.Drawing.Color.DarkGreen;
-            this.R0.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R0.Location = new System.Drawing.Point(236, 31);
-            this.R0.Name = "R0";
-            this.R0.Size = new System.Drawing.Size(62, 34);
-            this.R0.TabIndex = 81;
-            this.R0.Text = "0";
-            this.R0.UseVisualStyleBackColor = false;
+            R0.BackColor = System.Drawing.Color.DarkGreen;
+            R0.Enabled = false;
+            R0.ForeColor = System.Drawing.Color.Transparent;
+            R0.Location = new System.Drawing.Point(227, 82);
+            R0.Margin = new System.Windows.Forms.Padding(0);
+            R0.Name = "R0";
+            R0.Size = new System.Drawing.Size(62, 34);
+            R0.TabIndex = 81;
+            R0.TabStop = false;
+            R0.Text = "0";
+            R0.UseVisualStyleBackColor = false;
             // 
             // R33
             // 
-            this.R33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R33.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R33.Location = new System.Drawing.Point(32, 73);
-            this.R33.Name = "R33";
-            this.R33.Size = new System.Drawing.Size(28, 35);
-            this.R33.TabIndex = 80;
-            this.R33.Text = "33";
-            this.R33.UseVisualStyleBackColor = false;
+            R33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R33.Enabled = false;
+            R33.ForeColor = System.Drawing.Color.Transparent;
+            R33.Location = new System.Drawing.Point(72, 168);
+            R33.Margin = new System.Windows.Forms.Padding(0);
+            R33.Name = "R33";
+            R33.Size = new System.Drawing.Size(28, 35);
+            R33.TabIndex = 80;
+            R33.TabStop = false;
+            R33.Text = "33";
+            R33.UseVisualStyleBackColor = false;
             // 
             // R13
             // 
-            this.R13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R13.Location = new System.Drawing.Point(304, 356);
-            this.R13.Name = "R13";
-            this.R13.Size = new System.Drawing.Size(28, 35);
-            this.R13.TabIndex = 79;
-            this.R13.Text = "13";
-            this.R13.UseVisualStyleBackColor = false;
+            R13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R13.Enabled = false;
+            R13.ForeColor = System.Drawing.Color.Transparent;
+            R13.Location = new System.Drawing.Point(287, 397);
+            R13.Margin = new System.Windows.Forms.Padding(0);
+            R13.Name = "R13";
+            R13.Size = new System.Drawing.Size(28, 35);
+            R13.TabIndex = 79;
+            R13.TabStop = false;
+            R13.Text = "13";
+            R13.UseVisualStyleBackColor = false;
             // 
             // R15
             // 
-            this.R15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R15.Location = new System.Drawing.Point(440, 356);
-            this.R15.Name = "R15";
-            this.R15.Size = new System.Drawing.Size(28, 35);
-            this.R15.TabIndex = 78;
-            this.R15.Text = "15";
-            this.R15.UseVisualStyleBackColor = false;
+            R15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R15.Enabled = false;
+            R15.ForeColor = System.Drawing.Color.Transparent;
+            R15.Location = new System.Drawing.Point(338, 334);
+            R15.Margin = new System.Windows.Forms.Padding(0);
+            R15.Name = "R15";
+            R15.Size = new System.Drawing.Size(28, 35);
+            R15.TabIndex = 78;
+            R15.TabStop = false;
+            R15.Text = "15";
+            R15.UseVisualStyleBackColor = false;
             // 
             // R32
             // 
-            this.R32.BackColor = System.Drawing.Color.Red;
-            this.R32.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R32.Location = new System.Drawing.Point(440, 154);
-            this.R32.Name = "R32";
-            this.R32.Size = new System.Drawing.Size(28, 34);
-            this.R32.TabIndex = 77;
-            this.R32.Text = "32";
-            this.R32.UseVisualStyleBackColor = false;
+            R32.BackColor = System.Drawing.Color.Red;
+            R32.Enabled = false;
+            R32.ForeColor = System.Drawing.Color.Transparent;
+            R32.Location = new System.Drawing.Point(364, 212);
+            R32.Margin = new System.Windows.Forms.Padding(0);
+            R32.Name = "R32";
+            R32.Size = new System.Drawing.Size(28, 34);
+            R32.TabIndex = 77;
+            R32.TabStop = false;
+            R32.Text = "32";
+            R32.UseVisualStyleBackColor = false;
             // 
             // R34
             // 
-            this.R34.BackColor = System.Drawing.Color.Red;
-            this.R34.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R34.Location = new System.Drawing.Point(440, 315);
-            this.R34.Name = "R34";
-            this.R34.Size = new System.Drawing.Size(28, 34);
-            this.R34.TabIndex = 76;
-            this.R34.Text = "34";
-            this.R34.UseVisualStyleBackColor = false;
+            R34.BackColor = System.Drawing.Color.Red;
+            R34.Enabled = false;
+            R34.ForeColor = System.Drawing.Color.Transparent;
+            R34.Location = new System.Drawing.Point(364, 335);
+            R34.Margin = new System.Windows.Forms.Padding(0);
+            R34.Name = "R34";
+            R34.Size = new System.Drawing.Size(28, 34);
+            R34.TabIndex = 76;
+            R34.TabStop = false;
+            R34.Text = "34";
+            R34.UseVisualStyleBackColor = false;
             // 
             // R36
             // 
-            this.R36.BackColor = System.Drawing.Color.Red;
-            this.R36.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R36.Location = new System.Drawing.Point(338, 357);
-            this.R36.Name = "R36";
-            this.R36.Size = new System.Drawing.Size(28, 34);
-            this.R36.TabIndex = 75;
-            this.R36.Text = "36";
-            this.R36.UseVisualStyleBackColor = false;
+            R36.BackColor = System.Drawing.Color.Red;
+            R36.Enabled = false;
+            R36.ForeColor = System.Drawing.Color.Transparent;
+            R36.Location = new System.Drawing.Point(312, 397);
+            R36.Margin = new System.Windows.Forms.Padding(0);
+            R36.Name = "R36";
+            R36.Size = new System.Drawing.Size(28, 34);
+            R36.TabIndex = 75;
+            R36.TabStop = false;
+            R36.Text = "36";
+            R36.UseVisualStyleBackColor = false;
+            R36.Click += new System.EventHandler(this.R36_Click);
             // 
             // R20
             // 
-            this.R20.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R20.Location = new System.Drawing.Point(440, 114);
-            this.R20.Name = "R20";
-            this.R20.Size = new System.Drawing.Size(28, 34);
-            this.R20.TabIndex = 74;
-            this.R20.Text = "20";
-            this.R20.UseVisualStyleBackColor = false;
+            R20.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R20.Enabled = false;
+            R20.ForeColor = System.Drawing.Color.Transparent;
+            R20.Location = new System.Drawing.Point(363, 181);
+            R20.Margin = new System.Windows.Forms.Padding(0);
+            R20.Name = "R20";
+            R20.Size = new System.Drawing.Size(28, 34);
+            R20.TabIndex = 74;
+            R20.TabStop = false;
+            R20.Text = "20";
+            R20.UseVisualStyleBackColor = false;
             // 
             // R3
             // 
-            this.R3.BackColor = System.Drawing.Color.Red;
-            this.R3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R3.Location = new System.Drawing.Point(406, 357);
-            this.R3.Name = "R3";
-            this.R3.Size = new System.Drawing.Size(28, 35);
-            this.R3.TabIndex = 73;
-            this.R3.Text = "3";
-            this.R3.UseVisualStyleBackColor = false;
+            R3.BackColor = System.Drawing.Color.Red;
+            R3.Enabled = false;
+            R3.ForeColor = System.Drawing.Color.Transparent;
+            R3.Location = new System.Drawing.Point(338, 365);
+            R3.Margin = new System.Windows.Forms.Padding(0);
+            R3.Name = "R3";
+            R3.Size = new System.Drawing.Size(28, 35);
+            R3.TabIndex = 73;
+            R3.TabStop = false;
+            R3.Text = "3";
+            R3.UseVisualStyleBackColor = false;
             // 
             // R17
             // 
-            this.R17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R17.Location = new System.Drawing.Point(440, 194);
-            this.R17.Name = "R17";
-            this.R17.Size = new System.Drawing.Size(28, 35);
-            this.R17.TabIndex = 72;
-            this.R17.Text = "17";
-            this.R17.UseVisualStyleBackColor = false;
+            R17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R17.Enabled = false;
+            R17.ForeColor = System.Drawing.Color.Transparent;
+            R17.Location = new System.Drawing.Point(364, 244);
+            R17.Margin = new System.Windows.Forms.Padding(0);
+            R17.Name = "R17";
+            R17.Size = new System.Drawing.Size(28, 35);
+            R17.TabIndex = 72;
+            R17.TabStop = false;
+            R17.Text = "17";
+            R17.UseVisualStyleBackColor = false;
             // 
             // R24
             // 
-            this.R24.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R24.Location = new System.Drawing.Point(372, 357);
-            this.R24.Name = "R24";
-            this.R24.Size = new System.Drawing.Size(28, 34);
-            this.R24.TabIndex = 71;
-            this.R24.Text = "24";
-            this.R24.UseVisualStyleBackColor = false;
+            R24.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R24.Enabled = false;
+            R24.ForeColor = System.Drawing.Color.Transparent;
+            R24.Location = new System.Drawing.Point(312, 365);
+            R24.Margin = new System.Windows.Forms.Padding(0);
+            R24.Name = "R24";
+            R24.Size = new System.Drawing.Size(28, 34);
+            R24.TabIndex = 71;
+            R24.TabStop = false;
+            R24.Text = "24";
+            R24.UseVisualStyleBackColor = false;
             // 
             // R22
             // 
-            this.R22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R22.Location = new System.Drawing.Point(440, 275);
-            this.R22.Name = "R22";
-            this.R22.Size = new System.Drawing.Size(28, 34);
-            this.R22.TabIndex = 70;
-            this.R22.Text = "22";
-            this.R22.UseVisualStyleBackColor = false;
+            R22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R22.Enabled = false;
+            R22.ForeColor = System.Drawing.Color.Transparent;
+            R22.Location = new System.Drawing.Point(364, 305);
+            R22.Margin = new System.Windows.Forms.Padding(0);
+            R22.Name = "R22";
+            R22.Size = new System.Drawing.Size(28, 34);
+            R22.TabIndex = 70;
+            R22.TabStop = false;
+            R22.Text = "22";
+            R22.UseVisualStyleBackColor = false;
             // 
             // R5
             // 
-            this.R5.BackColor = System.Drawing.Color.Red;
-            this.R5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R5.Location = new System.Drawing.Point(440, 235);
-            this.R5.Name = "R5";
-            this.R5.Size = new System.Drawing.Size(28, 34);
-            this.R5.TabIndex = 69;
-            this.R5.Text = "5";
-            this.R5.UseVisualStyleBackColor = false;
+            R5.BackColor = System.Drawing.Color.Red;
+            R5.Enabled = false;
+            R5.ForeColor = System.Drawing.Color.Transparent;
+            R5.Location = new System.Drawing.Point(364, 277);
+            R5.Margin = new System.Windows.Forms.Padding(0);
+            R5.Name = "R5";
+            R5.Size = new System.Drawing.Size(28, 34);
+            R5.TabIndex = 69;
+            R5.TabStop = false;
+            R5.Text = "5";
+            R5.UseVisualStyleBackColor = false;
             // 
             // R14
             // 
-            this.R14.BackColor = System.Drawing.Color.Red;
-            this.R14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R14.Location = new System.Drawing.Point(168, 31);
-            this.R14.Name = "R14";
-            this.R14.Size = new System.Drawing.Size(28, 35);
-            this.R14.TabIndex = 68;
-            this.R14.Text = "14";
-            this.R14.UseVisualStyleBackColor = false;
+            R14.BackColor = System.Drawing.Color.Red;
+            R14.Enabled = false;
+            R14.ForeColor = System.Drawing.Color.Transparent;
+            R14.Location = new System.Drawing.Point(150, 101);
+            R14.Margin = new System.Windows.Forms.Padding(0);
+            R14.Name = "R14";
+            R14.Size = new System.Drawing.Size(28, 35);
+            R14.TabIndex = 68;
+            R14.TabStop = false;
+            R14.Text = "14";
+            R14.UseVisualStyleBackColor = false;
             // 
             // R35
             // 
-            this.R35.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R35.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R35.Location = new System.Drawing.Point(134, 31);
-            this.R35.Name = "R35";
-            this.R35.Size = new System.Drawing.Size(28, 35);
-            this.R35.TabIndex = 67;
-            this.R35.Text = "35";
-            this.R35.UseVisualStyleBackColor = false;
-            this.R35.Click += new System.EventHandler(this.button56_Click);
+            R35.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R35.Enabled = false;
+            R35.ForeColor = System.Drawing.Color.Transparent;
+            R35.Location = new System.Drawing.Point(124, 100);
+            R35.Margin = new System.Windows.Forms.Padding(0);
+            R35.Name = "R35";
+            R35.Size = new System.Drawing.Size(28, 37);
+            R35.TabIndex = 67;
+            R35.TabStop = false;
+            R35.Text = "35";
+            R35.UseVisualStyleBackColor = false;
+            R35.Click += new System.EventHandler(this.button56_Click);
             // 
             // R7
             // 
-            this.R7.BackColor = System.Drawing.Color.Red;
-            this.R7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R7.Location = new System.Drawing.Point(440, 73);
-            this.R7.Name = "R7";
-            this.R7.Size = new System.Drawing.Size(28, 35);
-            this.R7.TabIndex = 66;
-            this.R7.Text = "7";
-            this.R7.UseVisualStyleBackColor = false;
+            R7.BackColor = System.Drawing.Color.Red;
+            R7.Enabled = false;
+            R7.ForeColor = System.Drawing.Color.Transparent;
+            R7.Location = new System.Drawing.Point(338, 181);
+            R7.Margin = new System.Windows.Forms.Padding(0);
+            R7.Name = "R7";
+            R7.Size = new System.Drawing.Size(28, 35);
+            R7.TabIndex = 66;
+            R7.TabStop = false;
+            R7.Text = "7";
+            R7.UseVisualStyleBackColor = false;
             // 
             // R23
             // 
-            this.R23.BackColor = System.Drawing.Color.Red;
-            this.R23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R23.Location = new System.Drawing.Point(100, 31);
-            this.R23.Name = "R23";
-            this.R23.Size = new System.Drawing.Size(28, 35);
-            this.R23.TabIndex = 65;
-            this.R23.Text = "23";
-            this.R23.UseVisualStyleBackColor = false;
+            R23.BackColor = System.Drawing.Color.Red;
+            R23.Enabled = false;
+            R23.ForeColor = System.Drawing.Color.Transparent;
+            R23.Location = new System.Drawing.Point(124, 135);
+            R23.Margin = new System.Windows.Forms.Padding(0);
+            R23.Name = "R23";
+            R23.Size = new System.Drawing.Size(28, 35);
+            R23.TabIndex = 65;
+            R23.TabStop = false;
+            R23.Text = "23";
+            R23.UseVisualStyleBackColor = false;
             // 
             // R4
             // 
-            this.R4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R4.Location = new System.Drawing.Point(66, 32);
-            this.R4.Name = "R4";
-            this.R4.Size = new System.Drawing.Size(28, 34);
-            this.R4.TabIndex = 64;
-            this.R4.Text = "4";
-            this.R4.UseVisualStyleBackColor = false;
+            R4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R4.Enabled = false;
+            R4.ForeColor = System.Drawing.Color.Transparent;
+            R4.Location = new System.Drawing.Point(98, 135);
+            R4.Margin = new System.Windows.Forms.Padding(0);
+            R4.Name = "R4";
+            R4.Size = new System.Drawing.Size(28, 34);
+            R4.TabIndex = 64;
+            R4.TabStop = false;
+            R4.Text = "4";
+            R4.UseVisualStyleBackColor = false;
             // 
             // R11
             // 
-            this.R11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R11.Location = new System.Drawing.Point(440, 30);
-            this.R11.Name = "R11";
-            this.R11.Size = new System.Drawing.Size(28, 35);
-            this.R11.TabIndex = 63;
-            this.R11.Text = "11";
-            this.R11.UseVisualStyleBackColor = false;
+            R11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R11.Enabled = false;
+            R11.ForeColor = System.Drawing.Color.Transparent;
+            R11.Location = new System.Drawing.Point(338, 148);
+            R11.Margin = new System.Windows.Forms.Padding(0);
+            R11.Name = "R11";
+            R11.Size = new System.Drawing.Size(28, 35);
+            R11.TabIndex = 63;
+            R11.TabStop = false;
+            R11.Text = "11";
+            R11.UseVisualStyleBackColor = false;
             // 
             // R16
             // 
-            this.R16.BackColor = System.Drawing.Color.Red;
-            this.R16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R16.Location = new System.Drawing.Point(32, 32);
-            this.R16.Name = "R16";
-            this.R16.Size = new System.Drawing.Size(28, 35);
-            this.R16.TabIndex = 62;
-            this.R16.Text = "16";
-            this.R16.UseVisualStyleBackColor = false;
+            R16.BackColor = System.Drawing.Color.Red;
+            R16.Enabled = false;
+            R16.ForeColor = System.Drawing.Color.Transparent;
+            R16.Location = new System.Drawing.Point(98, 168);
+            R16.Margin = new System.Windows.Forms.Padding(0);
+            R16.Name = "R16";
+            R16.Size = new System.Drawing.Size(28, 35);
+            R16.TabIndex = 62;
+            R16.TabStop = false;
+            R16.Text = "16";
+            R16.UseVisualStyleBackColor = false;
             // 
             // R21
             // 
-            this.R21.BackColor = System.Drawing.Color.Red;
-            this.R21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R21.Location = new System.Drawing.Point(32, 113);
-            this.R21.Name = "R21";
-            this.R21.Size = new System.Drawing.Size(28, 35);
-            this.R21.TabIndex = 61;
-            this.R21.Text = "21";
-            this.R21.UseVisualStyleBackColor = false;
+            R21.BackColor = System.Drawing.Color.Red;
+            R21.Enabled = false;
+            R21.ForeColor = System.Drawing.Color.Transparent;
+            R21.Location = new System.Drawing.Point(72, 200);
+            R21.Margin = new System.Windows.Forms.Padding(0);
+            R21.Name = "R21";
+            R21.Size = new System.Drawing.Size(28, 35);
+            R21.TabIndex = 61;
+            R21.TabStop = false;
+            R21.Text = "21";
+            R21.UseVisualStyleBackColor = false;
             // 
             // R30
             // 
-            this.R30.BackColor = System.Drawing.Color.Red;
-            this.R30.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R30.Location = new System.Drawing.Point(406, 30);
-            this.R30.Name = "R30";
-            this.R30.Size = new System.Drawing.Size(28, 35);
-            this.R30.TabIndex = 60;
-            this.R30.Text = "30";
-            this.R30.UseVisualStyleBackColor = false;
+            R30.BackColor = System.Drawing.Color.Red;
+            R30.Enabled = false;
+            R30.ForeColor = System.Drawing.Color.Transparent;
+            R30.Location = new System.Drawing.Point(312, 148);
+            R30.Margin = new System.Windows.Forms.Padding(0);
+            R30.Name = "R30";
+            R30.Size = new System.Drawing.Size(28, 35);
+            R30.TabIndex = 60;
+            R30.TabStop = false;
+            R30.Text = "30";
+            R30.UseVisualStyleBackColor = false;
             // 
             // R6
             // 
-            this.R6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R6.Location = new System.Drawing.Point(32, 153);
-            this.R6.Name = "R6";
-            this.R6.Size = new System.Drawing.Size(28, 35);
-            this.R6.TabIndex = 59;
-            this.R6.Text = "6";
-            this.R6.UseVisualStyleBackColor = false;
+            R6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R6.Enabled = false;
+            R6.ForeColor = System.Drawing.Color.Transparent;
+            R6.Location = new System.Drawing.Point(72, 233);
+            R6.Margin = new System.Windows.Forms.Padding(0);
+            R6.Name = "R6";
+            R6.Size = new System.Drawing.Size(28, 35);
+            R6.TabIndex = 59;
+            R6.TabStop = false;
+            R6.Text = "6";
+            R6.UseVisualStyleBackColor = false;
             // 
             // R18
             // 
-            this.R18.BackColor = System.Drawing.Color.Red;
-            this.R18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R18.Location = new System.Drawing.Point(32, 194);
-            this.R18.Name = "R18";
-            this.R18.Size = new System.Drawing.Size(28, 35);
-            this.R18.TabIndex = 58;
-            this.R18.Text = "18";
-            this.R18.UseVisualStyleBackColor = false;
+            R18.BackColor = System.Drawing.Color.Red;
+            R18.Enabled = false;
+            R18.ForeColor = System.Drawing.Color.Transparent;
+            R18.Location = new System.Drawing.Point(72, 266);
+            R18.Margin = new System.Windows.Forms.Padding(0);
+            R18.Name = "R18";
+            R18.Size = new System.Drawing.Size(28, 35);
+            R18.TabIndex = 58;
+            R18.TabStop = false;
+            R18.Text = "18";
+            R18.UseVisualStyleBackColor = false;
             // 
             // R26
             // 
-            this.R26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R26.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R26.Location = new System.Drawing.Point(372, 30);
-            this.R26.Name = "R26";
-            this.R26.Size = new System.Drawing.Size(28, 35);
-            this.R26.TabIndex = 57;
-            this.R26.Text = "26";
-            this.R26.UseVisualStyleBackColor = false;
+            R26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R26.Enabled = false;
+            R26.ForeColor = System.Drawing.Color.Transparent;
+            R26.Location = new System.Drawing.Point(312, 115);
+            R26.Margin = new System.Windows.Forms.Padding(0);
+            R26.Name = "R26";
+            R26.Size = new System.Drawing.Size(28, 35);
+            R26.TabIndex = 57;
+            R26.TabStop = false;
+            R26.Text = "26";
+            R26.UseVisualStyleBackColor = false;
             // 
             // R31
             // 
-            this.R31.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R31.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R31.Location = new System.Drawing.Point(32, 234);
-            this.R31.Name = "R31";
-            this.R31.Size = new System.Drawing.Size(28, 35);
-            this.R31.TabIndex = 56;
-            this.R31.Text = "31";
-            this.R31.UseVisualStyleBackColor = false;
+            R31.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R31.Enabled = false;
+            R31.ForeColor = System.Drawing.Color.Transparent;
+            R31.Location = new System.Drawing.Point(72, 299);
+            R31.Margin = new System.Windows.Forms.Padding(0);
+            R31.Name = "R31";
+            R31.Size = new System.Drawing.Size(28, 35);
+            R31.TabIndex = 56;
+            R31.TabStop = false;
+            R31.Text = "31";
+            R31.UseVisualStyleBackColor = false;
             // 
             // R8
             // 
-            this.R8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R8.Location = new System.Drawing.Point(32, 314);
-            this.R8.Name = "R8";
-            this.R8.Size = new System.Drawing.Size(28, 35);
-            this.R8.TabIndex = 55;
-            this.R8.Text = "8";
-            this.R8.UseVisualStyleBackColor = false;
+            R8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R8.Enabled = false;
+            R8.ForeColor = System.Drawing.Color.Transparent;
+            R8.Location = new System.Drawing.Point(98, 331);
+            R8.Margin = new System.Windows.Forms.Padding(0);
+            R8.Name = "R8";
+            R8.Size = new System.Drawing.Size(28, 35);
+            R8.TabIndex = 55;
+            R8.TabStop = false;
+            R8.Text = "8";
+            R8.UseVisualStyleBackColor = false;
             // 
             // R9
             // 
-            this.R9.BackColor = System.Drawing.Color.Red;
-            this.R9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R9.Location = new System.Drawing.Point(338, 30);
-            this.R9.Name = "R9";
-            this.R9.Size = new System.Drawing.Size(28, 35);
-            this.R9.TabIndex = 54;
-            this.R9.Text = "9";
-            this.R9.UseVisualStyleBackColor = false;
+            R9.BackColor = System.Drawing.Color.Red;
+            R9.Enabled = false;
+            R9.ForeColor = System.Drawing.Color.Transparent;
+            R9.Location = new System.Drawing.Point(287, 115);
+            R9.Margin = new System.Windows.Forms.Padding(0);
+            R9.Name = "R9";
+            R9.Size = new System.Drawing.Size(28, 35);
+            R9.TabIndex = 54;
+            R9.TabStop = false;
+            R9.Text = "9";
+            R9.UseVisualStyleBackColor = false;
             // 
             // R19
             // 
-            this.R19.BackColor = System.Drawing.Color.Red;
-            this.R19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R19.Location = new System.Drawing.Point(32, 274);
-            this.R19.Name = "R19";
-            this.R19.Size = new System.Drawing.Size(28, 35);
-            this.R19.TabIndex = 53;
-            this.R19.Text = "19";
-            this.R19.UseVisualStyleBackColor = false;
+            R19.BackColor = System.Drawing.Color.Red;
+            R19.Enabled = false;
+            R19.ForeColor = System.Drawing.Color.Transparent;
+            R19.Location = new System.Drawing.Point(72, 331);
+            R19.Margin = new System.Windows.Forms.Padding(0);
+            R19.Name = "R19";
+            R19.Size = new System.Drawing.Size(28, 35);
+            R19.TabIndex = 53;
+            R19.TabStop = false;
+            R19.Text = "19";
+            R19.UseVisualStyleBackColor = false;
             // 
             // R29
             // 
-            this.R29.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R29.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R29.Location = new System.Drawing.Point(66, 355);
-            this.R29.Name = "R29";
-            this.R29.Size = new System.Drawing.Size(28, 35);
-            this.R29.TabIndex = 52;
-            this.R29.Text = "29";
-            this.R29.UseVisualStyleBackColor = false;
+            R29.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R29.Enabled = false;
+            R29.ForeColor = System.Drawing.Color.Transparent;
+            R29.Location = new System.Drawing.Point(124, 364);
+            R29.Margin = new System.Windows.Forms.Padding(0);
+            R29.Name = "R29";
+            R29.Size = new System.Drawing.Size(28, 35);
+            R29.TabIndex = 52;
+            R29.TabStop = false;
+            R29.Text = "29";
+            R29.UseVisualStyleBackColor = false;
             // 
             // R28
             // 
-            this.R28.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R28.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R28.Location = new System.Drawing.Point(304, 30);
-            this.R28.Name = "R28";
-            this.R28.Size = new System.Drawing.Size(28, 35);
-            this.R28.TabIndex = 51;
-            this.R28.Text = "28";
-            this.R28.UseVisualStyleBackColor = false;
+            R28.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R28.Enabled = false;
+            R28.ForeColor = System.Drawing.Color.Transparent;
+            R28.Location = new System.Drawing.Point(287, 82);
+            R28.Margin = new System.Windows.Forms.Padding(0);
+            R28.Name = "R28";
+            R28.Size = new System.Drawing.Size(28, 35);
+            R28.TabIndex = 51;
+            R28.TabStop = false;
+            R28.Text = "28";
+            R28.UseVisualStyleBackColor = false;
             // 
             // R00
             // 
-            this.R00.BackColor = System.Drawing.Color.DarkGreen;
-            this.R00.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R00.Location = new System.Drawing.Point(202, 357);
-            this.R00.Name = "R00";
-            this.R00.Size = new System.Drawing.Size(62, 34);
-            this.R00.TabIndex = 50;
-            this.R00.Text = "00";
-            this.R00.UseVisualStyleBackColor = false;
+            R00.BackColor = System.Drawing.Color.DarkGreen;
+            R00.Enabled = false;
+            R00.ForeColor = System.Drawing.Color.Transparent;
+            R00.Location = new System.Drawing.Point(202, 397);
+            R00.Margin = new System.Windows.Forms.Padding(0);
+            R00.Name = "R00";
+            R00.Size = new System.Drawing.Size(62, 34);
+            R00.TabIndex = 50;
+            R00.TabStop = false;
+            R00.Text = "00";
+            R00.UseVisualStyleBackColor = false;
             // 
             // R10
             // 
-            this.R10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R10.Location = new System.Drawing.Point(134, 356);
-            this.R10.Name = "R10";
-            this.R10.Size = new System.Drawing.Size(28, 35);
-            this.R10.TabIndex = 49;
-            this.R10.Text = "10";
-            this.R10.UseVisualStyleBackColor = false;
+            R10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R10.Enabled = false;
+            R10.ForeColor = System.Drawing.Color.Transparent;
+            R10.Location = new System.Drawing.Point(150, 397);
+            R10.Margin = new System.Windows.Forms.Padding(0);
+            R10.Name = "R10";
+            R10.Size = new System.Drawing.Size(28, 35);
+            R10.TabIndex = 49;
+            R10.TabStop = false;
+            R10.Text = "10";
+            R10.UseVisualStyleBackColor = false;
             // 
             // R27
             // 
-            this.R27.BackColor = System.Drawing.Color.Red;
-            this.R27.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R27.Location = new System.Drawing.Point(168, 356);
-            this.R27.Name = "R27";
-            this.R27.Size = new System.Drawing.Size(28, 35);
-            this.R27.TabIndex = 47;
-            this.R27.Text = "27";
-            this.R27.UseVisualStyleBackColor = false;
+            R27.BackColor = System.Drawing.Color.Red;
+            R27.Enabled = false;
+            R27.ForeColor = System.Drawing.Color.Transparent;
+            R27.Location = new System.Drawing.Point(176, 397);
+            R27.Margin = new System.Windows.Forms.Padding(0);
+            R27.Name = "R27";
+            R27.Size = new System.Drawing.Size(28, 35);
+            R27.TabIndex = 47;
+            R27.TabStop = false;
+            R27.Text = "27";
+            R27.UseVisualStyleBackColor = false;
             // 
             // R12
             // 
-            this.R12.BackColor = System.Drawing.Color.Red;
-            this.R12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R12.Location = new System.Drawing.Point(32, 355);
-            this.R12.Name = "R12";
-            this.R12.Size = new System.Drawing.Size(28, 35);
-            this.R12.TabIndex = 46;
-            this.R12.Text = "12";
-            this.R12.UseVisualStyleBackColor = false;
+            R12.BackColor = System.Drawing.Color.Red;
+            R12.Enabled = false;
+            R12.ForeColor = System.Drawing.Color.Transparent;
+            R12.Location = new System.Drawing.Point(98, 364);
+            R12.Margin = new System.Windows.Forms.Padding(0);
+            R12.Name = "R12";
+            R12.Size = new System.Drawing.Size(28, 35);
+            R12.TabIndex = 46;
+            R12.TabStop = false;
+            R12.Text = "12";
+            R12.UseVisualStyleBackColor = false;
             // 
             // R25
             // 
-            this.R25.BackColor = System.Drawing.Color.Red;
-            this.R25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R25.Location = new System.Drawing.Point(100, 356);
-            this.R25.Name = "R25";
-            this.R25.Size = new System.Drawing.Size(28, 35);
-            this.R25.TabIndex = 44;
-            this.R25.Text = "25";
-            this.R25.UseVisualStyleBackColor = false;
+            R25.BackColor = System.Drawing.Color.Red;
+            R25.Enabled = false;
+            R25.ForeColor = System.Drawing.Color.Transparent;
+            R25.Location = new System.Drawing.Point(124, 396);
+            R25.Margin = new System.Windows.Forms.Padding(0);
+            R25.Name = "R25";
+            R25.Size = new System.Drawing.Size(28, 35);
+            R25.TabIndex = 44;
+            R25.TabStop = false;
+            R25.Text = "25";
+            R25.UseVisualStyleBackColor = false;
             // 
             // R1
             // 
-            this.R1.BackColor = System.Drawing.Color.Red;
-            this.R1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R1.Location = new System.Drawing.Point(270, 356);
-            this.R1.Name = "R1";
-            this.R1.Size = new System.Drawing.Size(28, 35);
-            this.R1.TabIndex = 43;
-            this.R1.Text = "1";
-            this.R1.UseVisualStyleBackColor = false;
+            R1.BackColor = System.Drawing.Color.Red;
+            R1.Enabled = false;
+            R1.ForeColor = System.Drawing.Color.Transparent;
+            R1.Location = new System.Drawing.Point(261, 397);
+            R1.Margin = new System.Windows.Forms.Padding(0);
+            R1.Name = "R1";
+            R1.Size = new System.Drawing.Size(28, 35);
+            R1.TabIndex = 43;
+            R1.TabStop = false;
+            R1.Text = "1";
+            R1.UseVisualStyleBackColor = false;
             // 
             // R2
             // 
-            this.R2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.R2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.R2.Location = new System.Drawing.Point(202, 31);
-            this.R2.Name = "R2";
-            this.R2.Size = new System.Drawing.Size(28, 35);
-            this.R2.TabIndex = 41;
-            this.R2.Text = "2";
-            this.R2.UseVisualStyleBackColor = false;
+            R2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R2.Enabled = false;
+            R2.ForeColor = System.Drawing.Color.Transparent;
+            R2.Location = new System.Drawing.Point(199, 82);
+            R2.Margin = new System.Windows.Forms.Padding(0);
+            R2.Name = "R2";
+            R2.Size = new System.Drawing.Size(28, 35);
+            R2.TabIndex = 41;
+            R2.TabStop = false;
+            R2.Text = "2";
+            R2.UseVisualStyleBackColor = false;
             // 
             // B1st
             // 
@@ -1419,12 +1576,46 @@
             // 
             this.Spin3.Interval = 20000;
             // 
+            // TableTop
+            // 
+            this.TableTop.BackColor = System.Drawing.Color.Red;
+            this.TableTop.Location = new System.Drawing.Point(1140, 560);
+            this.TableTop.Name = "TableTop";
+            this.TableTop.Size = new System.Drawing.Size(85, 47);
+            this.TableTop.TabIndex = 109;
+            this.TableTop.Text = "Casino";
+            this.TableTop.UseVisualStyleBackColor = false;
+            this.TableTop.Click += new System.EventHandler(this.TableTop_Click);
+            // 
+            // MainLobby
+            // 
+            this.MainLobby.BackColor = System.Drawing.Color.Red;
+            this.MainLobby.Location = new System.Drawing.Point(1231, 560);
+            this.MainLobby.Name = "MainLobby";
+            this.MainLobby.Size = new System.Drawing.Size(85, 47);
+            this.MainLobby.TabIndex = 108;
+            this.MainLobby.Text = "Main lobby";
+            this.MainLobby.UseVisualStyleBackColor = false;
+            this.MainLobby.Click += new System.EventHandler(this.MainLobby_Click);
+            // 
+            // pictureBox65
+            // 
+            this.pictureBox65.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox65.Location = new System.Drawing.Point(-14, 541);
+            this.pictureBox65.Name = "pictureBox65";
+            this.pictureBox65.Size = new System.Drawing.Size(1383, 128);
+            this.pictureBox65.TabIndex = 110;
+            this.pictureBox65.TabStop = false;
+            // 
             // Roulette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1333, 606);
+            this.Controls.Add(this.TableTop);
+            this.Controls.Add(this.MainLobby);
+            this.Controls.Add(this.pictureBox65);
             this.Controls.Add(this.Play);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.Chip);
@@ -1451,44 +1642,44 @@
             this.Controls.Add(this.B2nd);
             this.Controls.Add(this.B3rd);
             this.Controls.Add(this.B1st);
-            this.Controls.Add(this.R0);
-            this.Controls.Add(this.R33);
-            this.Controls.Add(this.R13);
-            this.Controls.Add(this.R15);
-            this.Controls.Add(this.R32);
-            this.Controls.Add(this.R34);
-            this.Controls.Add(this.R36);
-            this.Controls.Add(this.R20);
-            this.Controls.Add(this.R3);
-            this.Controls.Add(this.R17);
-            this.Controls.Add(this.R24);
-            this.Controls.Add(this.R22);
-            this.Controls.Add(this.R5);
-            this.Controls.Add(this.R14);
-            this.Controls.Add(this.R35);
-            this.Controls.Add(this.R7);
-            this.Controls.Add(this.R23);
-            this.Controls.Add(this.R4);
-            this.Controls.Add(this.R11);
-            this.Controls.Add(this.R16);
-            this.Controls.Add(this.R21);
-            this.Controls.Add(this.R30);
-            this.Controls.Add(this.R6);
-            this.Controls.Add(this.R18);
-            this.Controls.Add(this.R26);
-            this.Controls.Add(this.R31);
-            this.Controls.Add(this.R8);
-            this.Controls.Add(this.R9);
-            this.Controls.Add(this.R19);
-            this.Controls.Add(this.R29);
-            this.Controls.Add(this.R28);
-            this.Controls.Add(this.R00);
-            this.Controls.Add(this.R10);
-            this.Controls.Add(this.R27);
-            this.Controls.Add(this.R12);
-            this.Controls.Add(this.R25);
-            this.Controls.Add(this.R1);
-            this.Controls.Add(this.R2);
+            this.Controls.Add(R0);
+            this.Controls.Add(R33);
+            this.Controls.Add(R13);
+            this.Controls.Add(R15);
+            this.Controls.Add(R32);
+            this.Controls.Add(R34);
+            this.Controls.Add(R36);
+            this.Controls.Add(R20);
+            this.Controls.Add(R3);
+            this.Controls.Add(R17);
+            this.Controls.Add(R24);
+            this.Controls.Add(R22);
+            this.Controls.Add(R5);
+            this.Controls.Add(R14);
+            this.Controls.Add(R35);
+            this.Controls.Add(R7);
+            this.Controls.Add(R23);
+            this.Controls.Add(R4);
+            this.Controls.Add(R11);
+            this.Controls.Add(R16);
+            this.Controls.Add(R21);
+            this.Controls.Add(R30);
+            this.Controls.Add(R6);
+            this.Controls.Add(R18);
+            this.Controls.Add(R26);
+            this.Controls.Add(R31);
+            this.Controls.Add(R8);
+            this.Controls.Add(R9);
+            this.Controls.Add(R19);
+            this.Controls.Add(R29);
+            this.Controls.Add(R28);
+            this.Controls.Add(R00);
+            this.Controls.Add(R10);
+            this.Controls.Add(R27);
+            this.Controls.Add(R12);
+            this.Controls.Add(R25);
+            this.Controls.Add(R1);
+            this.Controls.Add(R2);
             this.Controls.Add(this.B0);
             this.Controls.Add(this.Row1);
             this.Controls.Add(this.Row2);
@@ -1533,6 +1724,7 @@
             this.Name = "Roulette";
             this.Text = "Roulette";
             this.Load += new System.EventHandler(this.Roulette_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1581,44 +1773,6 @@
         private System.Windows.Forms.Button B26;
         private System.Windows.Forms.Button B27;
         private System.Windows.Forms.Button B0;
-        private System.Windows.Forms.Button R0;
-        private System.Windows.Forms.Button R33;
-        private System.Windows.Forms.Button R13;
-        private System.Windows.Forms.Button R15;
-        private System.Windows.Forms.Button R32;
-        private System.Windows.Forms.Button R34;
-        private System.Windows.Forms.Button R36;
-        private System.Windows.Forms.Button R20;
-        private System.Windows.Forms.Button R3;
-        private System.Windows.Forms.Button R17;
-        private System.Windows.Forms.Button R24;
-        private System.Windows.Forms.Button R22;
-        private System.Windows.Forms.Button R5;
-        private System.Windows.Forms.Button R14;
-        private System.Windows.Forms.Button R35;
-        private System.Windows.Forms.Button R7;
-        private System.Windows.Forms.Button R23;
-        private System.Windows.Forms.Button R4;
-        private System.Windows.Forms.Button R11;
-        private System.Windows.Forms.Button R16;
-        private System.Windows.Forms.Button R21;
-        private System.Windows.Forms.Button R30;
-        private System.Windows.Forms.Button R6;
-        private System.Windows.Forms.Button R18;
-        private System.Windows.Forms.Button R26;
-        private System.Windows.Forms.Button R31;
-        private System.Windows.Forms.Button R8;
-        private System.Windows.Forms.Button R9;
-        private System.Windows.Forms.Button R19;
-        private System.Windows.Forms.Button R29;
-        private System.Windows.Forms.Button R28;
-        private System.Windows.Forms.Button R00;
-        private System.Windows.Forms.Button R10;
-        private System.Windows.Forms.Button R27;
-        private System.Windows.Forms.Button R12;
-        private System.Windows.Forms.Button R25;
-        private System.Windows.Forms.Button R1;
-        private System.Windows.Forms.Button R2;
         private System.Windows.Forms.Button B1st;
         private System.Windows.Forms.Button B3rd;
         private System.Windows.Forms.Button B2nd;
@@ -1649,5 +1803,8 @@
         private System.Windows.Forms.Timer Spin1;
         private System.Windows.Forms.Timer Spin2;
         private System.Windows.Forms.Timer Spin3;
+        private System.Windows.Forms.Button TableTop;
+        private System.Windows.Forms.Button MainLobby;
+        private System.Windows.Forms.PictureBox pictureBox65;
     }
 }
