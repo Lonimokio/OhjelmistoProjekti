@@ -216,7 +216,7 @@
             // MainLobby
             // 
             this.MainLobby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MainLobby.Location = new System.Drawing.Point(703, 391);
+            this.MainLobby.Location = new System.Drawing.Point(703, 396);
             this.MainLobby.Name = "MainLobby";
             this.MainLobby.Size = new System.Drawing.Size(85, 47);
             this.MainLobby.TabIndex = 13;
@@ -227,7 +227,7 @@
             // TableTop
             // 
             this.TableTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TableTop.Location = new System.Drawing.Point(612, 391);
+            this.TableTop.Location = new System.Drawing.Point(612, 396);
             this.TableTop.Name = "TableTop";
             this.TableTop.Size = new System.Drawing.Size(85, 47);
             this.TableTop.TabIndex = 14;
@@ -1251,7 +1251,7 @@
             // pictureBox65
             // 
             this.pictureBox65.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox65.Location = new System.Drawing.Point(-5, 374);
+            this.pictureBox65.Location = new System.Drawing.Point(-5, 381);
             this.pictureBox65.Name = "pictureBox65";
             this.pictureBox65.Size = new System.Drawing.Size(828, 105);
             this.pictureBox65.TabIndex = 79;

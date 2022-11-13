@@ -82,7 +82,7 @@ namespace FormTop_games
             H7.Click += ChessClick;
             H8.Click += ChessClick;
 
-            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", false);
+            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", false);
         }
 
         //Variable below here
@@ -91,7 +91,7 @@ namespace FormTop_games
         string Math = "A";
         string Math1;
         string Result = "Empty";
-        string FString;
+        string FString = "A";
         string SString;
 
         int Calculation = 1;
@@ -101,7 +101,8 @@ namespace FormTop_games
 
         bool EnPassant;
         bool Towering;
-        bool OutOfBoundsCheck;
+        bool MovementCheck = true;
+        bool OutOfBoundsCheck = false;
 
         //Variable abowe here
 
@@ -156,11 +157,11 @@ namespace FormTop_games
         {
 
         }
-
         private void pictureBox29_Click(object sender, EventArgs e)
         {
 
         }
+
         //Methods
         public void GetFString()
         {
@@ -212,130 +213,192 @@ namespace FormTop_games
         {
             if (Result != "A1")
             {
+                OutOfBoundsCheck = false;
                 if (Result != "A2")
                 {
                     if (Result != "A3")
                     {
+                        OutOfBoundsCheck = false;
                         if (Result != "A4")
                         {
+                            OutOfBoundsCheck = false;
                             if (Result != "A5")
                             {
+                                OutOfBoundsCheck = false;
                                 if (Result != "A6")
                                 {
+                                    OutOfBoundsCheck = false;
                                     if (Result != "A7")
                                     {
+                                        OutOfBoundsCheck = false;
                                         if (Result != "A8")
                                         {
+                                            OutOfBoundsCheck = false;
                                             if (Result != "B1")
                                             {
+                                                OutOfBoundsCheck = false;
                                                 if (Result != "B2")
                                                 {
+                                                    OutOfBoundsCheck = false;
                                                     if (Result != "B3")
                                                     {
+                                                        OutOfBoundsCheck = false;
                                                         if (Result != "B4")
                                                         {
+                                                            OutOfBoundsCheck = false;
                                                             if (Result != "B5")
                                                             {
+                                                                OutOfBoundsCheck = false;
                                                                 if (Result != "B6")
                                                                 {
+                                                                    OutOfBoundsCheck = false;
                                                                     if (Result != "B7")
                                                                     {
+                                                                        OutOfBoundsCheck = false;
                                                                         if (Result != "B8")
                                                                         {
+                                                                            OutOfBoundsCheck = false;
                                                                             if (Result != "C1")
                                                                             {
+                                                                                OutOfBoundsCheck = false;
                                                                                 if (Result != "C2")
                                                                                 {
+                                                                                    OutOfBoundsCheck = false;
                                                                                     if (Result != "C3")
                                                                                     {
+                                                                                        OutOfBoundsCheck = false;
                                                                                         if (Result != "C4")
                                                                                         {
+                                                                                            OutOfBoundsCheck = false;
                                                                                             if (Result != "C5")
                                                                                             {
+                                                                                                OutOfBoundsCheck = false;
                                                                                                 if (Result != "C6")
                                                                                                 {
+                                                                                                    OutOfBoundsCheck = false;
                                                                                                     if (Result != "C7")
                                                                                                     {
+                                                                                                        OutOfBoundsCheck = false;
                                                                                                         if (Result != "C8")
                                                                                                         {
+                                                                                                            OutOfBoundsCheck = false;
                                                                                                             if (Result != "D1")
                                                                                                             {
+                                                                                                                OutOfBoundsCheck = false;
                                                                                                                 if (Result != "D2")
                                                                                                                 {
+                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                     if (Result != "D3")
                                                                                                                     {
+                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                         if (Result != "D4")
                                                                                                                         {
+                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                             if (Result != "D5")
                                                                                                                             {
+                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                 if (Result != "D6")
                                                                                                                                 {
+                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                     if (Result != "D7")
                                                                                                                                     {
+                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                         if (Result != "D8")
                                                                                                                                         {
+                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                             if (Result != "E1")
                                                                                                                                             {
+                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                 if (Result != "E2")
                                                                                                                                                 {
+                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                     if (Result != "E3")
                                                                                                                                                     {
+                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                         if (Result != "E4")
                                                                                                                                                         {
+                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                             if (Result != "E5")
                                                                                                                                                             {
+                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                 if (Result != "E6")
                                                                                                                                                                 {
+                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                     if (Result != "E7")
                                                                                                                                                                     {
+                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                         if (Result != "E8")
                                                                                                                                                                         {
+                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                             if (Result != "F1")
                                                                                                                                                                             {
+                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                 if (Result != "F2")
                                                                                                                                                                                 {
+                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                     if (Result != "F3")
                                                                                                                                                                                     {
+                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                         if (Result != "F4")
                                                                                                                                                                                         {
+                                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                                             if (Result != "F5")
                                                                                                                                                                                             {
+                                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                                 if (Result != "F6")
                                                                                                                                                                                                 {
+                                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                                     if (Result != "F7")
                                                                                                                                                                                                     {
+                                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                                         if (Result != "F8")
                                                                                                                                                                                                         {
+                                                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                                                             if (Result != "G1")
                                                                                                                                                                                                             {
+                                                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                                                 if (Result != "G2")
                                                                                                                                                                                                                 {
+                                                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                                                     if (Result != "G3")
                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                                                         if (Result != "G4")
                                                                                                                                                                                                                         {
+                                                                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                                                                             if (Result != "G5")
                                                                                                                                                                                                                             {
+                                                                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                                                                 if (Result != "G6")
                                                                                                                                                                                                                                 {
+                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                                                                     if (Result != "G7")
                                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                                                                         if (Result != "G8")
                                                                                                                                                                                                                                         {
+                                                                                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                                                                                             if (Result != "H1")
                                                                                                                                                                                                                                             {
+                                                                                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                 if (Result != "H2")
                                                                                                                                                                                                                                                 {
+                                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                     if (Result != "H3")
                                                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                         if (Result != "H4")
                                                                                                                                                                                                                                                         {
+                                                                                                                                                                                                                                                            OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                             if (Result != "H5")
                                                                                                                                                                                                                                                             {
+                                                                                                                                                                                                                                                                OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                                 if (Result != "H6")
                                                                                                                                                                                                                                                                 {
+                                                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                                     if (Result != "H7")
                                                                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
                                                                                                                                                                                                                                                                         if (Result != "H8")
                                                                                                                                                                                                                                                                         {
                                                                                                                                                                                                                                                                             OutOfBoundsCheck = true;
@@ -404,19 +467,45 @@ namespace FormTop_games
                 }
             }
         }
-        public void Lock(string Side, string Side1, string Side2, string Side3, string Side4, bool Lock1)
+        public void MovementD(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
-            for (int i = 0; i < 63; i++)
+            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            if (ReferenceBox.Tag == this.Controls[Troop].Tag)
             {
-                Result = FString + Calculation.ToString();
-                Math = Result;
-                OutOfBounds();
-                if (OutOfBoundsCheck == true)
+                MovementCheck = false;
+                if (ReferenceBox.Tag == this.Controls[Troop1].Tag)
                 {
-                    Result = "Empty";
+                    MovementCheck = false;
+                    if (ReferenceBox.Tag == this.Controls[Troop2].Tag)
+                    {
+                        MovementCheck = false;
+                        if (ReferenceBox.Tag == this.Controls[Troop3].Tag)
+                        {
+                            MovementCheck = false;
+                            if (ReferenceBox.Tag == this.Controls[Troop4].Tag)
+                            {
+                                MovementCheck = false;
+                                if (ReferenceBox.Tag == this.Controls[Troop5].Tag)
+                                {
+                                    MovementCheck = false;
+                                }
+                            }
+                        }
+                    }
                 }
+            }
+        }
+        public void Lock(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, bool Lock1)
+        {
+            Calculation = 1;
+            FString = "A";
+            Math = "A1";
+            for (int i = 0; i < 64; i++)
+            {
+                Math = FString;
+                Result = FString + Calculation.ToString();
 
-                if (this.Controls[Result].Tag == this.Controls[Side].Tag || this.Controls[Result].Tag == this.Controls[Side1].Tag || this.Controls[Result].Tag == this.Controls[Side2].Tag || this.Controls[Result].Tag == this.Controls[Side3].Tag || this.Controls[Result].Tag == this.Controls[Side4].Tag)
+                if (this.Controls[Result].Tag == this.Controls[Side].Tag || this.Controls[Result].Tag == this.Controls[Side1].Tag || this.Controls[Result].Tag == this.Controls[Side2].Tag || this.Controls[Result].Tag == this.Controls[Side3].Tag || this.Controls[Result].Tag == this.Controls[Side4].Tag || this.Controls[Result].Tag == this.Controls[Side5].Tag)
                 {
                     this.Controls[Result].Enabled = Lock1;
                 }
@@ -427,99 +516,109 @@ namespace FormTop_games
                     Calculation = 1;
                 }
             }
+            Calculation = 1;
+            Math = "A1";
+            FString = "A";
         }
 
         //Movement logic as methods
-        public void Down(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void Down(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
             //Down move logic
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
                 Result = Math.Substring(0, 1) + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
                 OutOfBounds();
-                if (OutOfBoundsCheck == true)
+                if (OutOfBoundsCheck == true || Calculation >= 9)
                 {
                     ReferenceBox = (PictureBox)this.Controls["Empty"];
                     Result = "Empty";
                 }
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation + 1;
                     Result = Math.Substring(0, 1) + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
                     OutOfBounds();
-                    if (OutOfBoundsCheck == true)
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
                     {
                         ReferenceBox = (PictureBox)this.Controls["Empty"];
                         Result = "Empty";
                     }
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation + 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
                         OutOfBounds();
-                        if (OutOfBoundsCheck == true)
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
                         {
                             ReferenceBox = (PictureBox)this.Controls["Empty"];
                             Result = "Empty";
                         }
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation + 1;
                             Result = Math.Substring(0, 1) + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
                             OutOfBounds();
-                            if (OutOfBoundsCheck == true)
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
                             {
                                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                                 Result = "Empty";
                             }
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation + 1;
                                 Result = Math.Substring(0, 1) + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
                                 OutOfBounds();
-                                if (OutOfBoundsCheck == true)
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
                                 {
                                     ReferenceBox = (PictureBox)this.Controls["Empty"];
                                     Result = "Empty";
                                 }
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation + 1;
                                     Result = Math.Substring(0, 1) + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
                                     OutOfBounds();
-                                    if (OutOfBoundsCheck == true)
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
                                     {
                                         ReferenceBox = (PictureBox)this.Controls["Empty"];
                                         Result = "Empty";
                                     }
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation + 1;
                                         Result = Math.Substring(0, 1) + Calculation.ToString();
                                         OutOfBounds();
-                                        if (OutOfBoundsCheck == true)
+                                        if (OutOfBoundsCheck == true || Calculation >= 9)
                                         {
                                             ReferenceBox = (PictureBox)this.Controls["Empty"];
                                             Result = "Empty";
@@ -532,50 +631,93 @@ namespace FormTop_games
                 }
             }
         }
-        public void Up(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void Up(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             Calculation = int.Parse(Math.Substring(1, 1));
             Result = Math.Substring(0, 1) + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             //Up move logic
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
                 Result = Math.Substring(0, 1) +
                 Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation - 1;
                     Result = Math.Substring(0, 1) + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation - 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation - 1;
                             Result = Math.Substring(0, 1) + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation - 1;
                                 Result = Math.Substring(0, 1) + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation - 1;
                                     Result = Math.Substring(0, 1) + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation - 1;
@@ -588,50 +730,100 @@ namespace FormTop_games
                 }
             }
         }
-        public void SideR(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void SideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Side logic rigth
             Calculation = int.Parse(Math.Substring(1, 1));
             GetFString();
             Result = FString + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 GetFString();
                 Result = FString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     GetFString();
                     Result = FString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         GetFString();
                         Result = FString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             GetFString();
                             Result = FString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 GetFString();
                                 Result = FString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     GetFString();
                                     Result = FString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         GetFString();
@@ -644,50 +836,100 @@ namespace FormTop_games
                 }
             }
         }
-        public void SideL(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void SideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Side logic left
             Math = Math1;
             GetFString();
             Result = SString + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 GetFString();
                 Result = SString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     GetFString();
                     Result = SString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         GetFString();
                         Result = SString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             GetFString();
                             Result = SString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 GetFString();
                                 Result = SString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     GetFString();
                                     Result = SString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         GetFString();
@@ -702,78 +944,93 @@ namespace FormTop_games
 
         }
 
-        public void KnigthDown(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KnigthDown(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Down knight logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-        }
-        public void KnigthUp(string Side, string Side1, string Side2, string Side3, string Side4)
-        {
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Calculation = Calculation - 4;
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = Calculation + 2;
+            GetFString();
             Result = FString + Calculation.ToString();
+            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Calculation = 1;
+            FString = "";
+        }
+        public void KnigthUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        {
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = Calculation - 2;
+            GetFString();
+            Result = FString + Calculation.ToString();
+            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
-            Test1.Text = Result;
-            if (ReferenceBox.Tag != this.Controls[Side].Tag || ReferenceBox.Tag != this.Controls[Side1].Tag || ReferenceBox.Tag != this.Controls[Side2].Tag || ReferenceBox.Tag != this.Controls[Side3].Tag || ReferenceBox.Tag != this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
 
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
-
-
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
-            Test2.Text = Result;
-            if (ReferenceBox.Tag != this.Controls[Side].Tag || ReferenceBox.Tag != this.Controls[Side1].Tag || ReferenceBox.Tag != this.Controls[Side2].Tag || ReferenceBox.Tag != this.Controls[Side3].Tag || ReferenceBox.Tag != this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
+            Calculation = 1;
+            FString = "";
         }
-        public void KnigthSideL(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KnigthSideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            
             GetFString();
             Calculation = Calculation + 3;
             Result = FString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
+            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
-            if (ReferenceBox.Tag != this.Controls[Side].Tag || ReferenceBox.Tag != this.Controls[Side1].Tag || ReferenceBox.Tag != this.Controls[Side2].Tag || ReferenceBox.Tag != this.Controls[Side3].Tag || ReferenceBox.Tag != this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
@@ -781,32 +1038,34 @@ namespace FormTop_games
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
-            if (ReferenceBox.Tag != this.Controls[Side].Tag || ReferenceBox.Tag != this.Controls[Side1].Tag || ReferenceBox.Tag != this.Controls[Side2].Tag || ReferenceBox.Tag != this.Controls[Side3].Tag || ReferenceBox.Tag != this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
         }
-        public void KnigthSideR(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KnigthSideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
             Calculation = Calculation + 2;
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
 
-            if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
@@ -814,65 +1073,115 @@ namespace FormTop_games
             Result = FString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
             OutOfBounds();
-            if (OutOfBoundsCheck == true)
+            if (OutOfBoundsCheck == true || Calculation >= 9)
             {
                 ReferenceBox = (PictureBox)this.Controls["Empty"];
                 Result = "Empty";
             }
 
-            if (ReferenceBox.Tag != WRook.Tag || ReferenceBox.Tag != WBishop.Tag || ReferenceBox.Tag != WQueen.Tag || ReferenceBox.Tag != WKnigth.Tag || ReferenceBox.Tag != WTower.Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
         }
 
-        public void DownRigth(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void DownRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Down rigth movement logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
                 GetFString();
                 Result = FString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation + 1;
                     GetFString();
                     Result = FString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation + 1;
                         GetFString();
                         Result = FString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation + 1;
                             GetFString();
                             Result = FString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation + 1;
                                 GetFString();
                                 Result = FString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation + 1;
                                     GetFString();
                                     Result = FString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation + 1;
@@ -887,7 +1196,7 @@ namespace FormTop_games
                 }
             }
         }
-        public void UpRigth(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void UpRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             Math = Math1;
             Calculation = int.Parse(Math.Substring(1, 1));
@@ -895,51 +1204,100 @@ namespace FormTop_games
             GetFString();
             Result = FString + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
             //Up rigth movement logic
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
                 GetFString();
                 Result = FString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation - 1;
                     GetFString();
                     Result = FString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation - 1;
                         GetFString();
                         Result = FString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation - 1;
                             GetFString();
                             Result = FString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation - 1;
                                 GetFString();
                                 Result = FString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation - 1;
                                     GetFString();
                                     Result = FString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation - 1;
@@ -954,7 +1312,7 @@ namespace FormTop_games
                 }
             }
         }
-        public void Upleft(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void Upleft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             Math = Math1;
             Calculation = int.Parse(Math.Substring(1, 1));
@@ -962,51 +1320,100 @@ namespace FormTop_games
             GetFString();
             Result = SString + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
             //Up left movement logic
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
                 GetFString();
                 Result = SString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation - 1;
                     GetFString();
                     Result = SString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation - 1;
                         GetFString();
                         Result = SString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation - 1;
                             GetFString();
                             Result = SString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation - 1;
                                 GetFString();
                                 Result = SString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation - 1;
                                     GetFString();
                                     Result = SString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation - 1;
@@ -1021,7 +1428,7 @@ namespace FormTop_games
                 }
             }
         }
-        public void Downleft(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void Downleft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             Math = Math1;
             Calculation = int.Parse(Math.Substring(1, 1));
@@ -1029,51 +1436,100 @@ namespace FormTop_games
             GetFString();
             Result = SString + Calculation.ToString();
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
             //Down left movement logic
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
                 GetFString();
                 Result = SString + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                OutOfBounds();
+                if (OutOfBoundsCheck == true || Calculation >= 9)
+                {
+                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                    Result = "Empty";
+                }
+                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                if (MovementCheck == true)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                     Calculation = Calculation + 1;
                     GetFString();
                     Result = SString + Calculation.ToString();
                     ReferenceBox = (PictureBox)this.Controls[Result];
-                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                    OutOfBounds();
+                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                    {
+                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                        Result = "Empty";
+                    }
+                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                    if (MovementCheck == true)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                         Calculation = Calculation + 1;
                         GetFString();
                         Result = SString + Calculation.ToString();
                         ReferenceBox = (PictureBox)this.Controls[Result];
-                        if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == true || Calculation >= 9)
+                        {
+                            ReferenceBox = (PictureBox)this.Controls["Empty"];
+                            Result = "Empty";
+                        }
+                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                        if (MovementCheck == true)
                         {
                             this.Controls[Result].BackColor = Color.LightGreen;
                             Calculation = Calculation + 1;
                             GetFString();
                             Result = SString + Calculation.ToString();
                             ReferenceBox = (PictureBox)this.Controls[Result];
-                            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                            OutOfBounds();
+                            if (OutOfBoundsCheck == true || Calculation >= 9)
+                            {
+                                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                Result = "Empty";
+                            }
+                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                            if (MovementCheck == true)
                             {
                                 this.Controls[Result].BackColor = Color.LightGreen;
                                 Calculation = Calculation + 1;
                                 GetFString();
                                 Result = SString + Calculation.ToString();
                                 ReferenceBox = (PictureBox)this.Controls[Result];
-                                if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                OutOfBounds();
+                                if (OutOfBoundsCheck == true || Calculation >= 9)
+                                {
+                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                    Result = "Empty";
+                                }
+                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                if (MovementCheck == true)
                                 {
                                     this.Controls[Result].BackColor = Color.LightGreen;
                                     Calculation = Calculation + 1;
                                     GetFString();
                                     Result = SString + Calculation.ToString();
                                     ReferenceBox = (PictureBox)this.Controls[Result];
-                                    if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+                                    OutOfBounds();
+                                    if (OutOfBoundsCheck == true || Calculation >= 9)
+                                    {
+                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
+                                        Result = "Empty";
+                                    }
+                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+                                    if (MovementCheck == true)
                                     {
                                         this.Controls[Result].BackColor = Color.LightGreen;
                                         Calculation = Calculation + 1;
@@ -1089,11 +1545,18 @@ namespace FormTop_games
             }
         }
 
-        public void KDown(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KDown(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Down move logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
@@ -1103,18 +1566,25 @@ namespace FormTop_games
             Result = Math.Substring(0, 1) + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
         }
-        public void KUp(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Up move logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
                 Result = Math.Substring(0, 1) + Calculation.ToString();
             }
         }
-        public void KSideR(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KSideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Side logic rigth
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1122,14 +1592,21 @@ namespace FormTop_games
             GetFString();
             Result = FString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 GetFString();
                 Result = FString + Calculation.ToString();
             }
         }
-        public void KSideL(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KSideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Side logic left
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1137,14 +1614,21 @@ namespace FormTop_games
             GetFString();
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 GetFString();
                 Result = SString + Calculation.ToString();
             }
         }
-        public void KDownRigth(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KDownRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Down rigth movement logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1154,9 +1638,15 @@ namespace FormTop_games
             GetFString();
             Result = FString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
-
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
@@ -1164,7 +1654,7 @@ namespace FormTop_games
                 Result = FString + Calculation.ToString();
             }
         }
-        public void KUpRigth(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KUpRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Up rigth movement logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1174,9 +1664,15 @@ namespace FormTop_games
             GetFString();
             Result = FString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
-
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
@@ -1184,7 +1680,7 @@ namespace FormTop_games
                 Result = FString + Calculation.ToString();
             }
         }
-        public void KUpLeft(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KUpLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Up left movement logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1194,9 +1690,15 @@ namespace FormTop_games
             GetFString();
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
-
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation - 1;
@@ -1204,7 +1706,7 @@ namespace FormTop_games
                 Result = SString + Calculation.ToString();
             }
         }
-        public void KDownLeft(string Side, string Side1, string Side2, string Side3, string Side4)
+        public void KDownLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
         {
             //Down left movement logic
             PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
@@ -1214,9 +1716,15 @@ namespace FormTop_games
             GetFString();
             Result = SString + Calculation.ToString();
             ReferenceBox = (PictureBox)this.Controls[Result];
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9)
+            {
+                ReferenceBox = (PictureBox)this.Controls["Empty"];
+                Result = "Empty";
+            }
 
-
-            if (ReferenceBox.Tag == this.Controls[Side].Tag || ReferenceBox.Tag == this.Controls[Side1].Tag || ReferenceBox.Tag == this.Controls[Side2].Tag || ReferenceBox.Tag == this.Controls[Side3].Tag || ReferenceBox.Tag == this.Controls[Side4].Tag)
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
                 Calculation = Calculation + 1;
@@ -1293,13 +1801,13 @@ namespace FormTop_games
             {
                 Math = Math1;
                 Calculation = int.Parse(Math.Substring(1, 1));
-                Calculation = Calculation - 1;
+                Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
 
                 this.Controls[Result].BackColor = Color.LightGreen;
 
                 Calculation = int.Parse(Math.Substring(1, 1));
-                Calculation = Calculation - 1;
+                Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
                 ReferenceBox = (PictureBox)this.Controls[Result];
 
@@ -1309,7 +1817,7 @@ namespace FormTop_games
                     if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
                     {
                         Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation - 1;
+                        Calculation = op(Calculation);
 
                         GetFString();
                         Result = FString + Calculation.ToString();
@@ -1346,25 +1854,23 @@ namespace FormTop_games
 
                     if ((sender as PictureBox).BackColor == Color.LightGreen)
                     {
-                        Math = (sender as PictureBox).ToString();
+                        Math = (sender as PictureBox).Name;
                         Calculation = Calculation = int.Parse(Math.Substring(1, 1));
                         GetFString();
                         if (Turn == 1)
                         {
                             Turn = 2;
-                            Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", false);
+                            Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", false);
+                            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
                             TurnLabel.Text = "Black turn";
                         }
                         else if (Turn == 2)
                         {
                             Turn = 1;
-                            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", false);
+                            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", false);
+                            Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
                             TurnLabel.Text = "White turn";
                         }
-                    }
-                    else
-                    {
-
                     }
                     for (int i = 0; i <= 63; i++)
                     {
@@ -1422,6 +1928,7 @@ namespace FormTop_games
 
                         //RookMove
                         RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x-1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Checking legal black rook moves
                     if (PCache.Tag == BRook.Tag)
@@ -1430,6 +1937,7 @@ namespace FormTop_games
                         Unit = "Black rook";
                         //RookMove
                         RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White knigth logic
                     else if (PCache.Tag == WKnigth.Tag)
@@ -1438,25 +1946,16 @@ namespace FormTop_games
 
                         //Calculation settup
                         Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 2;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
+                        Math1 = (sender as PictureBox).Name;
                         //Down knight logic
-                        KnigthDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KnigthDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up knight logic
-                        KnigthUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KnigthUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side knight logic
-                        KnigthSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KnigthSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic
-                        KnigthSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KnigthSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black knigth logic
                     else if (PCache.Tag == BKnigth.Tag)
@@ -1478,13 +1977,14 @@ namespace FormTop_games
                         }
 
                         //Down knight logic
-                        KnigthDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KnigthDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up knight logic
-                        KnigthUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KnigthUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side knight logic
-                        KnigthSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KnigthSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic
-                        KnigthSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KnigthSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White tower move logic
                     else if (PCache.Tag == WTower.Tag)
@@ -1498,13 +1998,14 @@ namespace FormTop_games
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
                         //Down move logic
-                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic rigth
-                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic left
-                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black tower move logic
                     else if (PCache.Tag == BTower.Tag)
@@ -1517,13 +2018,14 @@ namespace FormTop_games
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
                         //Down move logic
-                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic rigth
-                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic left
-                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White bishop move logic
                     else if (PCache.Tag == WBishop.Tag)
@@ -1539,13 +2041,14 @@ namespace FormTop_games
                         Result = FString + Calculation.ToString();
 
                         //Down rigth movement logic
-                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up rigth movement logic
-                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up left movement logic
-                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down left movement logic
-                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black bishop move logic
                     else if (PCache.Tag == BBishop.Tag)
@@ -1561,13 +2064,14 @@ namespace FormTop_games
                         Result = FString + Calculation.ToString();
 
                         //Down rigth movement logic
-                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up rigth movement logic
-                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up left movement logic
-                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
-                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White king move logic
                     else if (PCache.Tag == WKing.Tag)
@@ -1580,21 +2084,22 @@ namespace FormTop_games
                         Calculation = Calculation + 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
                         //Down move logic
-                        KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        KUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic rigth
-                        KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic left
-                        KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down rigth movement logic
-                        KDownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KDownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up rigth movement logic
-                        KUpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KUpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up left movement logic
-                        KUpLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KUpLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down left movement logic
-                        KDownLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        KDownLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black king move logic
                     else if (PCache.Tag == BKing.Tag)
@@ -1607,21 +2112,22 @@ namespace FormTop_games
                         Calculation = Calculation + 1;
                         Result = Math.Substring(0, 1) + Calculation.ToString();
                         //Down move logic
-                        KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        KUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic rigth
-                        KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic left
-                        KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down rigth movement logic
-                        KDownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KDownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up rigth movement logic
-                        KUpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KUpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up left movement logic
-                        KUpLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KUpLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
-                        KDownLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        KDownLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White queen move logic
                     else if (PCache.Tag == WQueen.Tag)
@@ -1636,21 +2142,22 @@ namespace FormTop_games
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
                         //Down move logic
-                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side rigth logic 
-                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side left logic 
-                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down Rigth logic
-                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up Rigth logic
-                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up left logic
-                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down left logic
-                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black queen move logic
                     else if (PCache.Tag == BQueen.Tag)
@@ -1664,30 +2171,31 @@ namespace FormTop_games
                         PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
                         //Down move logic
-                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side rigth logic 
-                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side left logic 
-                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down Rigth logic
-                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up Rigth logic
-                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up left logic
-                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left logic
-                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        (sender as PictureBox).BackColor = Color.Green;
                     }
                     Selected.Text = "Selected slot: " + Move1 + " Selected Unit: " + Unit;
                     if (Turn == 1)
                     {
-                        Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", true);
+                        Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
                     }
                     else if (Turn == 2)
                     {
-                        Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", true);
+                        Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
                     }
                 }
             }

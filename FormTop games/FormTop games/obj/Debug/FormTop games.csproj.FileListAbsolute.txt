@@ -575,3 +575,4 @@ C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.ex
 C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop games.pdb
 C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Roulette.resources
 C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Roulette.resources
+C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Roulette.resources
