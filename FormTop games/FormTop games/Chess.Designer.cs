@@ -324,7 +324,6 @@
             this.label9.Size = new System.Drawing.Size(18, 20);
             this.label9.TabIndex = 95;
             this.label9.Text = "8";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -569,7 +568,6 @@
             this.PCache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PCache.TabIndex = 99;
             this.PCache.TabStop = false;
-            this.PCache.Click += new System.EventHandler(this.PCache_Click);
             // 
             // H8
             // 
@@ -581,7 +579,6 @@
             this.H8.TabIndex = 78;
             this.H8.TabStop = false;
             this.H8.Tag = "WTower";
-            this.H8.Click += new System.EventHandler(this.H8_Click);
             // 
             // G8
             // 
@@ -594,7 +591,6 @@
             this.G8.TabIndex = 77;
             this.G8.TabStop = false;
             this.G8.Tag = "WKnigth";
-            this.G8.Click += new System.EventHandler(this.G8_Click);
             // 
             // F8
             // 
@@ -652,7 +648,6 @@
             this.B8.TabIndex = 72;
             this.B8.TabStop = false;
             this.B8.Tag = "WKnigth";
-            this.B8.Click += new System.EventHandler(this.B8_Click);
             // 
             // A8
             // 
@@ -665,7 +660,6 @@
             this.A8.TabIndex = 71;
             this.A8.TabStop = false;
             this.A8.Tag = "WTower";
-            this.A8.Click += new System.EventHandler(this.A8_Click);
             // 
             // H7
             // 
@@ -1034,7 +1028,6 @@
             this.D3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D3.TabIndex = 34;
             this.D3.TabStop = false;
-            this.D3.Click += new System.EventHandler(this.pictureBox29_Click);
             // 
             // C3
             // 
@@ -1256,7 +1249,6 @@
             this.pictureBox65.Size = new System.Drawing.Size(828, 105);
             this.pictureBox65.TabIndex = 79;
             this.pictureBox65.TabStop = false;
-            this.pictureBox65.Click += new System.EventHandler(this.pictureBox65_Click);
             // 
             // pictureBox1
             // 

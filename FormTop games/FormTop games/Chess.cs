@@ -153,21 +153,13 @@ namespace FormTop_games
             control.Height += (control.Height * height) / oldSize.Height;
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox29_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Methods
         public void GetFString()
         {
 
             if (Math.Substring(0, 1) == "A")
             {
+                SString = "I";
                 FString = "B";
             }
             else if (Math.Substring(0, 1) == "B")
@@ -202,6 +194,7 @@ namespace FormTop_games
             }
             else if (Math.Substring(0, 1) == "H")
             {
+                FString = "I";
                 SString = "G";
             }
             else
@@ -469,30 +462,36 @@ namespace FormTop_games
         }
         public void MovementD(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Tag == this.Controls[Troop].Tag)
+            MovementCheck = true;
+            if (this.Controls[Result].Tag == this.Controls[Troop].Tag)
             {
                 MovementCheck = false;
-                if (ReferenceBox.Tag == this.Controls[Troop1].Tag)
-                {
-                    MovementCheck = false;
-                    if (ReferenceBox.Tag == this.Controls[Troop2].Tag)
-                    {
-                        MovementCheck = false;
-                        if (ReferenceBox.Tag == this.Controls[Troop3].Tag)
-                        {
-                            MovementCheck = false;
-                            if (ReferenceBox.Tag == this.Controls[Troop4].Tag)
-                            {
-                                MovementCheck = false;
-                                if (ReferenceBox.Tag == this.Controls[Troop5].Tag)
-                                {
-                                    MovementCheck = false;
-                                }
-                            }
-                        }
-                    }
-                }
+                MessageBox.Show("Im here " + Troop + " " + Result);
+            }
+            if (this.Controls[Result].Tag == this.Controls[Troop1].Tag)
+            {
+                MovementCheck = false;
+                MessageBox.Show("Im here " + Troop1 + " " + Result);
+            }
+            if (this.Controls[Result].Tag == this.Controls[Troop2].Tag)
+            {
+                MovementCheck = false;
+                MessageBox.Show("Im here " + Troop2 + " " + Result);
+            }
+            if (this.Controls[Result].Tag == this.Controls[Troop3].Tag)
+            {
+                MovementCheck = false;
+                MessageBox.Show("Im here " + Troop3 + " " + Result);
+            }
+            if (this.Controls[Result].Tag == this.Controls[Troop4].Tag)
+            {
+                MovementCheck = false;
+                MessageBox.Show("Im here " + Troop4 + " " + Result);
+            }
+            if (this.Controls[Result].Tag == this.Controls[Troop5].Tag)
+            {
+                MovementCheck = false;
+                MessageBox.Show("Im here " + Troop5 + " " + Result);
             }
         }
         public void Lock(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, bool Lock1)
@@ -522,1217 +521,422 @@ namespace FormTop_games
         }
 
         //Movement logic as methods
-        public void Down(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        //Straigth movement
+        public void DownUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            //Down and Up move logic
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
+            Result = Math.Substring(0, 1) + Calculation.ToString();
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
 
-            //Down move logic
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                Result = Math.Substring(0, 1) + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
                 {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
+                    Math = Math1;
+                    return;
                 }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation + 1;
-                    Result = Math.Substring(0, 1) + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation + 1;
-                            Result = Math.Substring(0, 1) + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation + 1;
-                                Result = Math.Substring(0, 1) + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation + 1;
-                                    Result = Math.Substring(0, 1) + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation + 1;
-                                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                                        OutOfBounds();
-                                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                                        {
-                                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                            Result = "Empty";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                DownUp(Side, Side1, Side2, Side3, Side4, Side5, op, OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void Up(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            Calculation = int.Parse(Math.Substring(1, 1));
-            Result = Math.Substring(0, 1) + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            //Up move logic
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                Result = Math.Substring(0, 1) +
-                Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
-                {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
-                }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation - 1;
-                    Result = Math.Substring(0, 1) + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation - 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation - 1;
-                            Result = Math.Substring(0, 1) + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation - 1;
-                                Result = Math.Substring(0, 1) + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation - 1;
-                                    Result = Math.Substring(0, 1) + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation - 1;
-                                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        public void SideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void SideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
             //Side logic rigth
             Calculation = int.Parse(Math.Substring(1, 1));
             GetFString();
             Result = FString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
-
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                GetFString();
-                Result = FString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
                 {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
+                    Math = Math1;
+                    return;
                 }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    GetFString();
-                    Result = FString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            GetFString();
-                            Result = FString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                GetFString();
-                                Result = FString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    GetFString();
-                                    Result = FString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        GetFString();
-                                        Result = FString + Calculation.ToString();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                SideR(Side, Side1, Side2, Side3, Side4, Side5, OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void SideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void SideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            //Side logic left
+            //Side logic Left
+            Calculation = int.Parse(Math.Substring(1, 1));
+            GetFString();
+            Result = SString + Calculation.ToString();
+            Math = Result;
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Math = Math1;
+                return;
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+                SideL(Side, Side1, Side2, Side3, Side4, Side5, OSide, OSide1, OSide2, OSide3, OSide4, OSide5 );
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
+            }
+        }
+        //Knigth movement
+        public void KnigthDownUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op)
+        {
+            //Down and Up knight logic
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
+            GetFString();
+            Result = FString + Calculation.ToString();
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Result = SString + Calculation.ToString();
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
             Math = Math1;
-            GetFString();
-            Result = SString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                GetFString();
-                Result = SString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
-                {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
-                }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    GetFString();
-                    Result = SString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        GetFString();
-                        Result = SString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            GetFString();
-                            Result = SString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                GetFString();
-                                Result = SString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    GetFString();
-                                    Result = SString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        GetFString();
-                                        Result = SString + Calculation.ToString();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
         }
-
-        public void KnigthDown(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void KnigthSideRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, Func<int, int> op1)
         {
-            //Down knight logic
+            //Knigth rigth side movement logic
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation + 2;
+            Calculation = op(Calculation);
+            GetFString();
+            Math = FString;
             GetFString();
             Result = FString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-            Calculation = 1;
-            FString = "";
-        }
-        public void KnigthUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation - 2;
-            GetFString();
-            Result = FString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-            Calculation = 1;
-            FString = "";
-        }
-        public void KnigthSideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            
-            GetFString();
-            Calculation = Calculation + 3;
-            Result = FString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-        }
-        public void KnigthSideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Calculation = Calculation + 2;
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-
-            Result = FString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-            }
-        }
-
-        public void DownRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            //Down rigth movement logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                GetFString();
-                Result = FString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
-                {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
-                }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation + 1;
-                    GetFString();
-                    Result = FString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation + 1;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation + 1;
-                            GetFString();
-                            Result = FString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation + 1;
-                                GetFString();
-                                Result = FString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation + 1;
-                                    GetFString();
-                                    Result = FString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation + 1;
-                                        GetFString();
-                                        Result = FString + Calculation.ToString();
-                                        ReferenceBox = (PictureBox)this.Controls[Result];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        public void UpRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
             Math = Math1;
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation - 1;
+            Calculation = op1(Calculation);
+            Result = FString + Calculation.ToString();
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Math = Math1;
+        }
+        public void KnigthSideLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, Func<int, int> op1)
+        {
+            //Knigth left side movement logic
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
+            GetFString();
+            Math = SString;
+            GetFString();
+            Result = SString + Calculation.ToString();
+            Math = Math1;
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op1(Calculation);
+            Result = SString + Calculation.ToString();
+            OutOfBounds();
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
+            {
+                Result = "Empty";
+            }
+            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
+            if (MovementCheck == true)
+            {
+                this.Controls[Result].BackColor = Color.LightGreen;
+            }
+            Math = Math1;
+        }
+        //Diagonal movement
+        public void DownRigthLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
+        {
+            //Down rigth and left movement logic
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
             GetFString();
             Result = FString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
-
-            //Up rigth movement logic
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                GetFString();
-                Result = FString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
                 {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
+                    Math = Math1;
+                    return;
                 }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation - 1;
-                    GetFString();
-                    Result = FString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation - 1;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation - 1;
-                            GetFString();
-                            Result = FString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation - 1;
-                                GetFString();
-                                Result = FString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation - 1;
-                                    GetFString();
-                                    Result = FString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation - 1;
-                                        GetFString();
-                                        Result = FString + Calculation.ToString();
-                                        ReferenceBox = (PictureBox)this.Controls[Result];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                DownRigthLeft(Side, Side1, Side2, Side3, Side4, Side5, op, OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void Upleft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void UpRigthLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            Math = Math1;
+            //Up rigth and left movement logic
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation - 1;
+            Calculation = op(Calculation);
             GetFString();
             Result = SString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
-
-            //Up left movement logic
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                GetFString();
-                Result = SString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
                 {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
+                    Math = Math1;
+                    return;
                 }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation - 1;
-                    GetFString();
-                    Result = SString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation - 1;
-                        GetFString();
-                        Result = SString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation - 1;
-                            GetFString();
-                            Result = SString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation - 1;
-                                GetFString();
-                                Result = SString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation - 1;
-                                    GetFString();
-                                    Result = SString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation - 1;
-                                        GetFString();
-                                        Result = SString + Calculation.ToString();
-                                        ReferenceBox = (PictureBox)this.Controls[Result];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                UpRigthLeft(Side, Side1, Side2, Side3, Side4, Side5, op, OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void Downleft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        //King movement
+        public void KDown(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            Math = Math1;
+            //Down and Up move logic
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation + 1;
-            GetFString();
-            Result = SString + Calculation.ToString();
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            //Down left movement logic
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                GetFString();
-                Result = SString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                OutOfBounds();
-                if (OutOfBoundsCheck == true || Calculation >= 9)
-                {
-                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                    Result = "Empty";
-                }
-                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                if (MovementCheck == true)
-                {
-                    this.Controls[Result].BackColor = Color.LightGreen;
-                    Calculation = Calculation + 1;
-                    GetFString();
-                    Result = SString + Calculation.ToString();
-                    ReferenceBox = (PictureBox)this.Controls[Result];
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                    {
-                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                        Result = "Empty";
-                    }
-                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                    if (MovementCheck == true)
-                    {
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        Calculation = Calculation + 1;
-                        GetFString();
-                        Result = SString + Calculation.ToString();
-                        ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true || Calculation >= 9)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
-                        MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                        if (MovementCheck == true)
-                        {
-                            this.Controls[Result].BackColor = Color.LightGreen;
-                            Calculation = Calculation + 1;
-                            GetFString();
-                            Result = SString + Calculation.ToString();
-                            ReferenceBox = (PictureBox)this.Controls[Result];
-                            OutOfBounds();
-                            if (OutOfBoundsCheck == true || Calculation >= 9)
-                            {
-                                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                Result = "Empty";
-                            }
-                            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                            if (MovementCheck == true)
-                            {
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                Calculation = Calculation + 1;
-                                GetFString();
-                                Result = SString + Calculation.ToString();
-                                ReferenceBox = (PictureBox)this.Controls[Result];
-                                OutOfBounds();
-                                if (OutOfBoundsCheck == true || Calculation >= 9)
-                                {
-                                    ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                    Result = "Empty";
-                                }
-                                MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                if (MovementCheck == true)
-                                {
-                                    this.Controls[Result].BackColor = Color.LightGreen;
-                                    Calculation = Calculation + 1;
-                                    GetFString();
-                                    Result = SString + Calculation.ToString();
-                                    ReferenceBox = (PictureBox)this.Controls[Result];
-                                    OutOfBounds();
-                                    if (OutOfBoundsCheck == true || Calculation >= 9)
-                                    {
-                                        ReferenceBox = (PictureBox)this.Controls["Empty"];
-                                        Result = "Empty";
-                                    }
-                                    MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-                                    if (MovementCheck == true)
-                                    {
-                                        this.Controls[Result].BackColor = Color.LightGreen;
-                                        Calculation = Calculation + 1;
-                                        GetFString();
-                                        Result = SString + Calculation.ToString();
-                                        ReferenceBox = (PictureBox)this.Controls[Result];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        public void KDown(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            //Down move logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                Result = Math.Substring(0, 1) + Calculation.ToString();
-            }
-            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
             Result = Math.Substring(0, 1) + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-        }
-        public void KUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            //Up move logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
+
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                Result = Math.Substring(0, 1) + Calculation.ToString();
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void KSideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void KSideR(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
             //Side logic rigth
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
             Calculation = int.Parse(Math.Substring(1, 1));
             GetFString();
             Result = FString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                GetFString();
-                Result = FString + Calculation.ToString();
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void KSideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void KSideL(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            //Side logic left
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Math = Math1;
+            //Side logic Left
+            Calculation = int.Parse(Math.Substring(1, 1));
             GetFString();
             Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                GetFString();
-                Result = SString + Calculation.ToString();
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void KDownRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void KDownRigthLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            //Down rigth movement logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Math = Math1;
+            //Down rigth and left movement logic
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation + 1;
+            Calculation = op(Calculation);
             GetFString();
             Result = FString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
-
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                GetFString();
-                Result = FString + Calculation.ToString();
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void KUpRigth(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
+        public void KUpRigthLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op, string OSide, string OSide1, string OSide2, string OSide3, string OSide4, string OSide5)
         {
-            //Up rigth movement logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Math = Math1;
+            //Up rigth and left movement logic
             Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation - 1;
-            GetFString();
-            Result = FString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                GetFString();
-                Result = FString + Calculation.ToString();
-            }
-        }
-        public void KUpLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            //Up left movement logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Math = Math1;
-            Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation - 1;
+            Calculation = op(Calculation);
             GetFString();
             Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
+            Math = Result;
             OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
+            if (OutOfBoundsCheck == true || Calculation >= 9 || Calculation <= 0)
             {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
+                Math = Math1;
+                return;
             }
-
             MovementD(Side, Side1, Side2, Side3, Side4, Side5);
             if (MovementCheck == true)
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation - 1;
-                GetFString();
-                Result = SString + Calculation.ToString();
+                MovementD(OSide, OSide1, OSide2, OSide3, OSide4, OSide5);
+                if (MovementCheck == false)
+                {
+                    Math = Math1;
+                    return;
+                }
+            }
+            else if (MovementCheck == false)
+            {
+                Math = Math1;
+                return;
             }
         }
-        public void KDownLeft(string Side, string Side1, string Side2, string Side3, string Side4, string Side5)
-        {
-            //Down left movement logic
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            Math = Math1;
-            Calculation = int.Parse(Math.Substring(1, 1));
-            Calculation = Calculation + 1;
-            GetFString();
-            Result = SString + Calculation.ToString();
-            ReferenceBox = (PictureBox)this.Controls[Result];
-            OutOfBounds();
-            if (OutOfBoundsCheck == true || Calculation >= 9)
-            {
-                ReferenceBox = (PictureBox)this.Controls["Empty"];
-                Result = "Empty";
-            }
-
-            MovementD(Side, Side1, Side2, Side3, Side4, Side5);
-            if (MovementCheck == true)
-            {
-                this.Controls[Result].BackColor = Color.LightGreen;
-                Calculation = Calculation + 1;
-                GetFString();
-                Result = SString + Calculation.ToString();
-            }
-        }
-
+        //Rook movement
         public void RookMove(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string Side6, string Side7, Func<int, int> op, string Side8, string Side9, string Side10, string Side11, string Side12, string Side13, string Side14, string Side15, string Side16, string Side17, string Side18, string Side19, string Side20)
         {
             //Checking if starting first square
@@ -1842,7 +1046,6 @@ namespace FormTop_games
                 }
                 else if ((sender as PictureBox).BackColor == Color.LightGreen || (sender as PictureBox).BackColor == Color.Green)
                 {
-                    PictureBox test = (sender as PictureBox);
                     (sender as PictureBox).Image = PCache.Image;
                     (sender as PictureBox).Tag = PCache.Tag;
                     Move1 = null;
@@ -1870,6 +1073,17 @@ namespace FormTop_games
                             Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", false);
                             Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
                             TurnLabel.Text = "White turn";
+                        }
+                    }
+                    else if ((sender as PictureBox).BackColor == Color.Green)
+                    {
+                        if (Turn == 1)
+                        {
+                            Lock("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", false);
+                        }
+                        else if (Turn == 2)
+                        {
+                            Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", false);
                         }
                     }
                     for (int i = 0; i <= 63; i++)
@@ -1918,6 +1132,7 @@ namespace FormTop_games
 
                     Selected.Text = "Selected slot: " + Move1;
                     (sender as PictureBox).Image = null;
+                    (sender as PictureBox).Tag = null;
 
                     //Checking legal white rook moves
                     if (PCache.Tag == WRook.Tag)
@@ -1934,6 +1149,7 @@ namespace FormTop_games
                     if (PCache.Tag == BRook.Tag)
                     {
                         Math = (sender as PictureBox).Name;
+                        Math1 = (sender as PictureBox).Name;
                         Unit = "Black rook";
                         //RookMove
                         RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "BKnigth", "BQueen", "BTower", "BRook", "BBishop");
@@ -1948,13 +1164,13 @@ namespace FormTop_games
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
                         //Down knight logic
-                        KnigthDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2);
                         //Up knight logic
-                        KnigthUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 2);
                         //Side knight logic
-                        KnigthSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Side logic
-                        KnigthSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KnigthSideRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, x => x - 1);
+                        //Side knight logic
+                        KnigthSideLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, x => x + 1);
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black knigth logic
@@ -1964,26 +1180,16 @@ namespace FormTop_games
 
                         //Calculation settup
                         Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 2;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-                        OutOfBounds();
-                        if (OutOfBoundsCheck == true)
-                        {
-                            ReferenceBox = (PictureBox)this.Controls["Empty"];
-                            Result = "Empty";
-                        }
+                        Math1 = (sender as PictureBox).Name;
 
                         //Down knight logic
-                        KnigthDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2);
                         //Up knight logic
-                        KnigthUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 2);
                         //Side knight logic
-                        KnigthSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KnigthSideRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, x => x - 1);
                         //Side logic
-                        KnigthSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KnigthSideLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, x => x + 1);
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White tower move logic
@@ -1992,19 +1198,16 @@ namespace FormTop_games
                         Unit = "White tower";
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+
 
                         //Down move logic
-                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic rigth
-                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic left
-                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black tower move logic
@@ -2012,19 +1215,16 @@ namespace FormTop_games
                     {
                         Unit = "Black tower";
                         Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                        Math1 = (sender as PictureBox).Name;
 
                         //Down move logic
-                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic rigth
-                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic left
-                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White bishop move logic
@@ -2035,19 +1235,15 @@ namespace FormTop_games
                         //Calculation initialization
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
 
                         //Down rigth movement logic
-                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up rigth movement logic
-                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up left movement logic
-                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
-                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Up rigth movement logic
+                        UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //up left movement logic
+                        UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black bishop move logic
@@ -2058,19 +1254,15 @@ namespace FormTop_games
                         //Calculation initialization
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        GetFString();
-                        Result = FString + Calculation.ToString();
 
                         //Down rigth movement logic
-                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up rigth movement logic
-                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up left movement logic
-                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down left movement logic
-                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //Up rigth movement logic
+                        UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //up left movement logic
+                        UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White king move logic
@@ -2080,25 +1272,23 @@ namespace FormTop_games
 
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
+
                         //Down move logic
-                        KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        KUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic rigth
-                        KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side logic left
-                        KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down rigth movement logic
-                        KDownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up rigth movement logic
-                        KUpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up left movement logic
-                        KUpLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
-                        KDownLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Up rigth movement logic
+                        KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //up left movement logic
+                        KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black king move logic
@@ -2108,25 +1298,23 @@ namespace FormTop_games
 
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
+
                         //Down move logic
-                        KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        KUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic rigth
-                        KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side logic left
-                        KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down rigth movement logic
-                        KDownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up rigth movement logic
-                        KUpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up left movement logic
-                        KUpLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
-                        KDownLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Up rigth movement logic
+                        KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //up left movement logic
+                        KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White queen move logic
@@ -2136,27 +1324,23 @@ namespace FormTop_games
 
                         Math = (sender as PictureBox).Name;
                         Math1 = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
 
                         //Down move logic
-                        Down("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
-                        Up("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side rigth logic 
-                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Side left logic 
-                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Down Rigth logic
-                        DownRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up Rigth logic
-                        UpRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Up left logic
-                        Upleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
-                        //Down left logic
-                        Downleft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Down rigth movement logic
+                        DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Down left movement logic
+                        DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //Up rigth movement logic
+                        UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        //up left movement logic
+                        UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Black queen move logic
@@ -2165,27 +1349,24 @@ namespace FormTop_games
                         Unit = "Black queen";
 
                         Math = (sender as PictureBox).Name;
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = Calculation + 1;
-                        Result = Math.Substring(0, 1) + Calculation.ToString();
-                        PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
+                        Math1 = (sender as PictureBox).Name;
 
                         //Down move logic
-                        Down("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
-                        Up("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side rigth logic 
-                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Side left logic 
-                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Down Rigth logic
-                        DownRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up Rigth logic
-                        UpRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Up left logic
-                        Upleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
-                        //Down left logic
-                        Downleft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //Down rigth movement logic
+                        DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //Down left movement logic
+                        DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //Up rigth movement logic
+                        UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        //up left movement logic
+                        UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     Selected.Text = "Selected slot: " + Move1 + " Selected Unit: " + Unit;
@@ -2199,36 +1380,6 @@ namespace FormTop_games
                     }
                 }
             }
-        }
-
-            private void PCache_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            private void H8_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            private void A8_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            private void G8_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            private void B8_Click(object sender, EventArgs e)
-            {
-
-            }
-
-        private void pictureBox65_Click(object sender, EventArgs e)
-        {
-
         }
     }
     }
