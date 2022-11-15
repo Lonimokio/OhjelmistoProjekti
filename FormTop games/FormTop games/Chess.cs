@@ -91,6 +91,7 @@ namespace FormTop_games
         string Math = "A";
         string Math1;
         string Result = "Empty";
+        string Result1;
         string FString = "A";
         string SString;
 
@@ -204,7 +205,37 @@ namespace FormTop_games
         }
         public void OutOfBounds()
         {
-            if (Result != "A1")
+            Calculation = 1;
+            FString = "A";
+            Math = Math1;
+            Result = Math;
+            for (int i = 0; i < 64; i++)
+            {
+                Math = FString;
+                Result1 = FString + Calculation.ToString();
+
+                if (Result != Result1)
+                {
+                    //MessageBox.Show(Result + " first " + Result1);
+                    OutOfBoundsCheck = true;
+                }
+                if (Result == Result1)
+                {
+                    //MessageBox.Show(Result + " second " + Result1);
+                    OutOfBoundsCheck = false;
+                    return;
+                }
+                Calculation++;
+                if (Calculation == 9)
+                {
+                    GetFString();
+                    Calculation = 1;
+                }
+            }
+            Calculation = 1;
+            Math = "A1";
+            FString = "A";
+            /*if (Result != "A1") 
             {
                 OutOfBoundsCheck = false;
                 if (Result != "A2")
@@ -458,7 +489,7 @@ namespace FormTop_games
                         }
                     }
                 }
-            }
+            }*/
         }
         public void MovementD(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
