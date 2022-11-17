@@ -209,7 +209,7 @@ namespace FormTop_games
             FString = "A";
             Math = Math1;
             Result = Math;
-            for (int i = 0; i < 64; i++)
+            for (int i = 0; i < 32; i++)
             {
                 Math = FString;
                 Result1 = FString + Calculation.ToString();
@@ -217,14 +217,17 @@ namespace FormTop_games
                 if (Result != Result1)
                 {
                     //MessageBox.Show(Result + " first " + Result1);
-                    OutOfBoundsCheck = true;
-                }
-                if (Result == Result1)
-                {
-                    //MessageBox.Show(Result + " second " + Result1);
                     OutOfBoundsCheck = false;
-                    return;
+                    if (i == 32)
+                    {
+                        if (Result != Result1)
+                        {
+                            MessageBox.Show(Result + " first " + Result1);
+                            OutOfBoundsCheck = true;
+                        }
+                    }
                 }
+                
                 Calculation++;
                 if (Calculation == 9)
                 {
