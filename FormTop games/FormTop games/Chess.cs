@@ -96,6 +96,7 @@ namespace FormTop_games
         string SString;
 
         int Calculation = 1;
+        int Calculation1 = 1;
         int color = 1;
         int counter = 1;
         int Turn = 1;
@@ -203,31 +204,32 @@ namespace FormTop_games
 
             }
         }
+        //Checking out of bounds
         public void OutOfBounds()
         {
+            Calculation1 = Calculation;
             Calculation = 1;
             FString = "A";
             Math = Math1;
-            Result = Math;
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 63; i++)
             {
                 Math = FString;
                 Result1 = FString + Calculation.ToString();
 
+                //Checking if its different
                 if (Result != Result1)
                 {
-                    //MessageBox.Show(Result + " first " + Result1);
-                    OutOfBoundsCheck = false;
-                    if (i == 32)
-                    {
-                        if (Result != Result1)
-                        {
-                            MessageBox.Show(Result + " first " + Result1);
-                            OutOfBoundsCheck = true;
-                        }
-                    }
+                    OutOfBoundsCheck = true;
                 }
-                
+                //Checking if its a valid point
+                if (Result == Result1)
+                {
+                    OutOfBoundsCheck = false;
+                    Math = Math1;
+                    Calculation = Calculation1;
+                    return;
+                }
+
                 Calculation++;
                 if (Calculation == 9)
                 {
@@ -235,264 +237,9 @@ namespace FormTop_games
                     Calculation = 1;
                 }
             }
-            Calculation = 1;
-            Math = "A1";
-            FString = "A";
-            /*if (Result != "A1") 
-            {
-                OutOfBoundsCheck = false;
-                if (Result != "A2")
-                {
-                    if (Result != "A3")
-                    {
-                        OutOfBoundsCheck = false;
-                        if (Result != "A4")
-                        {
-                            OutOfBoundsCheck = false;
-                            if (Result != "A5")
-                            {
-                                OutOfBoundsCheck = false;
-                                if (Result != "A6")
-                                {
-                                    OutOfBoundsCheck = false;
-                                    if (Result != "A7")
-                                    {
-                                        OutOfBoundsCheck = false;
-                                        if (Result != "A8")
-                                        {
-                                            OutOfBoundsCheck = false;
-                                            if (Result != "B1")
-                                            {
-                                                OutOfBoundsCheck = false;
-                                                if (Result != "B2")
-                                                {
-                                                    OutOfBoundsCheck = false;
-                                                    if (Result != "B3")
-                                                    {
-                                                        OutOfBoundsCheck = false;
-                                                        if (Result != "B4")
-                                                        {
-                                                            OutOfBoundsCheck = false;
-                                                            if (Result != "B5")
-                                                            {
-                                                                OutOfBoundsCheck = false;
-                                                                if (Result != "B6")
-                                                                {
-                                                                    OutOfBoundsCheck = false;
-                                                                    if (Result != "B7")
-                                                                    {
-                                                                        OutOfBoundsCheck = false;
-                                                                        if (Result != "B8")
-                                                                        {
-                                                                            OutOfBoundsCheck = false;
-                                                                            if (Result != "C1")
-                                                                            {
-                                                                                OutOfBoundsCheck = false;
-                                                                                if (Result != "C2")
-                                                                                {
-                                                                                    OutOfBoundsCheck = false;
-                                                                                    if (Result != "C3")
-                                                                                    {
-                                                                                        OutOfBoundsCheck = false;
-                                                                                        if (Result != "C4")
-                                                                                        {
-                                                                                            OutOfBoundsCheck = false;
-                                                                                            if (Result != "C5")
-                                                                                            {
-                                                                                                OutOfBoundsCheck = false;
-                                                                                                if (Result != "C6")
-                                                                                                {
-                                                                                                    OutOfBoundsCheck = false;
-                                                                                                    if (Result != "C7")
-                                                                                                    {
-                                                                                                        OutOfBoundsCheck = false;
-                                                                                                        if (Result != "C8")
-                                                                                                        {
-                                                                                                            OutOfBoundsCheck = false;
-                                                                                                            if (Result != "D1")
-                                                                                                            {
-                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                if (Result != "D2")
-                                                                                                                {
-                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                    if (Result != "D3")
-                                                                                                                    {
-                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                        if (Result != "D4")
-                                                                                                                        {
-                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                            if (Result != "D5")
-                                                                                                                            {
-                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                if (Result != "D6")
-                                                                                                                                {
-                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                    if (Result != "D7")
-                                                                                                                                    {
-                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                        if (Result != "D8")
-                                                                                                                                        {
-                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                            if (Result != "E1")
-                                                                                                                                            {
-                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                if (Result != "E2")
-                                                                                                                                                {
-                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                    if (Result != "E3")
-                                                                                                                                                    {
-                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                        if (Result != "E4")
-                                                                                                                                                        {
-                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                            if (Result != "E5")
-                                                                                                                                                            {
-                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                if (Result != "E6")
-                                                                                                                                                                {
-                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                    if (Result != "E7")
-                                                                                                                                                                    {
-                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                        if (Result != "E8")
-                                                                                                                                                                        {
-                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                            if (Result != "F1")
-                                                                                                                                                                            {
-                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                if (Result != "F2")
-                                                                                                                                                                                {
-                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                    if (Result != "F3")
-                                                                                                                                                                                    {
-                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                        if (Result != "F4")
-                                                                                                                                                                                        {
-                                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                                            if (Result != "F5")
-                                                                                                                                                                                            {
-                                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                                if (Result != "F6")
-                                                                                                                                                                                                {
-                                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                                    if (Result != "F7")
-                                                                                                                                                                                                    {
-                                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                                        if (Result != "F8")
-                                                                                                                                                                                                        {
-                                                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                                                            if (Result != "G1")
-                                                                                                                                                                                                            {
-                                                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                                                if (Result != "G2")
-                                                                                                                                                                                                                {
-                                                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                                                    if (Result != "G3")
-                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                                                        if (Result != "G4")
-                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                                                                            if (Result != "G5")
-                                                                                                                                                                                                                            {
-                                                                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                if (Result != "G6")
-                                                                                                                                                                                                                                {
-                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                    if (Result != "G7")
-                                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                        if (Result != "G8")
-                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                            if (Result != "H1")
-                                                                                                                                                                                                                                            {
-                                                                                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                if (Result != "H2")
-                                                                                                                                                                                                                                                {
-                                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                    if (Result != "H3")
-                                                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                        if (Result != "H4")
-                                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                                            OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                            if (Result != "H5")
-                                                                                                                                                                                                                                                            {
-                                                                                                                                                                                                                                                                OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                                if (Result != "H6")
-                                                                                                                                                                                                                                                                {
-                                                                                                                                                                                                                                                                    OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                                    if (Result != "H7")
-                                                                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                                                                        OutOfBoundsCheck = false;
-                                                                                                                                                                                                                                                                        if (Result != "H8")
-                                                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                                                            OutOfBoundsCheck = true;
-                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                }
-                                                                                                                                                                                                            }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                    }
-                                                                                                                                                                                                }
-                                                                                                                                                                                            }
-                                                                                                                                                                                        }
-                                                                                                                                                                                    }
-                                                                                                                                                                                }
-                                                                                                                                                                            }
-                                                                                                                                                                        }
-                                                                                                                                                                    }
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                            }
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }*/
+            Math = Math1;
+            Calculation = Calculation1;
+            FString = "";
         }
         public void MovementD(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
