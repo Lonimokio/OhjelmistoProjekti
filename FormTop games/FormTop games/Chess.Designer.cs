@@ -613,7 +613,7 @@
             this.E8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E8.TabIndex = 75;
             this.E8.TabStop = false;
-            this.E8.Tag = "WQueen";
+            this.E8.Tag = "WKing";
             // 
             // D8
             // 
@@ -624,7 +624,7 @@
             this.D8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D8.TabIndex = 74;
             this.D8.TabStop = false;
-            this.D8.Tag = "WKing";
+            this.D8.Tag = "WQueen";
             // 
             // C8
             // 
@@ -1193,7 +1193,7 @@
             this.E1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.E1.TabIndex = 19;
             this.E1.TabStop = false;
-            this.E1.Tag = "BQueen";
+            this.E1.Tag = "BKing";
             // 
             // D1
             // 
@@ -1205,7 +1205,7 @@
             this.D1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.D1.TabIndex = 18;
             this.D1.TabStop = false;
-            this.D1.Tag = "BKing";
+            this.D1.Tag = "BQueen";
             // 
             // C1
             // 
@@ -1244,7 +1244,7 @@
             // pictureBox65
             // 
             this.pictureBox65.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox65.Location = new System.Drawing.Point(-5, 381);
+            this.pictureBox65.Location = new System.Drawing.Point(-6, 387);
             this.pictureBox65.Name = "pictureBox65";
             this.pictureBox65.Size = new System.Drawing.Size(828, 105);
             this.pictureBox65.TabIndex = 79;

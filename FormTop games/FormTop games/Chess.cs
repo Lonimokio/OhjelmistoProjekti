@@ -221,11 +221,11 @@ namespace FormTop_games
                 {
                     OutOfBoundsCheck = true;
                 }
-                //Checking if its a valid point
+                //Checking if its a valid tile
                 if (Result == Result1)
                 {
                     OutOfBoundsCheck = false;
-                    Math = Math1;
+                    Math = Result;
                     Calculation = Calculation1;
                     return;
                 }
@@ -237,7 +237,7 @@ namespace FormTop_games
                     Calculation = 1;
                 }
             }
-            Math = Math1;
+            Math = Result;
             Calculation = Calculation1;
             FString = "";
         }
@@ -396,6 +396,7 @@ namespace FormTop_games
                 Math = Math1;
                 return;
             }
+            
         }
         //Knigth movement
         public void KnigthDownUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op)
@@ -718,7 +719,7 @@ namespace FormTop_games
             }
         }
         //Rook movement
-        public void RookMove(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string Side6, string Side7, Func<int, int> op, string Side8, string Side9, string Side10, string Side11, string Side12, string Side13, string Side14, string Side15, string Side16, string Side17, string Side18, string Side19, string Side20)
+        public void RookMove(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string Side6, string Side7, Func<int, int> op, string Pass, string Pass1, string Pass2, string Pass3, string Pass4, string Pass5, string Pass6, string Pass7, string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
             //Checking if starting first square
             if ((Move1 == Side) || (Move1 == Side1) || (Move1 == Side2) || (Move1 == Side3) || (Move1 == Side4) || (Move1 == Side5) || (Move1 == Side6) || (Move1 == Side7))
@@ -726,59 +727,76 @@ namespace FormTop_games
                 Calculation = int.Parse(Math.Substring(1, 1));
                 Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
-                Test1.Text = Result.ToString();
+
                 if (this.Controls[Result].Tag == null)
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
 
                     Calculation = op(Calculation);
                     Result = Math.Substring(0, 1) + Calculation.ToString();
-                    Test2.Text = Result.ToString();
+
                     if (this.Controls[Result].Tag == null)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
                     }
                 }
-            }
-            PictureBox ReferenceBox = (PictureBox)this.Controls[Result];
-            if (ReferenceBox.Image != null)
-            {
+                
                 //Checking if you can eat
+                GetFString();
                 Calculation = int.Parse(Math.Substring(1, 1));
                 Calculation = op(Calculation);
-                Result = Math.Substring(0, 1) + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-
-                if (ReferenceBox.Image != null)
+                Result = FString + Calculation.ToString();
+                OutOfBounds();
+                if (OutOfBoundsCheck == false || Calculation <= 9 || Calculation >= 0)
                 {
-                    if (ReferenceBox.Tag == this.Controls[Side16].Tag || ReferenceBox.Tag == this.Controls[Side17].Tag || ReferenceBox.Tag == this.Controls[Side18].Tag || ReferenceBox.Tag == this.Controls[Side19].Tag || ReferenceBox.Tag == this.Controls[Side20].Tag)
+                    if (this.Controls[Result].Tag != null)
                     {
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = op(Calculation);
+                        MovementD(Troop, Troop1, Troop2, Troop3, Troop4, Troop5);
+                        if (MovementCheck == true)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
+                    }
+                }
+                
 
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        this.Controls[Result].BackColor = Color.LightGreen;
+                Calculation = int.Parse(Math.Substring(1, 1));
+                Calculation = op(Calculation);
+                Result = SString + Calculation.ToString();
+
+                OutOfBounds();
+                if (OutOfBoundsCheck == false || Calculation <= 9 || Calculation >= 0)
+                {
+                    if (this.Controls[Result].Tag != null)
+                    {
+                        MovementD(Troop, Troop1, Troop2, Troop3, Troop4, Troop5);
+                        if (MovementCheck == true)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
                     }
                 }
             }
             //En passant logic
-            else if ((Move1 == Side8) || (Move1 == Side9) || (Move1 == Side10) || (Move1 == Side11) || (Move1 == Side12) || (Move1 == Side13) || (Move1 == Side14) || (Move1 == Side15))
+            else if ((Move1 == Pass) || (Move1 == Pass1) || (Move1 == Pass2) || (Move1 == Pass3) || (Move1 == Pass4) || (Move1 == Pass5) || (Move1 == Pass6) || (Move1 == Pass7))
             {
                 Calculation = int.Parse(Math.Substring(1, 1));
                 GetFString();
                 Result = FString + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
-                if (ReferenceBox.Image != null)
-                {
-                    if (ReferenceBox.Image == Properties.Resources.Black_rook1)
-                    {
-                        Calculation = op(Calculation);
-                        Result = FString + Calculation.ToString();
-                        this.Controls[Result].BackColor = Color.LightGreen;
-                        EnPassant = true;
-                    }
 
+                OutOfBounds();
+                if (OutOfBoundsCheck == false || Calculation <= 9 || Calculation >= 0)
+                {
+                    if (this.Controls[Result].Tag == null)
+                    {
+                        if (this.Controls[Result].Tag == BRook.Tag)
+                        {
+                            Calculation = op(Calculation);
+                            Result = FString + Calculation.ToString();
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                            EnPassant = true;
+                        }
+                    }
                 }
             }
             //Normal rook movement
@@ -789,31 +807,38 @@ namespace FormTop_games
                 Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
 
-                this.Controls[Result].BackColor = Color.LightGreen;
-
-                Calculation = int.Parse(Math.Substring(1, 1));
-                Calculation = op(Calculation);
-                Result = Math.Substring(0, 1) + Calculation.ToString();
-                ReferenceBox = (PictureBox)this.Controls[Result];
+                OutOfBounds();
+                if (OutOfBoundsCheck == false || Calculation <= 9 || Calculation >= 0)
+                {
+                    if (this.Controls[Result].Tag == null)
+                    {
+                        this.Controls[Result].BackColor = Color.LightGreen;
+                    }
+                }
 
                 //Checking if you can eat
-                if (ReferenceBox.Image != null)
-                {
-                    if (ReferenceBox.Tag == BRook.Tag || ReferenceBox.Tag == BBishop.Tag || ReferenceBox.Tag == BQueen.Tag || ReferenceBox.Tag == BKnigth.Tag || ReferenceBox.Tag == BTower.Tag)
-                    {
-                        Calculation = int.Parse(Math.Substring(1, 1));
-                        Calculation = op(Calculation);
+                Calculation = int.Parse(Math.Substring(1, 1));
+                Calculation = op(Calculation);
+                GetFString();
+                Result = FString + Calculation.ToString();
 
-                        GetFString();
-                        Result = FString + Calculation.ToString();
-                        this.Controls[Result].BackColor = Color.LightGreen;
+                OutOfBounds();
+                if (OutOfBoundsCheck == false || Calculation <= 9 || Calculation >= 0)
+                {
+                    if (this.Controls[Result].Tag == null)
+                    {
+                        MovementD(Troop, Troop1, Troop2, Troop3, Troop4, Troop5);
+                        if (MovementCheck == true)
+                        {
+                            this.Controls[Result].BackColor = Color.LightGreen;
+                        }
                     }
                 }
             }
         }
 
 
-        //Making picture boxes do stuff
+        //Making picture boxes sdo stuff
         public void ChessClick(object sender, EventArgs e)
         {
             //Checking if the tile has a piece on it
@@ -923,7 +948,7 @@ namespace FormTop_games
                         Unit = "White rook";
 
                         //RookMove
-                        RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x-1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "WKnigth", "WQueen", "WTower", "WRook", "WBishop");
+                        RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x-1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Checking legal black rook moves
@@ -933,7 +958,7 @@ namespace FormTop_games
                         Math1 = (sender as PictureBox).Name;
                         Unit = "Black rook";
                         //RookMove
-                        RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "BKnigth", "BQueen", "BTower", "BRook", "BBishop");
+                        RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White knigth logic
