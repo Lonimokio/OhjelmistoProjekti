@@ -131,6 +131,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Empty = new System.Windows.Forms.PictureBox();
             this.TurnLabel = new System.Windows.Forms.Label();
+            this.Check = new System.Windows.Forms.Label();
+            this.Mate = new System.Windows.Forms.Label();
+            this.Colour = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
@@ -1278,11 +1281,48 @@
             this.TurnLabel.TabIndex = 115;
             this.TurnLabel.Text = "White turn";
             // 
+            // Check
+            // 
+            this.Check.AutoSize = true;
+            this.Check.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Check.Location = new System.Drawing.Point(290, 325);
+            this.Check.Name = "Check";
+            this.Check.Size = new System.Drawing.Size(107, 37);
+            this.Check.TabIndex = 116;
+            this.Check.Text = "Check";
+            this.Check.Visible = false;
+            // 
+            // Mate
+            // 
+            this.Mate.AutoSize = true;
+            this.Mate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mate.Location = new System.Drawing.Point(422, 325);
+            this.Mate.Name = "Mate";
+            this.Mate.Size = new System.Drawing.Size(87, 37);
+            this.Mate.TabIndex = 117;
+            this.Mate.Text = "Mate";
+            this.Mate.Visible = false;
+            // 
+            // Colour
+            // 
+            this.Colour.AutoSize = true;
+            this.Colour.BackColor = System.Drawing.Color.Transparent;
+            this.Colour.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Colour.Location = new System.Drawing.Point(358, 362);
+            this.Colour.Name = "Colour";
+            this.Colour.Size = new System.Drawing.Size(99, 37);
+            this.Colour.TabIndex = 118;
+            this.Colour.Text = "White";
+            this.Colour.Visible = false;
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Colour);
+            this.Controls.Add(this.Mate);
+            this.Controls.Add(this.Check);
             this.Controls.Add(this.TurnLabel);
             this.Controls.Add(this.Empty);
             this.Controls.Add(this.Test2);
@@ -1578,5 +1618,8 @@
         private System.Windows.Forms.TextBox Test2;
         private System.Windows.Forms.PictureBox Empty;
         private System.Windows.Forms.Label TurnLabel;
+        private System.Windows.Forms.Label Check;
+        private System.Windows.Forms.Label Mate;
+        private System.Windows.Forms.Label Colour;
     }
 }

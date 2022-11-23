@@ -94,6 +94,8 @@ namespace FormTop_games
         string Result1;
         string FString = "A";
         string SString;
+        string BKingL = "E1";
+        string WKingL = "E8";
 
         int Calculation = 1;
         int Calculation1 = 1;
@@ -101,7 +103,10 @@ namespace FormTop_games
         int counter = 1;
         int Turn = 1;
 
+        bool CheckW = false;
+        bool CheckB = false;
         bool EnPassant;
+        bool EnPassantC = true;
         bool Towering;
         bool MovementCheck = true;
         bool OutOfBoundsCheck = false;
@@ -241,6 +246,7 @@ namespace FormTop_games
             Calculation = Calculation1;
             FString = "";
         }
+        //Checking for own troops
         public void MovementD(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
         {
             MovementCheck = true;
@@ -275,6 +281,7 @@ namespace FormTop_games
                 MessageBox.Show("Im here " + Troop5 + " " + Result);
             }
         }
+        //Locking other team
         public void Lock(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, bool Lock1)
         {
             Calculation = 1;
@@ -299,6 +306,44 @@ namespace FormTop_games
             Calculation = 1;
             Math = "A1";
             FString = "A";
+        }
+        public void Reset()
+        { 
+            Math = "A1";
+            Calculation = int.Parse(Math.Substring(1, 1));
+            FString = "A";
+
+            for (int i = 0; i <= 63; i++)
+            {
+                Result = FString + Calculation.ToString();
+                Math = Result;
+                if (color == 1)
+                {
+                    this.Controls[Result].BackColor = Color.White;
+                    color = 2;
+                }
+                else if (color == 2)
+                {
+                    this.Controls[Result].BackColor = Color.Black;
+                    color = 1;
+                }
+                Calculation++;
+                if (Calculation == 9)
+                {
+                    GetFString();
+                    Calculation = 1;
+                    if (counter == 1)
+                    {
+                        color = 2;
+                        counter++;
+                    }
+                    else if (counter == 2)
+                    {
+                        color = 1;
+                        counter = 1;
+                    }
+                }
+            }
         }
 
         //Movement logic as methods
@@ -741,6 +786,7 @@ namespace FormTop_games
         public void RookEat(string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5, Func<int, int> op)
         {
             //Checking if you can eat rigth
+            Math = Math1;
             GetFString();
             Calculation = int.Parse(Math.Substring(1, 1));
             Calculation = op(Calculation);
@@ -759,7 +805,7 @@ namespace FormTop_games
                 }
             }
 
-            //Checking if you can eat rigth
+            //Checking if you can eat Left
             Math = Math1;
             Calculation = int.Parse(Math.Substring(1, 1));
             Calculation = op(Calculation);
@@ -778,12 +824,11 @@ namespace FormTop_games
                 }
             }                                                                                     
         }
-        public void RookMove(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string Side6, string Side7, Func<int, int> op, string Pass, string Pass1, string Pass2, string Pass3, string Pass4, string Pass5, string Pass6, string Pass7, string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5)
+        public void RookMove(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, string Side6, string Side7, Func<int, int> op, string Pass, string Pass1, string Pass2, string Pass3, string Pass4, string Pass5, string Pass6, string Pass7, string Troop, string Troop1, string Troop2, string Troop3, string Troop4, string Troop5, string Troop6)
         {
             //Checking if starting first square
             if ((Move1 == Side) || (Move1 == Side1) || (Move1 == Side2) || (Move1 == Side3) || (Move1 == Side4) || (Move1 == Side5) || (Move1 == Side6) || (Move1 == Side7))
             {
-                MessageBox.Show("Long");
                 Calculation = int.Parse(Math.Substring(1, 1));
                 Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
@@ -805,37 +850,13 @@ namespace FormTop_games
             //Normal rook movement
             else
             {
-                MessageBox.Show("Normal");
                 Math = Math1;
                 Calculation = int.Parse(Math.Substring(1, 1));
                 Calculation = op(Calculation);
                 Result = Math.Substring(0, 1) + Calculation.ToString();
-                 //En passant logic
-                if ((Move1 == Pass) || (Move1 == Pass1) || (Move1 == Pass2) || (Move1 == Pass3) || (Move1 == Pass4) || (Move1 == Pass5) || (Move1 == Pass6) || (Move1 == Pass7))
-                {
-                    MessageBox.Show("Passant");
-                    Calculation = int.Parse(Math.Substring(1, 1));
-                    GetFString();
-                    Result = FString + Calculation.ToString();
-
-                    OutOfBounds();
-                    if (OutOfBoundsCheck == false)
-                    {
-                        if (this.Controls[Result].Tag == null)
-                        {
-                            if (this.Controls[Result].Tag == BRook.Tag)
-                            {
-                                Calculation = op(Calculation);
-                                Result = FString + Calculation.ToString();
-                                this.Controls[Result].BackColor = Color.LightGreen;
-                                EnPassant = true;
-                            }
-                        }
-                    }
-                }
                 OutOfBounds();
                 if (OutOfBoundsCheck == false)
-                { 
+                {
                     if (this.Controls[Result].Tag == null)
                     {
                         this.Controls[Result].BackColor = Color.LightGreen;
@@ -843,12 +864,72 @@ namespace FormTop_games
                 }
 
                 RookEat(Troop, Troop1, Troop2, Troop3, Troop4, Troop5, op);
+
+                //Checking if EnPassant has been used
+                if (EnPassantC == true)
+                {
+                    //En passant logic
+                    if ((Move1 == Pass) || (Move1 == Pass1) || (Move1 == Pass2) || (Move1 == Pass3) || (Move1 == Pass4) || (Move1 == Pass5) || (Move1 == Pass6) || (Move1 == Pass7))
+                    {
+                        //Checking En passant rigth
+                        Math = Math1;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = SString + Calculation.ToString();
+
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == false)
+                        {
+                            if (this.Controls[Result].Tag != null)
+                            {
+                                if (this.Controls[Result].Tag == this.Controls[Troop6].Tag)
+                                {
+                                    Calculation = op(Calculation);
+                                    Result = SString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    EnPassant = true;
+                                }
+                            }
+                        }
+
+                        //Checking En passant left
+                        Math = Math1;
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        GetFString();
+                        Result = FString + Calculation.ToString();
+
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == false)
+                        {
+                            if (this.Controls[Result].Tag != null)
+                            {
+                                if (this.Controls[Result].Tag == this.Controls[Troop6].Tag)
+                                {
+                                    Calculation = op(Calculation);
+                                    Result = FString + Calculation.ToString();
+                                    this.Controls[Result].BackColor = Color.LightGreen;
+                                    EnPassant = true;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+        public void PassantCheck(Func<int, int> op)
+        {
 
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
+            Result = Math.Substring(0, 1) + Calculation.ToString();
+            MessageBox.Show(Result);
+            this.Controls[Result].Tag = null;
+            PictureBox Conversion = (PictureBox)this.Controls[Result];
+            Conversion.Image = null;
+        }
 
-        //Making picture boxes sdo stuff
-        public void ChessClick(object sender, EventArgs e)
+            //Making picture boxes sdo stuff
+            public void ChessClick(object sender, EventArgs e)
         {
             //Checking if the tile has a piece on it
             //If it doesnt
@@ -861,15 +942,47 @@ namespace FormTop_games
                 }
                 else
                 {
-                    (sender as PictureBox).Image = PCache.Image;
-                    (sender as PictureBox).Tag = PCache.Tag;
-                    Move1 = null;
-                    PCache.Image = null;
-                    PCache.Tag = null;
-                    Math = "A1";
-                    Calculation = int.Parse(Math.Substring(1, 1));
-                    FString = "A";
-
+                    //Checking if rook for EnPassant
+                    if (PCache.Tag == BRook.Tag || PCache.Tag == WRook.Tag)
+                    {
+                        if (EnPassant == true)
+                        {
+                            Math = (sender as PictureBox).Name;
+                            if (PCache.Tag == BRook.Tag)
+                            {
+                                PassantCheck(x => x - 1);
+                            }
+                            else if (PCache.Tag == WRook.Tag)
+                            {
+                                PassantCheck(x => x + 1);
+                            }
+                        }
+                    }
+                    //Checking if king for tracking
+                    if (PCache.Tag == BKing.Tag)
+                    {
+                        BKingL = (sender as PictureBox).Name;
+                    }
+                    if (PCache.Tag == WKing.Tag)
+                    {
+                        WKingL = (sender as PictureBox).Name;
+                    }
+                    //Resetting and setting values for movement
+                        (sender as PictureBox).Image = PCache.Image;
+                        (sender as PictureBox).Tag = PCache.Tag;
+                        Move1 = null;
+                        PCache.Image = null;
+                        PCache.Tag = null;
+                        Math = "A1";
+                        Calculation = int.Parse(Math.Substring(1, 1));
+                        FString = "A";
+                    //Disabling EnPassant
+                    if (EnPassant == true)
+                    {
+                        EnPassant = false;
+                        EnPassantC = false;
+                    }
+                    //Checking if troop moved (Troop moved)
                     if ((sender as PictureBox).BackColor == Color.LightGreen)
                     {
                         Math = (sender as PictureBox).Name;
@@ -890,6 +1003,7 @@ namespace FormTop_games
                             TurnLabel.Text = "White turn";
                         }
                     }
+                    //Checking if troop moved (Troop didn´t move)
                     else if ((sender as PictureBox).BackColor == Color.Green)
                     {
                         if (Turn == 1)
@@ -901,37 +1015,255 @@ namespace FormTop_games
                             Lock("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", false);
                         }
                     }
+                    //Reseting board for check checking
+                    Reset();
+
+                    Math = "A1";
+                    Calculation = int.Parse(Math.Substring(1, 1));
+                    FString = "A";
+                    //Checking for promotion and check
                     for (int i = 0; i <= 63; i++)
                     {
                         Result = FString + Calculation.ToString();
                         Math = Result;
-                        if (color == 1)
+
+                        OutOfBounds();
+                        if (OutOfBoundsCheck == false)
                         {
-                            this.Controls[Result].BackColor = Color.White;
-                            color = 2;
+
                         }
-                        else if (color == 2)
+                        else if (this.Controls[Result].Tag != null)
                         {
-                            this.Controls[Result].BackColor = Color.Black;
-                            color = 1;
+                            //Calculation settup
+                            Math = Result;
+                            Math1 = Result;
+                            PCache.Tag = this.Controls[Result].Tag;
+                            //Checking legal white rook moves
+                            if (PCache.Tag == WRook.Tag)
+                            {
+                                Unit = "White rook";
+
+                                //RookMove
+                                RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x - 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BRook");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Checking legal black rook moves
+                            if (PCache.Tag == BRook.Tag)
+                            {
+                                Unit = "Black rook";
+
+                                //RookMove
+                                RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WRook");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //White knigth logic
+                            else if (PCache.Tag == WKnigth.Tag)
+                            {
+                                Unit = "White knigth";
+
+                                //Down knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2);
+                                //Up knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 2);
+                                //Side knight logic
+                                KnigthSideRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, x => x - 1);
+                                //Side knight logic
+                                KnigthSideLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, x => x + 1);
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Black knigth logic
+                            else if (PCache.Tag == BKnigth.Tag)
+                            {
+                                Unit = "Black knigth";
+
+                                //Down knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2);
+                                //Up knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 2);
+                                //Side knight logic
+                                KnigthSideRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, x => x - 1);
+                                //Side logic
+                                KnigthSideLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, x => x + 1);
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //White tower move logic
+                            else if (PCache.Tag == WTower.Tag)
+                            {
+                                Unit = "White tower";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side logic rigth
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side logic left
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Black tower move logic
+                            else if (PCache.Tag == BTower.Tag)
+                            {
+                                Unit = "Black tower";
+
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side logic rigth
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side logic left
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //White bishop move logic
+                            else if (PCache.Tag == WBishop.Tag)
+                            {
+                                Unit = "White bishop";
+
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Black bishop move logic
+                            else if (PCache.Tag == BBishop.Tag)
+                            {
+                                Unit = "Black bishop";
+
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //White king move logic
+                            else if (PCache.Tag == WKing.Tag)
+                            {
+                                Unit = "White king";
+
+                                //Down move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side logic rigth
+                                KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side logic left
+                                KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Down rigth movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Down left movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up rigth movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //up left movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Black king move logic
+                            else if (PCache.Tag == BKing.Tag)
+                            {
+                                Unit = "Black king";
+
+                                //Down move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side logic rigth
+                                KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side logic left
+                                KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Down rigth movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Down left movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up rigth movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //up left movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //White queen move logic
+                            else if (PCache.Tag == WQueen.Tag)
+                            {
+                                Unit = "White queen";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side rigth logic 
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Side left logic 
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            //Black queen move logic
+                            else if (PCache.Tag == BQueen.Tag)
+                            {
+                                Unit = "Black queen";
+
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side rigth logic 
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Side left logic 
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                                (sender as PictureBox).BackColor = Color.Green;
+                            }
+                            MessageBox.Show("test second");
                         }
+
                         Calculation++;
                         if (Calculation == 9)
                         {
                             GetFString();
                             Calculation = 1;
-                            if (counter == 1)
-                            {
-                                color = 2;
-                                counter++;
-                            }
-                            else if (counter == 2)
-                            {
-                                color = 1;
-                                counter = 1;
-                            }
                         }
                     }
+                    if (this.Controls[BKingL].BackColor == Color.LightGreen)
+                    {
+                        Check.Visible = true;
+                        CheckB = true;
+                        Colour.Text = "Black";
+                        Colour.Visible = true;
+                    }
+                    if (this.Controls[WKingL].BackColor == Color.LightGreen)
+                    {
+                        Check.Visible = true;
+                        CheckW = true;
+                        Colour.Text = "White";
+                        Colour.Visible = true;
+                    }
+                    //Clearing board
+                    Reset();
                 }
             }
             //If it has a picture
@@ -949,25 +1281,26 @@ namespace FormTop_games
                     (sender as PictureBox).Image = null;
                     (sender as PictureBox).Tag = null;
 
+                    //Calculation settup
+                    Math = (sender as PictureBox).Name;
+                    Math1 = (sender as PictureBox).Name;
+
                     //Checking legal white rook moves
                     if (PCache.Tag == WRook.Tag)
                     {
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
                         Unit = "White rook";
 
                         //RookMove
-                        RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x-1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
+                        RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x-1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BRook");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //Checking legal black rook moves
                     if (PCache.Tag == BRook.Tag)
                     {
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
                         Unit = "Black rook";
+
                         //RookMove
-                        RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5",  "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
+                        RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5",  "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WRook");
                         (sender as PictureBox).BackColor = Color.Green;
                     }
                     //White knigth logic
@@ -975,9 +1308,6 @@ namespace FormTop_games
                     {
                         Unit = "White knigth";
 
-                        //Calculation settup
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
                         //Down knight logic
                         KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2);
                         //Up knight logic
@@ -993,10 +1323,6 @@ namespace FormTop_games
                     {
                         Unit = "Black knigth";
 
-                        //Calculation settup
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
                         //Down knight logic
                         KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2);
                         //Up knight logic
@@ -1011,9 +1337,6 @@ namespace FormTop_games
                     else if (PCache.Tag == WTower.Tag)
                     {
                         Unit = "White tower";
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
 
                         //Down move logic
                         DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
@@ -1029,8 +1352,6 @@ namespace FormTop_games
                     else if (PCache.Tag == BTower.Tag)
                     {
                         Unit = "Black tower";
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
 
                         //Down move logic
                         DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
@@ -1047,10 +1368,6 @@ namespace FormTop_games
                     {
                         Unit = "White bishop";
 
-                        //Calculation initialization
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
                         //Down rigth movement logic
                         DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Down left movement logic
@@ -1066,10 +1383,6 @@ namespace FormTop_games
                     {
                         Unit = "Black bishop";
 
-                        //Calculation initialization
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
                         //Down rigth movement logic
                         DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Down left movement logic
@@ -1084,9 +1397,6 @@ namespace FormTop_games
                     else if (PCache.Tag == WKing.Tag)
                     {
                         Unit = "White king";
-
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
 
                         //Down move logic
                         KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
@@ -1111,9 +1421,6 @@ namespace FormTop_games
                     {
                         Unit = "Black king";
 
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
                         //Down move logic
                         KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         //Up move logic
@@ -1137,9 +1444,6 @@ namespace FormTop_games
                     {
                         Unit = "White queen";
 
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
-
                         //Down move logic
                         DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         //Up move logic
@@ -1162,9 +1466,6 @@ namespace FormTop_games
                     else if (PCache.Tag == BQueen.Tag)
                     {
                         Unit = "Black queen";
-
-                        Math = (sender as PictureBox).Name;
-                        Math1 = (sender as PictureBox).Name;
 
                         //Down move logic
                         DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
