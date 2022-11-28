@@ -48,8 +48,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.Selected = new System.Windows.Forms.TextBox();
-            this.Test1 = new System.Windows.Forms.TextBox();
-            this.Test2 = new System.Windows.Forms.TextBox();
             this.WBishop = new System.Windows.Forms.PictureBox();
             this.WKing = new System.Windows.Forms.PictureBox();
             this.WKnigth = new System.Windows.Forms.PictureBox();
@@ -404,20 +402,6 @@
             this.Selected.Name = "Selected";
             this.Selected.Size = new System.Drawing.Size(100, 20);
             this.Selected.TabIndex = 97;
-            // 
-            // Test1
-            // 
-            this.Test1.Location = new System.Drawing.Point(630, 213);
-            this.Test1.Name = "Test1";
-            this.Test1.Size = new System.Drawing.Size(100, 20);
-            this.Test1.TabIndex = 112;
-            // 
-            // Test2
-            // 
-            this.Test2.Location = new System.Drawing.Point(630, 239);
-            this.Test2.Name = "Test2";
-            this.Test2.Size = new System.Drawing.Size(100, 20);
-            this.Test2.TabIndex = 113;
             // 
             // WBishop
             // 
@@ -1270,6 +1254,7 @@
             this.Empty.TabIndex = 114;
             this.Empty.TabStop = false;
             this.Empty.Tag = "Empty";
+            this.Empty.Visible = false;
             // 
             // TurnLabel
             // 
@@ -1325,8 +1310,6 @@
             this.Controls.Add(this.Check);
             this.Controls.Add(this.TurnLabel);
             this.Controls.Add(this.Empty);
-            this.Controls.Add(this.Test2);
-            this.Controls.Add(this.Test1);
             this.Controls.Add(this.WBishop);
             this.Controls.Add(this.WKing);
             this.Controls.Add(this.WKnigth);
@@ -1614,8 +1597,6 @@
         private System.Windows.Forms.PictureBox WQueen;
         private System.Windows.Forms.PictureBox WTower;
         private System.Windows.Forms.PictureBox WRook;
-        private System.Windows.Forms.TextBox Test1;
-        private System.Windows.Forms.TextBox Test2;
         private System.Windows.Forms.PictureBox Empty;
         private System.Windows.Forms.Label TurnLabel;
         private System.Windows.Forms.Label Check;
