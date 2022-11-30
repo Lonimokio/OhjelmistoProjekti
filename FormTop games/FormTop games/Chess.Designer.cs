@@ -132,6 +132,7 @@
             this.Check = new System.Windows.Forms.Label();
             this.Mate = new System.Windows.Forms.Label();
             this.Colour = new System.Windows.Forms.Label();
+            this.TL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
@@ -1300,11 +1301,21 @@
             this.Colour.Text = "White";
             this.Colour.Visible = false;
             // 
+            // TL
+            // 
+            this.TL.AutoSize = true;
+            this.TL.Location = new System.Drawing.Point(656, 218);
+            this.TL.Name = "TL";
+            this.TL.Size = new System.Drawing.Size(41, 13);
+            this.TL.TabIndex = 119;
+            this.TL.Text = "label17";
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TL);
             this.Controls.Add(this.Colour);
             this.Controls.Add(this.Mate);
             this.Controls.Add(this.Check);
@@ -1602,5 +1613,6 @@
         private System.Windows.Forms.Label Check;
         private System.Windows.Forms.Label Mate;
         private System.Windows.Forms.Label Colour;
+        private System.Windows.Forms.Label TL;
     }
 }

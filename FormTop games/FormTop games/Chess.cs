@@ -90,9 +90,13 @@ namespace FormTop_games
         string Unit;
         string Math = "A";
         string Math1;
+        string Math2;
+        string Math3;
         string Result = "Empty";
         string Result1;
+        string Result2;
         string FString = "A";
+        string FString1 = "A";
         string SString;
         string BKingL = "E1";
         string WKingL = "E8";
@@ -256,26 +260,32 @@ namespace FormTop_games
             MovementCheck = true;
             if (this.Controls[Result].Tag == this.Controls[Troop].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop + " " + Result);
                 MovementCheck = false;
             }
             if (this.Controls[Result].Tag == this.Controls[Troop1].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop1 + " " + Result);
                 MovementCheck = false;
             }
             if (this.Controls[Result].Tag == this.Controls[Troop2].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop2 + " " + Result);
                 MovementCheck = false;
             }
             if (this.Controls[Result].Tag == this.Controls[Troop3].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop3 + " " + Result);
                 MovementCheck = false;
             }
             if (this.Controls[Result].Tag == this.Controls[Troop4].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop4 + " " + Result);
                 MovementCheck = false;
             }
             if (this.Controls[Result].Tag == this.Controls[Troop5].Tag)
             {
+                //MessageBox.Show("Im Here " + Troop5 + " " + Result);
                 MovementCheck = false;
             }
         }
@@ -348,26 +358,27 @@ namespace FormTop_games
             //Reseting board for check checking
             Reset();
 
-            Math = "A1";
-            Calculation2 = int.Parse(Math.Substring(1, 1));
-            FString = "A";
+            Math2 = "A1";
+            Math3 = "A1";
+            Calculation2 = int.Parse(Math2.Substring(1, 1));
+            FString1 = "A";
             //Checking for promotion and check
             for (int i = 0; i <= 63; i++)
             {
-                FString = Math.Substring(0, 1);
-                Result = FString + Calculation2.ToString();
-                Math = Result;
+                FString1 = Math2.Substring(0, 1);
+                Result2 = FString1 + Calculation2.ToString();
+                Math2 = Result2;
                 OutOfBounds();
                 if (OutOfBoundsCheck == true)
                 {
 
                 }
-                else if (this.Controls[Result].Tag != null)
+                else if (this.Controls[Result2].Tag != null)
                 {
                     //Calculation settup
-                    Math = Result;
-                    Math1 = Result;
-                    PCache.Tag = this.Controls[Result].Tag;
+                    Math2 = Result2;
+                    Math3 = Result2;
+                    PCache.Tag = this.Controls[Result2].Tag;
 
                     //Checking legal white rook moves
                     if (PCache.Tag == WRook.Tag)
@@ -559,17 +570,22 @@ namespace FormTop_games
                     }
                 }
                 //Increment to loop trough board
-                Math = Math1;
+                MessageBox.Show(Result2+ " Calculation "+Calculation2+" Fstring "+FString1+" Math " +Math2+ " "+ Math3);
+                Math2 = Math3;
                 Calculation2 = Calculation2 + 1;
                 if (Calculation2 == 9)
                 {
+                    FString = FString1;
                     GetFString();
-                    Math = FString;
+                    FString1 = FString;
+                    Math2 = FString1;
                     Calculation2 = 1;
                 }
             }
+            MessageBox.Show("Progress");
+
             //Checking if king has been in check
-            if(CheckB == true)
+            if (CheckB == true)
             {
                 Checking = true; 
             }
@@ -580,18 +596,54 @@ namespace FormTop_games
             //Checking if black king is in check
             if (this.Controls[BKingL].BackColor == Color.LightGreen)
             {
-                Check.Visible = true;
-                CheckB = true;
-                Colour.Text = "Black";
-                Colour.Visible = true;
+                if (Turn == 2)
+                {
+                    //Undoing invalid move
+                    PictureBox CheckingBox = (PictureBox)this.Controls[CheckingN];
+                    PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
+                    CheckingBox1.Image = CheckingBox.Image;
+                    CheckingBox1.Tag = CheckingBox.Tag;
+                    BKingL = CheckingBox1.Name;
+                    if (CheckingBox.Name != CheckingBox1.Name)
+                    {
+                        CheckingBox.Image = null;
+                        CheckingBox.Tag = null;
+                    }
+                    IsGreen = true;
+                }
+                else
+                {
+                    Check.Visible = true;
+                    CheckB = true;
+                    Colour.Text = "Black";
+                    Colour.Visible = true;
+                }
             }
             //Checking if white king is in check
             else if (this.Controls[WKingL].BackColor == Color.LightGreen)
             {
-                Check.Visible = true;
-                CheckW = true;
-                Colour.Text = "White";
-                Colour.Visible = true;
+                if (Turn == 1)
+                {
+                    //Undoing invalid move
+                    PictureBox CheckingBox = (PictureBox)this.Controls[CheckingN];
+                    PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
+                    CheckingBox1.Image = CheckingBox.Image;
+                    CheckingBox1.Tag = CheckingBox.Tag;
+                    WKingL = CheckingBox1.Name;
+                    if (CheckingBox.Name != CheckingBox1.Name)
+                    {
+                        CheckingBox.Image = null;
+                        CheckingBox.Tag = null;
+                    }
+                    IsGreen = true;
+                }
+                else
+                {
+                    Check.Visible = true;
+                    CheckW = true;
+                    Colour.Text = "White";
+                    Colour.Visible = true;
+                }
             }
             //Checking if black king is not in check
             else if (this.Controls[BKingL].BackColor != Color.LightGreen)
@@ -609,7 +661,7 @@ namespace FormTop_games
                 Colour.Visible = false;
                 Checking = false;
             }
-            //Checking ifg king has been in check
+            //Checking if king has been in check
             if (CheckB == true)
             {
                 if (Checking == true)
@@ -617,12 +669,16 @@ namespace FormTop_games
                     //Undoing invalid move
                     PictureBox CheckingBox = (PictureBox)this.Controls[CheckingN];
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
-                    CheckingBox1.Image = CheckingBox.Image;
-                    CheckingBox1.Tag = CheckingBox.Tag;
+                    if (this.Controls[CheckingN].Tag != null)
+                    {
+                        CheckingBox1.Image = CheckingBox.Image;
+                        CheckingBox1.Tag = CheckingBox.Tag;
+                        BKingL = CheckingBox1.Name;
+                    }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
-                        CheckingBox1.Tag = null; 
+                        CheckingBox.Tag = null;
                     }
                     IsGreen = true;
                 }
@@ -631,21 +687,23 @@ namespace FormTop_games
             {
                 if (Checking == true)
                 {
+                    //Undoing invalid move
                     PictureBox CheckingBox = (PictureBox)this.Controls[CheckingN];
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
-                    CheckingBox1.Image = CheckingBox.Image;
-                    CheckingBox1.Tag = CheckingBox.Tag;
+                    if (this.Controls[CheckingN].Tag != null)
+                    {
+                        CheckingBox1.Image = CheckingBox.Image;
+                        CheckingBox1.Tag = CheckingBox.Tag;
+                        WKingL = CheckingBox1.Name;
+                    }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
-                        CheckingBox1.Tag = null;
+                        CheckingBox.Tag = null;
                     }
                     IsGreen = true;
                 }
             }
-           
-     
-                
             //Clearing board
             Reset();
         }
@@ -1234,9 +1292,9 @@ namespace FormTop_games
 
             //Making picture boxes sdo stuff
             public void ChessClick(object sender, EventArgs e)
-        {
+            {
             //Checking if the tile has a piece on it
-            //If it doesnt
+            //If it doesntOutOfBounds();
             if ((sender as PictureBox).BackColor == Color.LightGreen || (sender as PictureBox).BackColor == Color.Green)
             {
                 //Checking if a piece containing tile has been clicked
@@ -1296,6 +1354,7 @@ namespace FormTop_games
                     {
                         IsGreen = true;
                     }
+                    TL.Text = Turn.ToString();
 
                     CheckCheck();
                     Move1 = null;
@@ -1339,10 +1398,8 @@ namespace FormTop_games
             //Checking legal moves
             else if ((sender as PictureBox).Image != null)
             {
-                MessageBox.Show("First");
                 if (Move1 == null)
                 {
-                    MessageBox.Show("Second");
                     (sender as PictureBox).BackColor = Color.Green;
                     Move1 = (sender as PictureBox).Name;
                     PCache.Image = (sender as PictureBox).Image;
