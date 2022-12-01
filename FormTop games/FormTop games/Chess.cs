@@ -368,18 +368,19 @@ namespace FormTop_games
                 FString1 = Math2.Substring(0, 1);
                 Result2 = FString1 + Calculation2.ToString();
                 Math2 = Result2;
+                Math3 = Result2;
+                Result = Result2;
                 OutOfBounds();
                 if (OutOfBoundsCheck == true)
-                {
+                { 
 
                 }
                 else if (this.Controls[Result2].Tag != null)
                 {
                     //Calculation settup
-                    Math2 = Result2;
-                    Math3 = Result2;
+                    Math = Result2;
+                    Math1 = Result2;
                     PCache.Tag = this.Controls[Result2].Tag;
-
                     //Checking legal white rook moves
                     if (PCache.Tag == WRook.Tag)
                     {
@@ -570,15 +571,15 @@ namespace FormTop_games
                     }
                 }
                 //Increment to loop trough board
-                MessageBox.Show(Result2+ " Calculation "+Calculation2+" Fstring "+FString1+" Math " +Math2+ " "+ Math3);
                 Math2 = Math3;
                 Calculation2 = Calculation2 + 1;
                 if (Calculation2 == 9)
                 {
-                    FString = FString1;
+                    Math = FString1;
                     GetFString();
                     FString1 = FString;
                     Math2 = FString1;
+                    Math3 = FString1;
                     Calculation2 = 1;
                 }
             }
@@ -603,7 +604,7 @@ namespace FormTop_games
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
                     CheckingBox1.Image = CheckingBox.Image;
                     CheckingBox1.Tag = CheckingBox.Tag;
-                    BKingL = CheckingBox1.Name;
+                    //BKingL = CheckingBox1.Name;
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
@@ -629,7 +630,7 @@ namespace FormTop_games
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
                     CheckingBox1.Image = CheckingBox.Image;
                     CheckingBox1.Tag = CheckingBox.Tag;
-                    WKingL = CheckingBox1.Name;
+                    //WKingL = CheckingBox1.Name;
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
@@ -652,6 +653,7 @@ namespace FormTop_games
                 CheckB = false;
                 Colour.Visible = false;
                 Checking = false;
+                TL.Text = BKingL;
             }
             //Checking if white king is not in check
             else if (this.Controls[WKingL].BackColor != Color.LightGreen)
@@ -673,7 +675,7 @@ namespace FormTop_games
                     {
                         CheckingBox1.Image = CheckingBox.Image;
                         CheckingBox1.Tag = CheckingBox.Tag;
-                        BKingL = CheckingBox1.Name;
+                        //BKingL = CheckingBox1.Name;
                     }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
@@ -694,7 +696,7 @@ namespace FormTop_games
                     {
                         CheckingBox1.Image = CheckingBox.Image;
                         CheckingBox1.Tag = CheckingBox.Tag;
-                        WKingL = CheckingBox1.Name;
+                        //WKingL = CheckingBox1.Name;
                     }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
@@ -1354,7 +1356,6 @@ namespace FormTop_games
                     {
                         IsGreen = true;
                     }
-                    TL.Text = Turn.ToString();
 
                     CheckCheck();
                     Move1 = null;
@@ -1543,6 +1544,7 @@ namespace FormTop_games
                         //up left movement logic
                         KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing");
                         (sender as PictureBox).BackColor = Color.Green;
+                        WKingL = Move1;
                     }
                     //Black king move logic
                     else if (PCache.Tag == BKing.Tag)
@@ -1566,6 +1568,7 @@ namespace FormTop_games
                         //up left movement logic
                         KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing");
                         (sender as PictureBox).BackColor = Color.Green;
+                        BKingL = Move1;
                     }
                     //White queen move logic
                     else if (PCache.Tag == WQueen.Tag)
