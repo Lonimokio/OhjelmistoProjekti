@@ -604,7 +604,10 @@ namespace FormTop_games
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
                     CheckingBox1.Image = CheckingBox.Image;
                     CheckingBox1.Tag = CheckingBox.Tag;
-                    //BKingL = CheckingBox1.Name;
+                    if (CheckingBox.Tag == BKing.Tag)
+                    {
+                        BKingL = CheckingBox1.Name;
+                    }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
@@ -630,7 +633,10 @@ namespace FormTop_games
                     PictureBox CheckingBox1 = (PictureBox)this.Controls[Move1];
                     CheckingBox1.Image = CheckingBox.Image;
                     CheckingBox1.Tag = CheckingBox.Tag;
-                    //WKingL = CheckingBox1.Name;
+                    if (CheckingBox.Tag == WKing.Tag)
+                    {
+                        WKingL = CheckingBox1.Name;
+                    }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
                         CheckingBox.Image = null;
@@ -675,7 +681,10 @@ namespace FormTop_games
                     {
                         CheckingBox1.Image = CheckingBox.Image;
                         CheckingBox1.Tag = CheckingBox.Tag;
-                        //BKingL = CheckingBox1.Name;
+                        if (CheckingBox.Tag == BKing.Tag)
+                        {
+                            BKingL = CheckingBox1.Name;
+                        }
                     }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
@@ -696,7 +705,10 @@ namespace FormTop_games
                     {
                         CheckingBox1.Image = CheckingBox.Image;
                         CheckingBox1.Tag = CheckingBox.Tag;
-                        //WKingL = CheckingBox1.Name;
+                        if (CheckingBox.Tag == WKing.Tag)
+                        {
+                            WKingL = CheckingBox1.Name;
+                        }
                     }
                     if (CheckingBox.Name != CheckingBox1.Name)
                     {
@@ -811,11 +823,13 @@ namespace FormTop_games
         public void KnigthDownUp(string Side, string Side1, string Side2, string Side3, string Side4, string Side5, Func<int, int> op)
         {
             //Down and Up knight logic
+            Math = Math1;
             Calculation = int.Parse(Math.Substring(1, 1));
             Calculation = op(Calculation);
             GetFString();
             Result = FString + Calculation.ToString();
             Math = Math1;
+            MessageBox.Show(Math+ " "+ Result);
             OutOfBounds();
             if (OutOfBoundsCheck == true)
             {
@@ -826,6 +840,7 @@ namespace FormTop_games
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
+            MessageBox.Show(Math + " " + Result);
             Math = Math1;
             Result = SString + Calculation.ToString();
             OutOfBounds();
