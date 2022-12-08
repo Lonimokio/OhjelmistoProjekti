@@ -829,7 +829,6 @@ namespace FormTop_games
             GetFString();
             Result = FString + Calculation.ToString();
             Math = Math1;
-            MessageBox.Show(Math+ " "+ Result);
             OutOfBounds();
             if (OutOfBoundsCheck == true)
             {
@@ -840,8 +839,10 @@ namespace FormTop_games
             {
                 this.Controls[Result].BackColor = Color.LightGreen;
             }
-            MessageBox.Show(Math + " " + Result);
             Math = Math1;
+            Calculation = int.Parse(Math.Substring(1, 1));
+            Calculation = op(Calculation);
+            GetFString();
             Result = SString + Calculation.ToString();
             OutOfBounds();
             if (OutOfBoundsCheck == true)
