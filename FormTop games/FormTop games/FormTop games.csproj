@@ -94,6 +94,12 @@
     <Compile Include="Chess.Designer.cs">
       <DependentUpon>Chess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Coinflip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Coinflip.Designer.cs">
+      <DependentUpon>Coinflip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chess.resx">
       <DependentUpon>Chess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Coinflip.resx">
+      <DependentUpon>Coinflip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

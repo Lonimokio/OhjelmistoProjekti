@@ -122,14 +122,6 @@
             this.Balance = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MoneyCounter = new System.Windows.Forms.Timer(this.components);
-            this.Chip1 = new System.Windows.Forms.Button();
-            this.Chip5 = new System.Windows.Forms.Button();
-            this.Chip10 = new System.Windows.Forms.Button();
-            this.Chip25 = new System.Windows.Forms.Button();
-            this.Chip50 = new System.Windows.Forms.Button();
-            this.Chip100 = new System.Windows.Forms.Button();
-            this.Chip500 = new System.Windows.Forms.Button();
-            this.Chip1000 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Bet = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -142,6 +134,14 @@
             this.TableTop = new System.Windows.Forms.Button();
             this.MainLobby = new System.Windows.Forms.Button();
             this.pictureBox65 = new System.Windows.Forms.PictureBox();
+            this.Chip1000 = new System.Windows.Forms.Button();
+            this.Chip500 = new System.Windows.Forms.Button();
+            this.Chip100 = new System.Windows.Forms.Button();
+            this.Chip50 = new System.Windows.Forms.Button();
+            this.Chip25 = new System.Windows.Forms.Button();
+            this.Chip10 = new System.Windows.Forms.Button();
+            this.Chip5 = new System.Windows.Forms.Button();
+            this.Chip1 = new System.Windows.Forms.Button();
             R0 = new System.Windows.Forms.Button();
             R33 = new System.Windows.Forms.Button();
             R13 = new System.Windows.Forms.Button();
@@ -182,6 +182,541 @@
             R2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox65)).BeginInit();
             this.SuspendLayout();
+            // 
+            // R0
+            // 
+            R0.BackColor = System.Drawing.Color.DarkGreen;
+            R0.Enabled = false;
+            R0.ForeColor = System.Drawing.Color.Transparent;
+            R0.Location = new System.Drawing.Point(227, 82);
+            R0.Margin = new System.Windows.Forms.Padding(0);
+            R0.Name = "R0";
+            R0.Size = new System.Drawing.Size(62, 34);
+            R0.TabIndex = 81;
+            R0.TabStop = false;
+            R0.Text = "0";
+            R0.UseVisualStyleBackColor = false;
+            // 
+            // R33
+            // 
+            R33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R33.Enabled = false;
+            R33.ForeColor = System.Drawing.Color.Transparent;
+            R33.Location = new System.Drawing.Point(72, 168);
+            R33.Margin = new System.Windows.Forms.Padding(0);
+            R33.Name = "R33";
+            R33.Size = new System.Drawing.Size(28, 35);
+            R33.TabIndex = 80;
+            R33.TabStop = false;
+            R33.Text = "33";
+            R33.UseVisualStyleBackColor = false;
+            // 
+            // R13
+            // 
+            R13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R13.Enabled = false;
+            R13.ForeColor = System.Drawing.Color.Transparent;
+            R13.Location = new System.Drawing.Point(287, 397);
+            R13.Margin = new System.Windows.Forms.Padding(0);
+            R13.Name = "R13";
+            R13.Size = new System.Drawing.Size(28, 35);
+            R13.TabIndex = 79;
+            R13.TabStop = false;
+            R13.Text = "13";
+            R13.UseVisualStyleBackColor = false;
+            // 
+            // R15
+            // 
+            R15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R15.Enabled = false;
+            R15.ForeColor = System.Drawing.Color.Transparent;
+            R15.Location = new System.Drawing.Point(338, 334);
+            R15.Margin = new System.Windows.Forms.Padding(0);
+            R15.Name = "R15";
+            R15.Size = new System.Drawing.Size(28, 35);
+            R15.TabIndex = 78;
+            R15.TabStop = false;
+            R15.Text = "15";
+            R15.UseVisualStyleBackColor = false;
+            // 
+            // R32
+            // 
+            R32.BackColor = System.Drawing.Color.Red;
+            R32.Enabled = false;
+            R32.ForeColor = System.Drawing.Color.Transparent;
+            R32.Location = new System.Drawing.Point(364, 212);
+            R32.Margin = new System.Windows.Forms.Padding(0);
+            R32.Name = "R32";
+            R32.Size = new System.Drawing.Size(28, 34);
+            R32.TabIndex = 77;
+            R32.TabStop = false;
+            R32.Text = "32";
+            R32.UseVisualStyleBackColor = false;
+            // 
+            // R34
+            // 
+            R34.BackColor = System.Drawing.Color.Red;
+            R34.Enabled = false;
+            R34.ForeColor = System.Drawing.Color.Transparent;
+            R34.Location = new System.Drawing.Point(364, 335);
+            R34.Margin = new System.Windows.Forms.Padding(0);
+            R34.Name = "R34";
+            R34.Size = new System.Drawing.Size(28, 34);
+            R34.TabIndex = 76;
+            R34.TabStop = false;
+            R34.Text = "34";
+            R34.UseVisualStyleBackColor = false;
+            // 
+            // R36
+            // 
+            R36.BackColor = System.Drawing.Color.Red;
+            R36.Enabled = false;
+            R36.ForeColor = System.Drawing.Color.Transparent;
+            R36.Location = new System.Drawing.Point(312, 397);
+            R36.Margin = new System.Windows.Forms.Padding(0);
+            R36.Name = "R36";
+            R36.Size = new System.Drawing.Size(28, 34);
+            R36.TabIndex = 75;
+            R36.TabStop = false;
+            R36.Text = "36";
+            R36.UseVisualStyleBackColor = false;
+            R36.Click += new System.EventHandler(this.R36_Click);
+            // 
+            // R20
+            // 
+            R20.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R20.Enabled = false;
+            R20.ForeColor = System.Drawing.Color.Transparent;
+            R20.Location = new System.Drawing.Point(363, 181);
+            R20.Margin = new System.Windows.Forms.Padding(0);
+            R20.Name = "R20";
+            R20.Size = new System.Drawing.Size(28, 34);
+            R20.TabIndex = 74;
+            R20.TabStop = false;
+            R20.Text = "20";
+            R20.UseVisualStyleBackColor = false;
+            R20.Click += new System.EventHandler(this.R20_Click);
+            // 
+            // R3
+            // 
+            R3.BackColor = System.Drawing.Color.Red;
+            R3.Enabled = false;
+            R3.ForeColor = System.Drawing.Color.Transparent;
+            R3.Location = new System.Drawing.Point(338, 365);
+            R3.Margin = new System.Windows.Forms.Padding(0);
+            R3.Name = "R3";
+            R3.Size = new System.Drawing.Size(28, 35);
+            R3.TabIndex = 73;
+            R3.TabStop = false;
+            R3.Text = "3";
+            R3.UseVisualStyleBackColor = false;
+            // 
+            // R17
+            // 
+            R17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R17.Enabled = false;
+            R17.ForeColor = System.Drawing.Color.Transparent;
+            R17.Location = new System.Drawing.Point(364, 244);
+            R17.Margin = new System.Windows.Forms.Padding(0);
+            R17.Name = "R17";
+            R17.Size = new System.Drawing.Size(28, 35);
+            R17.TabIndex = 72;
+            R17.TabStop = false;
+            R17.Text = "17";
+            R17.UseVisualStyleBackColor = false;
+            // 
+            // R24
+            // 
+            R24.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R24.Enabled = false;
+            R24.ForeColor = System.Drawing.Color.Transparent;
+            R24.Location = new System.Drawing.Point(312, 365);
+            R24.Margin = new System.Windows.Forms.Padding(0);
+            R24.Name = "R24";
+            R24.Size = new System.Drawing.Size(28, 34);
+            R24.TabIndex = 71;
+            R24.TabStop = false;
+            R24.Text = "24";
+            R24.UseVisualStyleBackColor = false;
+            // 
+            // R22
+            // 
+            R22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R22.Enabled = false;
+            R22.ForeColor = System.Drawing.Color.Transparent;
+            R22.Location = new System.Drawing.Point(364, 305);
+            R22.Margin = new System.Windows.Forms.Padding(0);
+            R22.Name = "R22";
+            R22.Size = new System.Drawing.Size(28, 34);
+            R22.TabIndex = 70;
+            R22.TabStop = false;
+            R22.Text = "22";
+            R22.UseVisualStyleBackColor = false;
+            // 
+            // R5
+            // 
+            R5.BackColor = System.Drawing.Color.Red;
+            R5.Enabled = false;
+            R5.ForeColor = System.Drawing.Color.Transparent;
+            R5.Location = new System.Drawing.Point(364, 277);
+            R5.Margin = new System.Windows.Forms.Padding(0);
+            R5.Name = "R5";
+            R5.Size = new System.Drawing.Size(28, 34);
+            R5.TabIndex = 69;
+            R5.TabStop = false;
+            R5.Text = "5";
+            R5.UseVisualStyleBackColor = false;
+            // 
+            // R14
+            // 
+            R14.BackColor = System.Drawing.Color.Red;
+            R14.Enabled = false;
+            R14.ForeColor = System.Drawing.Color.Transparent;
+            R14.Location = new System.Drawing.Point(150, 101);
+            R14.Margin = new System.Windows.Forms.Padding(0);
+            R14.Name = "R14";
+            R14.Size = new System.Drawing.Size(28, 35);
+            R14.TabIndex = 68;
+            R14.TabStop = false;
+            R14.Text = "14";
+            R14.UseVisualStyleBackColor = false;
+            // 
+            // R35
+            // 
+            R35.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R35.Enabled = false;
+            R35.ForeColor = System.Drawing.Color.Transparent;
+            R35.Location = new System.Drawing.Point(124, 100);
+            R35.Margin = new System.Windows.Forms.Padding(0);
+            R35.Name = "R35";
+            R35.Size = new System.Drawing.Size(28, 37);
+            R35.TabIndex = 67;
+            R35.TabStop = false;
+            R35.Text = "35";
+            R35.UseVisualStyleBackColor = false;
+            R35.Click += new System.EventHandler(this.button56_Click);
+            // 
+            // R7
+            // 
+            R7.BackColor = System.Drawing.Color.Red;
+            R7.Enabled = false;
+            R7.ForeColor = System.Drawing.Color.Transparent;
+            R7.Location = new System.Drawing.Point(338, 181);
+            R7.Margin = new System.Windows.Forms.Padding(0);
+            R7.Name = "R7";
+            R7.Size = new System.Drawing.Size(28, 35);
+            R7.TabIndex = 66;
+            R7.TabStop = false;
+            R7.Text = "7";
+            R7.UseVisualStyleBackColor = false;
+            // 
+            // R23
+            // 
+            R23.BackColor = System.Drawing.Color.Red;
+            R23.Enabled = false;
+            R23.ForeColor = System.Drawing.Color.Transparent;
+            R23.Location = new System.Drawing.Point(124, 135);
+            R23.Margin = new System.Windows.Forms.Padding(0);
+            R23.Name = "R23";
+            R23.Size = new System.Drawing.Size(28, 35);
+            R23.TabIndex = 65;
+            R23.TabStop = false;
+            R23.Text = "23";
+            R23.UseVisualStyleBackColor = false;
+            // 
+            // R4
+            // 
+            R4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R4.Enabled = false;
+            R4.ForeColor = System.Drawing.Color.Transparent;
+            R4.Location = new System.Drawing.Point(98, 135);
+            R4.Margin = new System.Windows.Forms.Padding(0);
+            R4.Name = "R4";
+            R4.Size = new System.Drawing.Size(28, 34);
+            R4.TabIndex = 64;
+            R4.TabStop = false;
+            R4.Text = "4";
+            R4.UseVisualStyleBackColor = false;
+            // 
+            // R11
+            // 
+            R11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R11.Enabled = false;
+            R11.ForeColor = System.Drawing.Color.Transparent;
+            R11.Location = new System.Drawing.Point(338, 148);
+            R11.Margin = new System.Windows.Forms.Padding(0);
+            R11.Name = "R11";
+            R11.Size = new System.Drawing.Size(28, 35);
+            R11.TabIndex = 63;
+            R11.TabStop = false;
+            R11.Text = "11";
+            R11.UseVisualStyleBackColor = false;
+            // 
+            // R16
+            // 
+            R16.BackColor = System.Drawing.Color.Red;
+            R16.Enabled = false;
+            R16.ForeColor = System.Drawing.Color.Transparent;
+            R16.Location = new System.Drawing.Point(98, 168);
+            R16.Margin = new System.Windows.Forms.Padding(0);
+            R16.Name = "R16";
+            R16.Size = new System.Drawing.Size(28, 35);
+            R16.TabIndex = 62;
+            R16.TabStop = false;
+            R16.Text = "16";
+            R16.UseVisualStyleBackColor = false;
+            // 
+            // R21
+            // 
+            R21.BackColor = System.Drawing.Color.Red;
+            R21.Enabled = false;
+            R21.ForeColor = System.Drawing.Color.Transparent;
+            R21.Location = new System.Drawing.Point(72, 200);
+            R21.Margin = new System.Windows.Forms.Padding(0);
+            R21.Name = "R21";
+            R21.Size = new System.Drawing.Size(28, 35);
+            R21.TabIndex = 61;
+            R21.TabStop = false;
+            R21.Text = "21";
+            R21.UseVisualStyleBackColor = false;
+            // 
+            // R30
+            // 
+            R30.BackColor = System.Drawing.Color.Red;
+            R30.Enabled = false;
+            R30.ForeColor = System.Drawing.Color.Transparent;
+            R30.Location = new System.Drawing.Point(312, 148);
+            R30.Margin = new System.Windows.Forms.Padding(0);
+            R30.Name = "R30";
+            R30.Size = new System.Drawing.Size(28, 35);
+            R30.TabIndex = 60;
+            R30.TabStop = false;
+            R30.Text = "30";
+            R30.UseVisualStyleBackColor = false;
+            // 
+            // R6
+            // 
+            R6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R6.Enabled = false;
+            R6.ForeColor = System.Drawing.Color.Transparent;
+            R6.Location = new System.Drawing.Point(72, 233);
+            R6.Margin = new System.Windows.Forms.Padding(0);
+            R6.Name = "R6";
+            R6.Size = new System.Drawing.Size(28, 35);
+            R6.TabIndex = 59;
+            R6.TabStop = false;
+            R6.Text = "6";
+            R6.UseVisualStyleBackColor = false;
+            // 
+            // R18
+            // 
+            R18.BackColor = System.Drawing.Color.Red;
+            R18.Enabled = false;
+            R18.ForeColor = System.Drawing.Color.Transparent;
+            R18.Location = new System.Drawing.Point(72, 266);
+            R18.Margin = new System.Windows.Forms.Padding(0);
+            R18.Name = "R18";
+            R18.Size = new System.Drawing.Size(28, 35);
+            R18.TabIndex = 58;
+            R18.TabStop = false;
+            R18.Text = "18";
+            R18.UseVisualStyleBackColor = false;
+            // 
+            // R26
+            // 
+            R26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R26.Enabled = false;
+            R26.ForeColor = System.Drawing.Color.Transparent;
+            R26.Location = new System.Drawing.Point(312, 115);
+            R26.Margin = new System.Windows.Forms.Padding(0);
+            R26.Name = "R26";
+            R26.Size = new System.Drawing.Size(28, 35);
+            R26.TabIndex = 57;
+            R26.TabStop = false;
+            R26.Text = "26";
+            R26.UseVisualStyleBackColor = false;
+            // 
+            // R31
+            // 
+            R31.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R31.Enabled = false;
+            R31.ForeColor = System.Drawing.Color.Transparent;
+            R31.Location = new System.Drawing.Point(72, 299);
+            R31.Margin = new System.Windows.Forms.Padding(0);
+            R31.Name = "R31";
+            R31.Size = new System.Drawing.Size(28, 35);
+            R31.TabIndex = 56;
+            R31.TabStop = false;
+            R31.Text = "31";
+            R31.UseVisualStyleBackColor = false;
+            // 
+            // R8
+            // 
+            R8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R8.Enabled = false;
+            R8.ForeColor = System.Drawing.Color.Transparent;
+            R8.Location = new System.Drawing.Point(98, 331);
+            R8.Margin = new System.Windows.Forms.Padding(0);
+            R8.Name = "R8";
+            R8.Size = new System.Drawing.Size(28, 35);
+            R8.TabIndex = 55;
+            R8.TabStop = false;
+            R8.Text = "8";
+            R8.UseVisualStyleBackColor = false;
+            // 
+            // R9
+            // 
+            R9.BackColor = System.Drawing.Color.Red;
+            R9.Enabled = false;
+            R9.ForeColor = System.Drawing.Color.Transparent;
+            R9.Location = new System.Drawing.Point(287, 115);
+            R9.Margin = new System.Windows.Forms.Padding(0);
+            R9.Name = "R9";
+            R9.Size = new System.Drawing.Size(28, 35);
+            R9.TabIndex = 54;
+            R9.TabStop = false;
+            R9.Text = "9";
+            R9.UseVisualStyleBackColor = false;
+            // 
+            // R19
+            // 
+            R19.BackColor = System.Drawing.Color.Red;
+            R19.Enabled = false;
+            R19.ForeColor = System.Drawing.Color.Transparent;
+            R19.Location = new System.Drawing.Point(72, 331);
+            R19.Margin = new System.Windows.Forms.Padding(0);
+            R19.Name = "R19";
+            R19.Size = new System.Drawing.Size(28, 35);
+            R19.TabIndex = 53;
+            R19.TabStop = false;
+            R19.Text = "19";
+            R19.UseVisualStyleBackColor = false;
+            // 
+            // R29
+            // 
+            R29.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R29.Enabled = false;
+            R29.ForeColor = System.Drawing.Color.Transparent;
+            R29.Location = new System.Drawing.Point(124, 364);
+            R29.Margin = new System.Windows.Forms.Padding(0);
+            R29.Name = "R29";
+            R29.Size = new System.Drawing.Size(28, 35);
+            R29.TabIndex = 52;
+            R29.TabStop = false;
+            R29.Text = "29";
+            R29.UseVisualStyleBackColor = false;
+            // 
+            // R28
+            // 
+            R28.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R28.Enabled = false;
+            R28.ForeColor = System.Drawing.Color.Transparent;
+            R28.Location = new System.Drawing.Point(287, 82);
+            R28.Margin = new System.Windows.Forms.Padding(0);
+            R28.Name = "R28";
+            R28.Size = new System.Drawing.Size(28, 35);
+            R28.TabIndex = 51;
+            R28.TabStop = false;
+            R28.Text = "28";
+            R28.UseVisualStyleBackColor = false;
+            // 
+            // R00
+            // 
+            R00.BackColor = System.Drawing.Color.DarkGreen;
+            R00.Enabled = false;
+            R00.ForeColor = System.Drawing.Color.Transparent;
+            R00.Location = new System.Drawing.Point(202, 397);
+            R00.Margin = new System.Windows.Forms.Padding(0);
+            R00.Name = "R00";
+            R00.Size = new System.Drawing.Size(62, 34);
+            R00.TabIndex = 50;
+            R00.TabStop = false;
+            R00.Text = "00";
+            R00.UseVisualStyleBackColor = false;
+            // 
+            // R10
+            // 
+            R10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R10.Enabled = false;
+            R10.ForeColor = System.Drawing.Color.Transparent;
+            R10.Location = new System.Drawing.Point(150, 397);
+            R10.Margin = new System.Windows.Forms.Padding(0);
+            R10.Name = "R10";
+            R10.Size = new System.Drawing.Size(28, 35);
+            R10.TabIndex = 49;
+            R10.TabStop = false;
+            R10.Text = "10";
+            R10.UseVisualStyleBackColor = false;
+            // 
+            // R27
+            // 
+            R27.BackColor = System.Drawing.Color.Red;
+            R27.Enabled = false;
+            R27.ForeColor = System.Drawing.Color.Transparent;
+            R27.Location = new System.Drawing.Point(176, 397);
+            R27.Margin = new System.Windows.Forms.Padding(0);
+            R27.Name = "R27";
+            R27.Size = new System.Drawing.Size(28, 35);
+            R27.TabIndex = 47;
+            R27.TabStop = false;
+            R27.Text = "27";
+            R27.UseVisualStyleBackColor = false;
+            // 
+            // R12
+            // 
+            R12.BackColor = System.Drawing.Color.Red;
+            R12.Enabled = false;
+            R12.ForeColor = System.Drawing.Color.Transparent;
+            R12.Location = new System.Drawing.Point(98, 364);
+            R12.Margin = new System.Windows.Forms.Padding(0);
+            R12.Name = "R12";
+            R12.Size = new System.Drawing.Size(28, 35);
+            R12.TabIndex = 46;
+            R12.TabStop = false;
+            R12.Text = "12";
+            R12.UseVisualStyleBackColor = false;
+            // 
+            // R25
+            // 
+            R25.BackColor = System.Drawing.Color.Red;
+            R25.Enabled = false;
+            R25.ForeColor = System.Drawing.Color.Transparent;
+            R25.Location = new System.Drawing.Point(124, 396);
+            R25.Margin = new System.Windows.Forms.Padding(0);
+            R25.Name = "R25";
+            R25.Size = new System.Drawing.Size(28, 35);
+            R25.TabIndex = 44;
+            R25.TabStop = false;
+            R25.Text = "25";
+            R25.UseVisualStyleBackColor = false;
+            // 
+            // R1
+            // 
+            R1.BackColor = System.Drawing.Color.Red;
+            R1.Enabled = false;
+            R1.ForeColor = System.Drawing.Color.Transparent;
+            R1.Location = new System.Drawing.Point(261, 397);
+            R1.Margin = new System.Windows.Forms.Padding(0);
+            R1.Name = "R1";
+            R1.Size = new System.Drawing.Size(28, 35);
+            R1.TabIndex = 43;
+            R1.TabStop = false;
+            R1.Text = "1";
+            R1.UseVisualStyleBackColor = false;
+            // 
+            // R2
+            // 
+            R2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            R2.Enabled = false;
+            R2.ForeColor = System.Drawing.Color.Transparent;
+            R2.Location = new System.Drawing.Point(199, 82);
+            R2.Margin = new System.Windows.Forms.Padding(0);
+            R2.Name = "R2";
+            R2.Size = new System.Drawing.Size(28, 35);
+            R2.TabIndex = 41;
+            R2.TabStop = false;
+            R2.Text = "2";
+            R2.UseVisualStyleBackColor = false;
             // 
             // B00
             // 
@@ -711,540 +1246,6 @@
             this.B0.UseVisualStyleBackColor = false;
             this.B0.Click += new System.EventHandler(this.B0_Click);
             // 
-            // R0
-            // 
-            R0.BackColor = System.Drawing.Color.DarkGreen;
-            R0.Enabled = false;
-            R0.ForeColor = System.Drawing.Color.Transparent;
-            R0.Location = new System.Drawing.Point(227, 82);
-            R0.Margin = new System.Windows.Forms.Padding(0);
-            R0.Name = "R0";
-            R0.Size = new System.Drawing.Size(62, 34);
-            R0.TabIndex = 81;
-            R0.TabStop = false;
-            R0.Text = "0";
-            R0.UseVisualStyleBackColor = false;
-            // 
-            // R33
-            // 
-            R33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R33.Enabled = false;
-            R33.ForeColor = System.Drawing.Color.Transparent;
-            R33.Location = new System.Drawing.Point(72, 168);
-            R33.Margin = new System.Windows.Forms.Padding(0);
-            R33.Name = "R33";
-            R33.Size = new System.Drawing.Size(28, 35);
-            R33.TabIndex = 80;
-            R33.TabStop = false;
-            R33.Text = "33";
-            R33.UseVisualStyleBackColor = false;
-            // 
-            // R13
-            // 
-            R13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R13.Enabled = false;
-            R13.ForeColor = System.Drawing.Color.Transparent;
-            R13.Location = new System.Drawing.Point(287, 397);
-            R13.Margin = new System.Windows.Forms.Padding(0);
-            R13.Name = "R13";
-            R13.Size = new System.Drawing.Size(28, 35);
-            R13.TabIndex = 79;
-            R13.TabStop = false;
-            R13.Text = "13";
-            R13.UseVisualStyleBackColor = false;
-            // 
-            // R15
-            // 
-            R15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R15.Enabled = false;
-            R15.ForeColor = System.Drawing.Color.Transparent;
-            R15.Location = new System.Drawing.Point(338, 334);
-            R15.Margin = new System.Windows.Forms.Padding(0);
-            R15.Name = "R15";
-            R15.Size = new System.Drawing.Size(28, 35);
-            R15.TabIndex = 78;
-            R15.TabStop = false;
-            R15.Text = "15";
-            R15.UseVisualStyleBackColor = false;
-            // 
-            // R32
-            // 
-            R32.BackColor = System.Drawing.Color.Red;
-            R32.Enabled = false;
-            R32.ForeColor = System.Drawing.Color.Transparent;
-            R32.Location = new System.Drawing.Point(364, 212);
-            R32.Margin = new System.Windows.Forms.Padding(0);
-            R32.Name = "R32";
-            R32.Size = new System.Drawing.Size(28, 34);
-            R32.TabIndex = 77;
-            R32.TabStop = false;
-            R32.Text = "32";
-            R32.UseVisualStyleBackColor = false;
-            // 
-            // R34
-            // 
-            R34.BackColor = System.Drawing.Color.Red;
-            R34.Enabled = false;
-            R34.ForeColor = System.Drawing.Color.Transparent;
-            R34.Location = new System.Drawing.Point(364, 335);
-            R34.Margin = new System.Windows.Forms.Padding(0);
-            R34.Name = "R34";
-            R34.Size = new System.Drawing.Size(28, 34);
-            R34.TabIndex = 76;
-            R34.TabStop = false;
-            R34.Text = "34";
-            R34.UseVisualStyleBackColor = false;
-            // 
-            // R36
-            // 
-            R36.BackColor = System.Drawing.Color.Red;
-            R36.Enabled = false;
-            R36.ForeColor = System.Drawing.Color.Transparent;
-            R36.Location = new System.Drawing.Point(312, 397);
-            R36.Margin = new System.Windows.Forms.Padding(0);
-            R36.Name = "R36";
-            R36.Size = new System.Drawing.Size(28, 34);
-            R36.TabIndex = 75;
-            R36.TabStop = false;
-            R36.Text = "36";
-            R36.UseVisualStyleBackColor = false;
-            R36.Click += new System.EventHandler(this.R36_Click);
-            // 
-            // R20
-            // 
-            R20.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R20.Enabled = false;
-            R20.ForeColor = System.Drawing.Color.Transparent;
-            R20.Location = new System.Drawing.Point(363, 181);
-            R20.Margin = new System.Windows.Forms.Padding(0);
-            R20.Name = "R20";
-            R20.Size = new System.Drawing.Size(28, 34);
-            R20.TabIndex = 74;
-            R20.TabStop = false;
-            R20.Text = "20";
-            R20.UseVisualStyleBackColor = false;
-            // 
-            // R3
-            // 
-            R3.BackColor = System.Drawing.Color.Red;
-            R3.Enabled = false;
-            R3.ForeColor = System.Drawing.Color.Transparent;
-            R3.Location = new System.Drawing.Point(338, 365);
-            R3.Margin = new System.Windows.Forms.Padding(0);
-            R3.Name = "R3";
-            R3.Size = new System.Drawing.Size(28, 35);
-            R3.TabIndex = 73;
-            R3.TabStop = false;
-            R3.Text = "3";
-            R3.UseVisualStyleBackColor = false;
-            // 
-            // R17
-            // 
-            R17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R17.Enabled = false;
-            R17.ForeColor = System.Drawing.Color.Transparent;
-            R17.Location = new System.Drawing.Point(364, 244);
-            R17.Margin = new System.Windows.Forms.Padding(0);
-            R17.Name = "R17";
-            R17.Size = new System.Drawing.Size(28, 35);
-            R17.TabIndex = 72;
-            R17.TabStop = false;
-            R17.Text = "17";
-            R17.UseVisualStyleBackColor = false;
-            // 
-            // R24
-            // 
-            R24.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R24.Enabled = false;
-            R24.ForeColor = System.Drawing.Color.Transparent;
-            R24.Location = new System.Drawing.Point(312, 365);
-            R24.Margin = new System.Windows.Forms.Padding(0);
-            R24.Name = "R24";
-            R24.Size = new System.Drawing.Size(28, 34);
-            R24.TabIndex = 71;
-            R24.TabStop = false;
-            R24.Text = "24";
-            R24.UseVisualStyleBackColor = false;
-            // 
-            // R22
-            // 
-            R22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R22.Enabled = false;
-            R22.ForeColor = System.Drawing.Color.Transparent;
-            R22.Location = new System.Drawing.Point(364, 305);
-            R22.Margin = new System.Windows.Forms.Padding(0);
-            R22.Name = "R22";
-            R22.Size = new System.Drawing.Size(28, 34);
-            R22.TabIndex = 70;
-            R22.TabStop = false;
-            R22.Text = "22";
-            R22.UseVisualStyleBackColor = false;
-            // 
-            // R5
-            // 
-            R5.BackColor = System.Drawing.Color.Red;
-            R5.Enabled = false;
-            R5.ForeColor = System.Drawing.Color.Transparent;
-            R5.Location = new System.Drawing.Point(364, 277);
-            R5.Margin = new System.Windows.Forms.Padding(0);
-            R5.Name = "R5";
-            R5.Size = new System.Drawing.Size(28, 34);
-            R5.TabIndex = 69;
-            R5.TabStop = false;
-            R5.Text = "5";
-            R5.UseVisualStyleBackColor = false;
-            // 
-            // R14
-            // 
-            R14.BackColor = System.Drawing.Color.Red;
-            R14.Enabled = false;
-            R14.ForeColor = System.Drawing.Color.Transparent;
-            R14.Location = new System.Drawing.Point(150, 101);
-            R14.Margin = new System.Windows.Forms.Padding(0);
-            R14.Name = "R14";
-            R14.Size = new System.Drawing.Size(28, 35);
-            R14.TabIndex = 68;
-            R14.TabStop = false;
-            R14.Text = "14";
-            R14.UseVisualStyleBackColor = false;
-            // 
-            // R35
-            // 
-            R35.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R35.Enabled = false;
-            R35.ForeColor = System.Drawing.Color.Transparent;
-            R35.Location = new System.Drawing.Point(124, 100);
-            R35.Margin = new System.Windows.Forms.Padding(0);
-            R35.Name = "R35";
-            R35.Size = new System.Drawing.Size(28, 37);
-            R35.TabIndex = 67;
-            R35.TabStop = false;
-            R35.Text = "35";
-            R35.UseVisualStyleBackColor = false;
-            R35.Click += new System.EventHandler(this.button56_Click);
-            // 
-            // R7
-            // 
-            R7.BackColor = System.Drawing.Color.Red;
-            R7.Enabled = false;
-            R7.ForeColor = System.Drawing.Color.Transparent;
-            R7.Location = new System.Drawing.Point(338, 181);
-            R7.Margin = new System.Windows.Forms.Padding(0);
-            R7.Name = "R7";
-            R7.Size = new System.Drawing.Size(28, 35);
-            R7.TabIndex = 66;
-            R7.TabStop = false;
-            R7.Text = "7";
-            R7.UseVisualStyleBackColor = false;
-            // 
-            // R23
-            // 
-            R23.BackColor = System.Drawing.Color.Red;
-            R23.Enabled = false;
-            R23.ForeColor = System.Drawing.Color.Transparent;
-            R23.Location = new System.Drawing.Point(124, 135);
-            R23.Margin = new System.Windows.Forms.Padding(0);
-            R23.Name = "R23";
-            R23.Size = new System.Drawing.Size(28, 35);
-            R23.TabIndex = 65;
-            R23.TabStop = false;
-            R23.Text = "23";
-            R23.UseVisualStyleBackColor = false;
-            // 
-            // R4
-            // 
-            R4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R4.Enabled = false;
-            R4.ForeColor = System.Drawing.Color.Transparent;
-            R4.Location = new System.Drawing.Point(98, 135);
-            R4.Margin = new System.Windows.Forms.Padding(0);
-            R4.Name = "R4";
-            R4.Size = new System.Drawing.Size(28, 34);
-            R4.TabIndex = 64;
-            R4.TabStop = false;
-            R4.Text = "4";
-            R4.UseVisualStyleBackColor = false;
-            // 
-            // R11
-            // 
-            R11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R11.Enabled = false;
-            R11.ForeColor = System.Drawing.Color.Transparent;
-            R11.Location = new System.Drawing.Point(338, 148);
-            R11.Margin = new System.Windows.Forms.Padding(0);
-            R11.Name = "R11";
-            R11.Size = new System.Drawing.Size(28, 35);
-            R11.TabIndex = 63;
-            R11.TabStop = false;
-            R11.Text = "11";
-            R11.UseVisualStyleBackColor = false;
-            // 
-            // R16
-            // 
-            R16.BackColor = System.Drawing.Color.Red;
-            R16.Enabled = false;
-            R16.ForeColor = System.Drawing.Color.Transparent;
-            R16.Location = new System.Drawing.Point(98, 168);
-            R16.Margin = new System.Windows.Forms.Padding(0);
-            R16.Name = "R16";
-            R16.Size = new System.Drawing.Size(28, 35);
-            R16.TabIndex = 62;
-            R16.TabStop = false;
-            R16.Text = "16";
-            R16.UseVisualStyleBackColor = false;
-            // 
-            // R21
-            // 
-            R21.BackColor = System.Drawing.Color.Red;
-            R21.Enabled = false;
-            R21.ForeColor = System.Drawing.Color.Transparent;
-            R21.Location = new System.Drawing.Point(72, 200);
-            R21.Margin = new System.Windows.Forms.Padding(0);
-            R21.Name = "R21";
-            R21.Size = new System.Drawing.Size(28, 35);
-            R21.TabIndex = 61;
-            R21.TabStop = false;
-            R21.Text = "21";
-            R21.UseVisualStyleBackColor = false;
-            // 
-            // R30
-            // 
-            R30.BackColor = System.Drawing.Color.Red;
-            R30.Enabled = false;
-            R30.ForeColor = System.Drawing.Color.Transparent;
-            R30.Location = new System.Drawing.Point(312, 148);
-            R30.Margin = new System.Windows.Forms.Padding(0);
-            R30.Name = "R30";
-            R30.Size = new System.Drawing.Size(28, 35);
-            R30.TabIndex = 60;
-            R30.TabStop = false;
-            R30.Text = "30";
-            R30.UseVisualStyleBackColor = false;
-            // 
-            // R6
-            // 
-            R6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R6.Enabled = false;
-            R6.ForeColor = System.Drawing.Color.Transparent;
-            R6.Location = new System.Drawing.Point(72, 233);
-            R6.Margin = new System.Windows.Forms.Padding(0);
-            R6.Name = "R6";
-            R6.Size = new System.Drawing.Size(28, 35);
-            R6.TabIndex = 59;
-            R6.TabStop = false;
-            R6.Text = "6";
-            R6.UseVisualStyleBackColor = false;
-            // 
-            // R18
-            // 
-            R18.BackColor = System.Drawing.Color.Red;
-            R18.Enabled = false;
-            R18.ForeColor = System.Drawing.Color.Transparent;
-            R18.Location = new System.Drawing.Point(72, 266);
-            R18.Margin = new System.Windows.Forms.Padding(0);
-            R18.Name = "R18";
-            R18.Size = new System.Drawing.Size(28, 35);
-            R18.TabIndex = 58;
-            R18.TabStop = false;
-            R18.Text = "18";
-            R18.UseVisualStyleBackColor = false;
-            // 
-            // R26
-            // 
-            R26.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R26.Enabled = false;
-            R26.ForeColor = System.Drawing.Color.Transparent;
-            R26.Location = new System.Drawing.Point(312, 115);
-            R26.Margin = new System.Windows.Forms.Padding(0);
-            R26.Name = "R26";
-            R26.Size = new System.Drawing.Size(28, 35);
-            R26.TabIndex = 57;
-            R26.TabStop = false;
-            R26.Text = "26";
-            R26.UseVisualStyleBackColor = false;
-            // 
-            // R31
-            // 
-            R31.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R31.Enabled = false;
-            R31.ForeColor = System.Drawing.Color.Transparent;
-            R31.Location = new System.Drawing.Point(72, 299);
-            R31.Margin = new System.Windows.Forms.Padding(0);
-            R31.Name = "R31";
-            R31.Size = new System.Drawing.Size(28, 35);
-            R31.TabIndex = 56;
-            R31.TabStop = false;
-            R31.Text = "31";
-            R31.UseVisualStyleBackColor = false;
-            // 
-            // R8
-            // 
-            R8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R8.Enabled = false;
-            R8.ForeColor = System.Drawing.Color.Transparent;
-            R8.Location = new System.Drawing.Point(98, 331);
-            R8.Margin = new System.Windows.Forms.Padding(0);
-            R8.Name = "R8";
-            R8.Size = new System.Drawing.Size(28, 35);
-            R8.TabIndex = 55;
-            R8.TabStop = false;
-            R8.Text = "8";
-            R8.UseVisualStyleBackColor = false;
-            // 
-            // R9
-            // 
-            R9.BackColor = System.Drawing.Color.Red;
-            R9.Enabled = false;
-            R9.ForeColor = System.Drawing.Color.Transparent;
-            R9.Location = new System.Drawing.Point(287, 115);
-            R9.Margin = new System.Windows.Forms.Padding(0);
-            R9.Name = "R9";
-            R9.Size = new System.Drawing.Size(28, 35);
-            R9.TabIndex = 54;
-            R9.TabStop = false;
-            R9.Text = "9";
-            R9.UseVisualStyleBackColor = false;
-            // 
-            // R19
-            // 
-            R19.BackColor = System.Drawing.Color.Red;
-            R19.Enabled = false;
-            R19.ForeColor = System.Drawing.Color.Transparent;
-            R19.Location = new System.Drawing.Point(72, 331);
-            R19.Margin = new System.Windows.Forms.Padding(0);
-            R19.Name = "R19";
-            R19.Size = new System.Drawing.Size(28, 35);
-            R19.TabIndex = 53;
-            R19.TabStop = false;
-            R19.Text = "19";
-            R19.UseVisualStyleBackColor = false;
-            // 
-            // R29
-            // 
-            R29.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R29.Enabled = false;
-            R29.ForeColor = System.Drawing.Color.Transparent;
-            R29.Location = new System.Drawing.Point(124, 364);
-            R29.Margin = new System.Windows.Forms.Padding(0);
-            R29.Name = "R29";
-            R29.Size = new System.Drawing.Size(28, 35);
-            R29.TabIndex = 52;
-            R29.TabStop = false;
-            R29.Text = "29";
-            R29.UseVisualStyleBackColor = false;
-            // 
-            // R28
-            // 
-            R28.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R28.Enabled = false;
-            R28.ForeColor = System.Drawing.Color.Transparent;
-            R28.Location = new System.Drawing.Point(287, 82);
-            R28.Margin = new System.Windows.Forms.Padding(0);
-            R28.Name = "R28";
-            R28.Size = new System.Drawing.Size(28, 35);
-            R28.TabIndex = 51;
-            R28.TabStop = false;
-            R28.Text = "28";
-            R28.UseVisualStyleBackColor = false;
-            // 
-            // R00
-            // 
-            R00.BackColor = System.Drawing.Color.DarkGreen;
-            R00.Enabled = false;
-            R00.ForeColor = System.Drawing.Color.Transparent;
-            R00.Location = new System.Drawing.Point(202, 397);
-            R00.Margin = new System.Windows.Forms.Padding(0);
-            R00.Name = "R00";
-            R00.Size = new System.Drawing.Size(62, 34);
-            R00.TabIndex = 50;
-            R00.TabStop = false;
-            R00.Text = "00";
-            R00.UseVisualStyleBackColor = false;
-            // 
-            // R10
-            // 
-            R10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R10.Enabled = false;
-            R10.ForeColor = System.Drawing.Color.Transparent;
-            R10.Location = new System.Drawing.Point(150, 397);
-            R10.Margin = new System.Windows.Forms.Padding(0);
-            R10.Name = "R10";
-            R10.Size = new System.Drawing.Size(28, 35);
-            R10.TabIndex = 49;
-            R10.TabStop = false;
-            R10.Text = "10";
-            R10.UseVisualStyleBackColor = false;
-            // 
-            // R27
-            // 
-            R27.BackColor = System.Drawing.Color.Red;
-            R27.Enabled = false;
-            R27.ForeColor = System.Drawing.Color.Transparent;
-            R27.Location = new System.Drawing.Point(176, 397);
-            R27.Margin = new System.Windows.Forms.Padding(0);
-            R27.Name = "R27";
-            R27.Size = new System.Drawing.Size(28, 35);
-            R27.TabIndex = 47;
-            R27.TabStop = false;
-            R27.Text = "27";
-            R27.UseVisualStyleBackColor = false;
-            // 
-            // R12
-            // 
-            R12.BackColor = System.Drawing.Color.Red;
-            R12.Enabled = false;
-            R12.ForeColor = System.Drawing.Color.Transparent;
-            R12.Location = new System.Drawing.Point(98, 364);
-            R12.Margin = new System.Windows.Forms.Padding(0);
-            R12.Name = "R12";
-            R12.Size = new System.Drawing.Size(28, 35);
-            R12.TabIndex = 46;
-            R12.TabStop = false;
-            R12.Text = "12";
-            R12.UseVisualStyleBackColor = false;
-            // 
-            // R25
-            // 
-            R25.BackColor = System.Drawing.Color.Red;
-            R25.Enabled = false;
-            R25.ForeColor = System.Drawing.Color.Transparent;
-            R25.Location = new System.Drawing.Point(124, 396);
-            R25.Margin = new System.Windows.Forms.Padding(0);
-            R25.Name = "R25";
-            R25.Size = new System.Drawing.Size(28, 35);
-            R25.TabIndex = 44;
-            R25.TabStop = false;
-            R25.Text = "25";
-            R25.UseVisualStyleBackColor = false;
-            // 
-            // R1
-            // 
-            R1.BackColor = System.Drawing.Color.Red;
-            R1.Enabled = false;
-            R1.ForeColor = System.Drawing.Color.Transparent;
-            R1.Location = new System.Drawing.Point(261, 397);
-            R1.Margin = new System.Windows.Forms.Padding(0);
-            R1.Name = "R1";
-            R1.Size = new System.Drawing.Size(28, 35);
-            R1.TabIndex = 43;
-            R1.TabStop = false;
-            R1.Text = "1";
-            R1.UseVisualStyleBackColor = false;
-            // 
-            // R2
-            // 
-            R2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            R2.Enabled = false;
-            R2.ForeColor = System.Drawing.Color.Transparent;
-            R2.Location = new System.Drawing.Point(199, 82);
-            R2.Margin = new System.Windows.Forms.Padding(0);
-            R2.Name = "R2";
-            R2.Size = new System.Drawing.Size(28, 35);
-            R2.TabIndex = 41;
-            R2.TabStop = false;
-            R2.Text = "2";
-            R2.UseVisualStyleBackColor = false;
-            // 
             // B1st
             // 
             this.B1st.BackColor = System.Drawing.Color.DarkGreen;
@@ -1387,118 +1388,6 @@
             this.MoneyCounter.Interval = 1;
             this.MoneyCounter.Tick += new System.EventHandler(this.MoneyCounter_Tick);
             // 
-            // Chip1
-            // 
-            this.Chip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Chip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip1.BackgroundImage")));
-            this.Chip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip1.Location = new System.Drawing.Point(686, 396);
-            this.Chip1.Name = "Chip1";
-            this.Chip1.Size = new System.Drawing.Size(56, 57);
-            this.Chip1.TabIndex = 94;
-            this.Chip1.UseVisualStyleBackColor = false;
-            this.Chip1.Click += new System.EventHandler(this.Chip1_Click);
-            // 
-            // Chip5
-            // 
-            this.Chip5.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip5.BackgroundImage")));
-            this.Chip5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip5.Location = new System.Drawing.Point(748, 396);
-            this.Chip5.Name = "Chip5";
-            this.Chip5.Size = new System.Drawing.Size(56, 57);
-            this.Chip5.TabIndex = 95;
-            this.Chip5.UseVisualStyleBackColor = false;
-            this.Chip5.Click += new System.EventHandler(this.Chip5_Click);
-            // 
-            // Chip10
-            // 
-            this.Chip10.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip10.BackgroundImage")));
-            this.Chip10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip10.Location = new System.Drawing.Point(810, 396);
-            this.Chip10.Name = "Chip10";
-            this.Chip10.Size = new System.Drawing.Size(56, 57);
-            this.Chip10.TabIndex = 96;
-            this.Chip10.UseVisualStyleBackColor = false;
-            this.Chip10.Click += new System.EventHandler(this.Chip10_Click);
-            // 
-            // Chip25
-            // 
-            this.Chip25.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip25.BackgroundImage")));
-            this.Chip25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip25.Location = new System.Drawing.Point(872, 396);
-            this.Chip25.Name = "Chip25";
-            this.Chip25.Size = new System.Drawing.Size(56, 57);
-            this.Chip25.TabIndex = 97;
-            this.Chip25.UseVisualStyleBackColor = false;
-            this.Chip25.Click += new System.EventHandler(this.Chip25_Click);
-            // 
-            // Chip50
-            // 
-            this.Chip50.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip50.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip50.BackgroundImage")));
-            this.Chip50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip50.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip50.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip50.Location = new System.Drawing.Point(934, 396);
-            this.Chip50.Name = "Chip50";
-            this.Chip50.Size = new System.Drawing.Size(56, 57);
-            this.Chip50.TabIndex = 98;
-            this.Chip50.UseVisualStyleBackColor = false;
-            this.Chip50.Click += new System.EventHandler(this.Chip50_Click);
-            // 
-            // Chip100
-            // 
-            this.Chip100.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip100.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip100.BackgroundImage")));
-            this.Chip100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip100.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip100.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip100.Location = new System.Drawing.Point(996, 396);
-            this.Chip100.Name = "Chip100";
-            this.Chip100.Size = new System.Drawing.Size(56, 57);
-            this.Chip100.TabIndex = 99;
-            this.Chip100.UseVisualStyleBackColor = false;
-            this.Chip100.Click += new System.EventHandler(this.Chip100_Click);
-            // 
-            // Chip500
-            // 
-            this.Chip500.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip500.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip500.BackgroundImage")));
-            this.Chip500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip500.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip500.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip500.Location = new System.Drawing.Point(1058, 396);
-            this.Chip500.Name = "Chip500";
-            this.Chip500.Size = new System.Drawing.Size(56, 57);
-            this.Chip500.TabIndex = 100;
-            this.Chip500.UseVisualStyleBackColor = false;
-            this.Chip500.Click += new System.EventHandler(this.Chip500_Click);
-            // 
-            // Chip1000
-            // 
-            this.Chip1000.BackColor = System.Drawing.Color.DarkGreen;
-            this.Chip1000.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip1000.BackgroundImage")));
-            this.Chip1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Chip1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Chip1000.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Chip1000.Location = new System.Drawing.Point(1120, 396);
-            this.Chip1000.Name = "Chip1000";
-            this.Chip1000.Size = new System.Drawing.Size(56, 57);
-            this.Chip1000.TabIndex = 101;
-            this.Chip1000.UseVisualStyleBackColor = false;
-            this.Chip1000.Click += new System.EventHandler(this.Chip1000_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1606,6 +1495,118 @@
             this.pictureBox65.Size = new System.Drawing.Size(1383, 128);
             this.pictureBox65.TabIndex = 110;
             this.pictureBox65.TabStop = false;
+            // 
+            // Chip1000
+            // 
+            this.Chip1000.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip1000.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip1000.BackgroundImage")));
+            this.Chip1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip1000.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip1000.Location = new System.Drawing.Point(1120, 396);
+            this.Chip1000.Name = "Chip1000";
+            this.Chip1000.Size = new System.Drawing.Size(56, 57);
+            this.Chip1000.TabIndex = 101;
+            this.Chip1000.UseVisualStyleBackColor = false;
+            this.Chip1000.Click += new System.EventHandler(this.Chip1000_Click);
+            // 
+            // Chip500
+            // 
+            this.Chip500.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip500.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip500.BackgroundImage")));
+            this.Chip500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip500.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip500.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip500.Location = new System.Drawing.Point(1058, 396);
+            this.Chip500.Name = "Chip500";
+            this.Chip500.Size = new System.Drawing.Size(56, 57);
+            this.Chip500.TabIndex = 100;
+            this.Chip500.UseVisualStyleBackColor = false;
+            this.Chip500.Click += new System.EventHandler(this.Chip500_Click);
+            // 
+            // Chip100
+            // 
+            this.Chip100.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip100.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip100.BackgroundImage")));
+            this.Chip100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip100.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip100.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip100.Location = new System.Drawing.Point(996, 396);
+            this.Chip100.Name = "Chip100";
+            this.Chip100.Size = new System.Drawing.Size(56, 57);
+            this.Chip100.TabIndex = 99;
+            this.Chip100.UseVisualStyleBackColor = false;
+            this.Chip100.Click += new System.EventHandler(this.Chip100_Click);
+            // 
+            // Chip50
+            // 
+            this.Chip50.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip50.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip50.BackgroundImage")));
+            this.Chip50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip50.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip50.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip50.Location = new System.Drawing.Point(934, 396);
+            this.Chip50.Name = "Chip50";
+            this.Chip50.Size = new System.Drawing.Size(56, 57);
+            this.Chip50.TabIndex = 98;
+            this.Chip50.UseVisualStyleBackColor = false;
+            this.Chip50.Click += new System.EventHandler(this.Chip50_Click);
+            // 
+            // Chip25
+            // 
+            this.Chip25.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip25.BackgroundImage")));
+            this.Chip25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip25.Location = new System.Drawing.Point(872, 396);
+            this.Chip25.Name = "Chip25";
+            this.Chip25.Size = new System.Drawing.Size(56, 57);
+            this.Chip25.TabIndex = 97;
+            this.Chip25.UseVisualStyleBackColor = false;
+            this.Chip25.Click += new System.EventHandler(this.Chip25_Click);
+            // 
+            // Chip10
+            // 
+            this.Chip10.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip10.BackgroundImage")));
+            this.Chip10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip10.Location = new System.Drawing.Point(810, 396);
+            this.Chip10.Name = "Chip10";
+            this.Chip10.Size = new System.Drawing.Size(56, 57);
+            this.Chip10.TabIndex = 96;
+            this.Chip10.UseVisualStyleBackColor = false;
+            this.Chip10.Click += new System.EventHandler(this.Chip10_Click);
+            // 
+            // Chip5
+            // 
+            this.Chip5.BackColor = System.Drawing.Color.DarkGreen;
+            this.Chip5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip5.BackgroundImage")));
+            this.Chip5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip5.Location = new System.Drawing.Point(748, 396);
+            this.Chip5.Name = "Chip5";
+            this.Chip5.Size = new System.Drawing.Size(56, 57);
+            this.Chip5.TabIndex = 95;
+            this.Chip5.UseVisualStyleBackColor = false;
+            this.Chip5.Click += new System.EventHandler(this.Chip5_Click);
+            // 
+            // Chip1
+            // 
+            this.Chip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Chip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chip1.BackgroundImage")));
+            this.Chip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Chip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Chip1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Chip1.Location = new System.Drawing.Point(686, 396);
+            this.Chip1.Name = "Chip1";
+            this.Chip1.Size = new System.Drawing.Size(56, 57);
+            this.Chip1.TabIndex = 94;
+            this.Chip1.UseVisualStyleBackColor = false;
+            this.Chip1.Click += new System.EventHandler(this.Chip1_Click);
             // 
             // Roulette
             // 
