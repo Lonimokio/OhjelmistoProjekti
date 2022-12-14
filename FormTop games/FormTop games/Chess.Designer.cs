@@ -1248,7 +1248,7 @@
             // 
             // Empty
             // 
-            this.Empty.Location = new System.Drawing.Point(71, 289);
+            this.Empty.Location = new System.Drawing.Point(53, 140);
             this.Empty.Name = "Empty";
             this.Empty.Size = new System.Drawing.Size(100, 50);
             this.Empty.TabIndex = 114;

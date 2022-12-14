@@ -739,7 +739,6 @@ namespace FormTop_games
         //Checkmate system
         public void CheckMate()
         {
-            MessageBox.Show("Test");
             Math2 = "A1";
             Math3 = "A1";
             Calculation2 = int.Parse(Math2.Substring(1, 1));
@@ -763,200 +762,400 @@ namespace FormTop_games
                     Math = Result2;
                     Math1 = Result2;
                     PCache.Tag = this.Controls[Result2].Tag;
-                    if (Turn == 2)
+                    if (IsGreen == true)
                     {
-                        //Checking legal white rook moves
-                        if (PCache.Tag == WRook.Tag)
+                        if (Turn == 2)
                         {
-                            Unit = "White rook";
+                            //Checking legal white rook moves
+                            if (PCache.Tag == WRook.Tag)
+                            {
+                                Unit = "White rook";
 
-                            //RookMove
-                            RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x - 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BRook", true);
+                                //RookMove
+                                RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x - 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BRook", true);
+                            }
+                            //White knigth logic
+                            else if (PCache.Tag == WKnigth.Tag)
+                            {
+                                Unit = "White knigth";
+
+                                //Down knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2, true);
+                                //Up knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 2, true);
+                                //Side knight logic
+                                KnigthSideRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, x => x - 1, true);
+                                //Side knight logic
+                                KnigthSideLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, x => x + 1, true);
+                            }
+                            //White tower move logic
+                            else if (PCache.Tag == WTower.Tag)
+                            {
+                                Unit = "White tower";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic rigth
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic left
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White bishop move logic
+                            else if (PCache.Tag == WBishop.Tag)
+                            {
+                                Unit = "White bishop";
+
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White king move logic
+                            else if (PCache.Tag == WKing.Tag)
+                            {
+                                Unit = "White king";
+
+                                //Down move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic rigth
+                                KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic left
+                                KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down rigth movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White queen move logic
+                            else if (PCache.Tag == WQueen.Tag)
+                            {
+                                Unit = "White queen";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side rigth logic 
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side left logic 
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
                         }
-                        //White knigth logic
-                        else if (PCache.Tag == WKnigth.Tag)
+                        else if (Turn == 1)
                         {
-                            Unit = "White knigth";
+                            //Checking legal black rook moves
+                            if (PCache.Tag == BRook.Tag)
+                            {
+                                Unit = "Black rook";
 
-                            //Down knight logic
-                            KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2, true);
-                            //Up knight logic
-                            KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 2, true);
-                            //Side knight logic
-                            KnigthSideRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, x => x - 1, true);
-                            //Side knight logic
-                            KnigthSideLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, x => x + 1, true);
-                        }
-                        //White tower move logic
-                        else if (PCache.Tag == WTower.Tag)
-                        {
-                            Unit = "White tower";
+                                //RookMove
+                                RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WRook", true);
+                            }
+                            //Black knigth logic
+                            else if (PCache.Tag == BKnigth.Tag)
+                            {
+                                Unit = "Black knigth";
 
-                            //Down move logic
-                            DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up move logic
-                            DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side logic rigth
-                            SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side logic left
-                            SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                        }
-                        //White bishop move logic
-                        else if (PCache.Tag == WBishop.Tag)
-                        {
-                            Unit = "White bishop";
+                                //Down knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2, true);
+                                //Up knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 2, true);
+                                //Side knight logic
+                                KnigthSideRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, x => x - 1, true);
+                                //Side logic
+                                KnigthSideLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, x => x + 1, true);
+                            }
+                            //Black tower move logic
+                            else if (PCache.Tag == BTower.Tag)
+                            {
+                                Unit = "Black tower";
 
-                            //Down rigth movement logic
-                            DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Down left movement logic
-                            DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up rigth movement logic
-                            UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //up left movement logic
-                            UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                        }
-                        //White king move logic
-                        else if (PCache.Tag == WKing.Tag)
-                        {
-                            Unit = "White king";
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic rigth
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic left
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black bishop move logic
+                            else if (PCache.Tag == BBishop.Tag)
+                            {
+                                Unit = "Black bishop";
 
-                            //Down move logic
-                            KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up move logic
-                            KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side logic rigth
-                            KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side logic left
-                            KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Down rigth movement logic
-                            KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Down left movement logic
-                            KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up rigth movement logic
-                            KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //up left movement logic
-                            KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                        }
-                        //White queen move logic
-                        else if (PCache.Tag == WQueen.Tag)
-                        {
-                            Unit = "White queen";
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black king move logic
+                            else if (PCache.Tag == BKing.Tag)
+                            {
+                                Unit = "Black king";
 
-                            //Down move logic
-                            DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up move logic
-                            DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side rigth logic 
-                            SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Side left logic 
-                            SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Down rigth movement logic
-                            DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Down left movement logic
-                            DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //Up rigth movement logic
-                            UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
-                            //up left movement logic
-                            UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic rigth
+                                KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic left
+                                KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down rigth movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black queen move logic
+                            else if (PCache.Tag == BQueen.Tag)
+                            {
+                                Unit = "Black queen";
+
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side rigth logic 
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side left logic 
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
                         }
                     }
-                    else if (Turn == 1)
+                    else if (IsGreen == false)
                     {
-                        //Checking legal black rook moves
-                        if (PCache.Tag == BRook.Tag)
+                        if (Turn == 2)
                         {
-                            Unit = "Black rook";
+                            //Checking legal white rook moves
+                            if (PCache.Tag == WRook.Tag)
+                            {
+                                Unit = "White rook";
 
-                            //RookMove
-                            RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WRook", true);
+                                //RookMove
+                                RookMove("A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7", x => x - 1, "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BRook", true);
+                            }
+                            //White knigth logic
+                            else if (PCache.Tag == WKnigth.Tag)
+                            {
+                                Unit = "White knigth";
+
+                                //Down knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 2, true);
+                                //Up knight logic
+                                KnigthDownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 2, true);
+                                //Side knight logic
+                                KnigthSideRigth("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, x => x - 1, true);
+                                //Side knight logic
+                                KnigthSideLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, x => x + 1, true);
+                            }
+                            //White tower move logic
+                            else if (PCache.Tag == WTower.Tag)
+                            {
+                                Unit = "White tower";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic rigth
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic left
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White bishop move logic
+                            else if (PCache.Tag == WBishop.Tag)
+                            {
+                                Unit = "White bishop";
+
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White king move logic
+                            else if (PCache.Tag == WKing.Tag)
+                            {
+                                Unit = "White king";
+
+                                //Down move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                KDown("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic rigth
+                                KSideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side logic left
+                                KSideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down rigth movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                KDownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                KUpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
+                            //White queen move logic
+                            else if (PCache.Tag == WQueen.Tag)
+                            {
+                                Unit = "White queen";
+
+                                //Down move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up move logic
+                                DownUp("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side rigth logic 
+                                SideR("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Side left logic 
+                                SideL("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down rigth movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x - 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                                //up left movement logic
+                                UpRigthLeft("WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", x => x + 1, "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", true);
+                            }
                         }
-                        //Black knigth logic
-                        else if (PCache.Tag == BKnigth.Tag)
+                        else if (Turn == 1)
                         {
-                            Unit = "Black knigth";
+                            //Checking legal black rook moves
+                            if (PCache.Tag == BRook.Tag)
+                            {
+                                Unit = "Black rook";
 
-                            //Down knight logic
-                            KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2, true);
-                            //Up knight logic
-                            KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 2, true);
-                            //Side knight logic
-                            KnigthSideRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, x => x - 1, true);
-                            //Side logic
-                            KnigthSideLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, x => x + 1, true);
-                        }
-                        //Black tower move logic
-                        else if (PCache.Tag == BTower.Tag)
-                        {
-                            Unit = "Black tower";
+                                //RookMove
+                                RookMove("A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", x => x + 1, "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5", "BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WRook", true);
+                            }
+                            //Black knigth logic
+                            else if (PCache.Tag == BKnigth.Tag)
+                            {
+                                Unit = "Black knigth";
 
-                            //Down move logic
-                            DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up move logic
-                            DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side logic rigth
-                            SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side logic left
-                            SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                        }
-                        //Black bishop move logic
-                        else if (PCache.Tag == BBishop.Tag)
-                        {
-                            Unit = "Black bishop";
+                                //Down knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 2, true);
+                                //Up knight logic
+                                KnigthDownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 2, true);
+                                //Side knight logic
+                                KnigthSideRigth("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, x => x - 1, true);
+                                //Side logic
+                                KnigthSideLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, x => x + 1, true);
+                            }
+                            //Black tower move logic
+                            else if (PCache.Tag == BTower.Tag)
+                            {
+                                Unit = "Black tower";
 
-                            //Down rigth movement logic
-                            DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Down left movement logic
-                            DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up rigth movement logic
-                            UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //up left movement logic
-                            UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                        }
-                        //Black king move logic
-                        else if (PCache.Tag == BKing.Tag)
-                        {
-                            Unit = "Black king";
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic rigth
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic left
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black bishop move logic
+                            else if (PCache.Tag == BBishop.Tag)
+                            {
+                                Unit = "Black bishop";
 
-                            //Down move logic
-                            KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up move logic
-                            KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side logic rigth
-                            KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side logic left
-                            KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Down rigth movement logic
-                            KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Down left movement logic
-                            KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up rigth movement logic
-                            KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //up left movement logic
-                            KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                        }
-                        //Black queen move logic
-                        else if (PCache.Tag == BQueen.Tag)
-                        {
-                            Unit = "Black queen";
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black king move logic
+                            else if (PCache.Tag == BKing.Tag)
+                            {
+                                Unit = "Black king";
 
-                            //Down move logic
-                            DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up move logic
-                            DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side rigth logic 
-                            SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Side left logic 
-                            SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Down rigth movement logic
-                            DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Down left movement logic
-                            DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //Up rigth movement logic
-                            UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
-                            //up left movement logic
-                            UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                KDown("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic rigth
+                                KSideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side logic left
+                                KSideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down rigth movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                KDownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                KUpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
+                            //Black queen move logic
+                            else if (PCache.Tag == BQueen.Tag)
+                            {
+                                Unit = "Black queen";
+
+                                //Down move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up move logic
+                                DownUp("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side rigth logic 
+                                SideR("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Side left logic 
+                                SideL("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down rigth movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Down left movement logic
+                                DownRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //Up rigth movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x + 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                                //up left movement logic
+                                UpRigthLeft("BKnigth", "BQueen", "BTower", "BRook", "BBishop", "BKing", x => x - 1, "WKnigth", "WQueen", "WTower", "WRook", "WBishop", "WKing", true);
+                            }
                         }
-                    }   
+                    }
                 }
                 //Increment to loop trough board
                 Math2 = Math3;
@@ -1206,7 +1405,30 @@ namespace FormTop_games
             {
                 if (Check.Visible == true)
                 {
-                    Mate.Visible = true;
+                    MessageBox.Show(Move1);
+                    if (this.Controls[Move1].BackColor == Color.LightGreen)
+                    {
+                        Mate.Visible = true;
+                        //Restart loop
+                        MessageBox.Show("Black King is in a checkmate \n                White Wins!!!");
+                        const string message = "Would you like to play again?";
+                        const string caption = "Retry";
+                        var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        // If the no button gets pressed
+                        if (result == DialogResult.No)
+                        {
+                            this.Hide();
+                            Main frm2 = new Main();
+                            frm2.ShowDialog();
+                        }
+                        else if (result == DialogResult.Yes)
+                        {
+                            this.Hide();
+                            Chess frm2 = new Chess();
+                            frm2.ShowDialog();
+                        }
+                    }
                 }
             }
             //Checking if white king is in check
@@ -1214,7 +1436,30 @@ namespace FormTop_games
             {
                 if (Check.Visible == true)
                 {
-                    Mate.Visible = true;
+                    MessageBox.Show(Move1);
+                    if (this.Controls[Move1].BackColor == Color.LightGreen)
+                    {
+                        Mate.Visible = true;
+                        //Restart loop
+                        MessageBox.Show("White King is in a checkmate \n                Black Wins!!!");
+                        const string message = "Would you like to play again?";
+                        const string caption = "Retry";
+                        var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        // If the no button gets pressed
+                        if (result == DialogResult.No)
+                        {
+                            this.Hide();
+                            Main frm2 = new Main();
+                            frm2.ShowDialog();
+                        }
+                        else if (result == DialogResult.Yes)
+                        {
+                            this.Hide();
+                            Chess frm2 = new Chess();
+                            frm2.ShowDialog();
+                        }
+                    }
                 }
             }
             Reset();
