@@ -121,6 +121,16 @@ namespace FormTop_games
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Coinflip frm3 = new Coinflip();
+            frm3.ShowDialog();
+        }
 
+        private void Poker_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

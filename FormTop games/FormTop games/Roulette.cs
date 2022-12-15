@@ -2040,5 +2040,10 @@ namespace FormTop_games
         {
 
         }
+
+        private void R20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
