@@ -87,6 +87,7 @@ namespace FormTop_games
 
         //Variable below here
         string Move1;
+        string Move2;
         string Unit;
         string Math = "A";
         string Math1;
@@ -109,6 +110,7 @@ namespace FormTop_games
         int counter = 1;
         int Turn = 1;
 
+        bool FTime = true;
         bool Checking = false;
         bool CheckW = false;
         bool CheckB = false;
@@ -633,6 +635,13 @@ namespace FormTop_games
                 }
                 else
                 {
+                    if (FTime == true)
+                    {
+                        Turner();
+                        MessageBox.Show("Black "+ Move1);
+                        FTime = false;
+                        Move2 = Move1;
+                    }
                     Check.Visible = true;
                     CheckB = true;
                     Colour.Text = "Black";
@@ -662,6 +671,13 @@ namespace FormTop_games
                 }
                 else
                 {
+                    if (FTime == true)
+                    {
+                        Turner();
+                        MessageBox.Show("White " + Move1);
+                        FTime = false;
+                        Move2 = Move1;
+                    }
                     Check.Visible = true;
                     CheckW = true;
                     Colour.Text = "White";
@@ -671,6 +687,7 @@ namespace FormTop_games
             //Checking if black king is not in check
             else if (this.Controls[BKingL].BackColor != Color.LightGreen)
             {
+                FTime = true;
                 Check.Visible = false;
                 CheckB = false;
                 Colour.Visible = false;
@@ -679,6 +696,7 @@ namespace FormTop_games
             //Checking if white king is not in check
             else if (this.Controls[WKingL].BackColor != Color.LightGreen)
             {
+                FTime = true;
                 Check.Visible = false;
                 CheckW = false;
                 Colour.Visible = false;
@@ -1406,7 +1424,7 @@ namespace FormTop_games
                 if (Check.Visible == true)
                 {
                     MessageBox.Show(Move1);
-                    if (this.Controls[Move1].BackColor == Color.LightGreen)
+                    if (this.Controls[Move2].BackColor != Color.LightGreen)
                     {
                         Mate.Visible = true;
                         //Restart loop
@@ -1436,8 +1454,8 @@ namespace FormTop_games
             {
                 if (Check.Visible == true)
                 {
-                    MessageBox.Show(Move1);
-                    if (this.Controls[Move1].BackColor == Color.LightGreen)
+                    MessageBox.Show(Move2);
+                    if (this.Controls[Move2].BackColor != Color.LightGreen)
                     {
                         Mate.Visible = true;
                         //Restart loop
@@ -1487,6 +1505,17 @@ namespace FormTop_games
                 {
                     this.Controls[Result].BackColor = Color.LightGreen;
                 }
+            }
+        }
+        public void Turner()
+        {
+            if (Turn == 1)
+            {
+                Turn = 2;
+            }
+            else if (Turn == 2)
+            {
+                Turn = 1;
             }
         }
 
@@ -2144,6 +2173,7 @@ namespace FormTop_games
 
                     CheckCheck();
                     CheckMate();
+                    Turner();
 
                     Move1 = null;
 
