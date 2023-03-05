@@ -721,3 +721,5 @@ C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop games.exe
 C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop games.pdb
 C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.AssemblyReference.cache
 C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop games.csproj.SuggestedBindingRedirects.cache
+C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop_games.Slot.resources
+C:\Programming\GitHub\FormTop games\FormTop games\obj\Debug\FormTop_games.SlotHelp.resources
