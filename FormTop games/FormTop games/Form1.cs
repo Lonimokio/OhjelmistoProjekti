@@ -144,6 +144,9 @@ namespace FormTop_games
 
         private void SignIn_Load(object sender, EventArgs e)
         {
+            this.Hide();
+            Chess frm2 = new Chess();
+            frm2.ShowDialog();
             var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/authdb?serverSelectionTimeoutMS=30000&connectTimeoutMS=30000&socketTimeoutMS=30000");
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
