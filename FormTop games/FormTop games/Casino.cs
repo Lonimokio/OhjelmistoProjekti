@@ -132,5 +132,12 @@ namespace FormTop_games
         {
 
         }
+
+        private void Slots_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Slot frm3 = new Slot();
+            frm3.ShowDialog();
+        }
     }
 }

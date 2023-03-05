@@ -577,3 +577,5 @@ C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Ro
 C:\Programming\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Roulette.resources
 C:\Programming\Vs-Harjoitukset\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Roulette.resources
 C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Coinflip.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.Slot.resources
+C:\git\OhjelmistoProjekti\FormTop games\FormTop games\obj\Debug\FormTop_games.SlotHelp.resources
