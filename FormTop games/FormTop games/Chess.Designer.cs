@@ -132,6 +132,7 @@
             this.Check = new System.Windows.Forms.Label();
             this.Mate = new System.Windows.Forms.Label();
             this.Colour = new System.Windows.Forms.Label();
+            this.TurnDebug = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WBishop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WKnigth)).BeginInit();
@@ -1300,11 +1301,19 @@
             this.Colour.Text = "White";
             this.Colour.Visible = false;
             // 
+            // TurnDebug
+            // 
+            this.TurnDebug.Location = new System.Drawing.Point(630, 177);
+            this.TurnDebug.Name = "TurnDebug";
+            this.TurnDebug.Size = new System.Drawing.Size(100, 20);
+            this.TurnDebug.TabIndex = 119;
+            // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TurnDebug);
             this.Controls.Add(this.Colour);
             this.Controls.Add(this.Mate);
             this.Controls.Add(this.Check);
@@ -1602,5 +1611,6 @@
         private System.Windows.Forms.Label Check;
         private System.Windows.Forms.Label Mate;
         private System.Windows.Forms.Label Colour;
+        private System.Windows.Forms.TextBox TurnDebug;
     }
 }
