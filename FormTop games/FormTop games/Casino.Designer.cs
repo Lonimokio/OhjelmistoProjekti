@@ -138,6 +138,7 @@
             this.Slots.TabIndex = 26;
             this.Slots.Text = "Slots";
             this.Slots.UseVisualStyleBackColor = true;
+            this.Slots.Click += new System.EventHandler(this.Slots_Click);
             // 
             // label2
             // 

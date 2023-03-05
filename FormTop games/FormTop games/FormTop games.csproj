@@ -145,6 +145,18 @@
     <Compile Include="SimpleGames.Designer.cs">
       <DependentUpon>SimpleGames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Slot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slot.Designer.cs">
+      <DependentUpon>Slot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlotHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlotHelp.Designer.cs">
+      <DependentUpon>SlotHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Table Top.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     <EmbeddedResource Include="SimpleGames.resx">
       <DependentUpon>SimpleGames.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Slot.resx">
+      <DependentUpon>Slot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlotHelp.resx">
+      <DependentUpon>SlotHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Table Top.resx">
       <DependentUpon>Table Top.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +228,11 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="mongocrypt.dll" />
+    <None Include="Resources\Sloticon.jpg" />
+    <None Include="Resources\Slotheart.jpg" />
+    <None Include="Resources\Slotbar.jpg" />
+    <None Include="Resources\Slotcherry.jpg" />
+    <None Include="Resources\Slotdiamond.jpg" />
     <None Include="Resources\ChessBoard.png" />
     <None Include="Resources\White rook1.png" />
     <None Include="Resources\Black tower.png" />

@@ -44,6 +44,56 @@ namespace FormTop_games
 
         }
 
+        public void Winnings()
+        {
+            Balance.Text = (Win.Value + int.Parse(Balance.Text)).ToString();
+
+            Name = SignIn.Name1;
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1); var client = new MongoClient(settings);
+            var database = client.GetDatabase("SignIn");
+            var coll = database.GetCollection<BsonDocument>("Users");
+            int Balance2 = int.Parse(Balance.Text);
+            var fil1 = Builders<BsonDocument>.Filter.Eq("Name", Name);
+            var filteredDocument = coll.Find(fil1).FirstOrDefault();
+            if (filteredDocument == null)
+            {
+                MessageBox.Show("ID not found!");
+            }
+            else
+            {
+                var fil = Builders<BsonDocument>.Filter.Eq("Name", Name);
+                var update = Builders<BsonDocument>.Update.Set("Balance", Balance2);
+                coll.UpdateOne(fil, update);
+            }
+
+        }
+
+        public void Losings()
+        {
+            Balance.Text = (int.Parse(Balance.Text) - ShowBet.Value).ToString();
+
+            Name = SignIn.Name1;
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://root:1234@cluster0.0nscevn.mongodb.net/?retryWrites=true&w=majority");
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1); var client = new MongoClient(settings);
+            var database = client.GetDatabase("SignIn");
+            var coll = database.GetCollection<BsonDocument>("Users");
+            int Balance2 = int.Parse(Balance.Text);
+            var fil1 = Builders<BsonDocument>.Filter.Eq("Name", Name);
+            var filteredDocument = coll.Find(fil1).FirstOrDefault();
+            if (filteredDocument == null)
+            {
+                MessageBox.Show("ID not found!");
+            }
+            else
+            {
+                var fil = Builders<BsonDocument>.Filter.Eq("Name", Name);
+                var update = Builders<BsonDocument>.Update.Set("Balance", Balance2);
+                coll.UpdateOne(fil, update);
+            }
+
+        }
+
         public Coinflip()
         {
             InitializeComponent();
@@ -64,7 +114,9 @@ namespace FormTop_games
             if (Bet.Value > 0)
             {
                 ShowBet.Value = Bet.Value;
-                Bet.Enabled = false;
+                PlaceBet.Enabled = false;
+                Tailss.Enabled = true;
+                Headss.Enabled = true;
             }
 
             if(Bet.Value <= 0)
@@ -75,6 +127,8 @@ namespace FormTop_games
 
         private void Flip_Click(object sender, EventArgs e)
         {
+            Losings();
+
             Random rnd = new Random();
             int random = rnd.Next(1, 3);
             if (Bet.Value > 0)
@@ -82,20 +136,40 @@ namespace FormTop_games
                 if (random == 1)
                 {
                     Coins.Image = CoinH.Image;
+                    MessageBox.Show("Heads");
+
+                    if(Choice.Text == "Heads")
+                    {
+                        Win.Value = Win.Value * 2;
+                        Winnings();
+                    }
                 }
 
                 else if (random == 2)
                 {
                     Coins.Image = CoinT.Image;
+                    MessageBox.Show("Tails");
+
+                    if (Choice.Text == "Tails")
+                    {
+                        Win.Value = Win.Value * 2;
+                        Winnings();
+                    }
                 }
 
 
+
+
+                Headss.Enabled = false;
+                Tailss.Enabled = false;
             }
 
             if (Bet.Value <= 0)
             {
                 MessageBox.Show("Please Put A Bet");
             }
+
+            Flip.Enabled = true;
         }
 
         private void MoneyCounter_Tick(object sender, EventArgs e)
@@ -110,6 +184,27 @@ namespace FormTop_games
                 MoneyCounter.Stop();
                 Money.Items.Clear();
             }
+        }
+
+        private void Balance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tailss_Click(object sender, EventArgs e)
+        {
+            Choice.Text = "Tails";
+            Flip.Enabled = true;
+            Headss.Enabled = true;
+            Tailss.Enabled = false;
+        }
+
+        private void Headss_Click(object sender, EventArgs e)
+        {
+            Choice.Text = "Heads";
+            Flip.Enabled = true;
+            Headss.Enabled = false;
+            Tailss.Enabled = true;
         }
     }
 }
