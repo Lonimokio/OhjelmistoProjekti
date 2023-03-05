@@ -283,7 +283,7 @@ namespace FormTop_games
             {
                 if (Troop != "WKnigth" || Troop1 != "WQueen" || Troop2 != "WTower" || Troop3 != "WRook" || Troop4 != "WBishop" || Troop5 != "WKing")
                 {
-                    MessageBox.Show("Troop: " + Troop + " Troop1: " + Troop1 + " Troop2: " + Troop2 + " Troop3: " + Troop3 + " Troop4: " + Troop4 + " Troop5: " + Troop5);
+                    MessageBox.Show("Result: " + Result + "Troop: " + Troop + " Troop1: " + Troop1 + " Troop2: " + Troop2 + " Troop3: " + Troop3 + " Troop4: " + Troop4 + " Troop5: " + Troop5);
                 }
             }
                 MovementCheck = true;
